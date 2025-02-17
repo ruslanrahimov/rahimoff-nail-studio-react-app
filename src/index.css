@@ -1,68 +1,121 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import "tailwindcss";
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@theme {
+  --font-raleway: "Raleway", serif;
+  --color-platinum-50: oklch(0.994 0.001 106.423);
+  --color-platinum-100: oklch(0.985 0.001 106.423);
+  --color-platinum-200: oklch(0.97 0.003 84.559);
+  --color-platinum-300: oklch(0.955 0.003 84.559);
+  --color-platinum-400: oklch(0.941 0.005 78.297);
+  --color-platinum-500: oklch(0.925 0.006 84.567);
+  --color-platinum-600: oklch(0.783 0.005 78.293);
+  --color-platinum-700: oklch(0.783 0.005 78.293);
+  --color-platinum-800: oklch(0.475 0.003 84.569);
+  --color-platinum-900: oklch(0.301 0.002 106.506);
+  --color-chinese-50: oklch(0.991 0 89.876);
+  --color-chinese-100: oklch(0.983 0.002 67.803);
+  --color-chinese-200: oklch(0.964 0.003 84.559);
+  --color-chinese-300: oklch(0.947 0.003 67.782);
+  --color-chinese-400: oklch(0.929 0.005 78.297);
+  --color-chinese-500: oklch(0.911 0.006 75.404);
+  --color-chinese-600: oklch(0.771 0.005 78.293);
+  --color-chinese-700: oklch(0.625 0.004 67.755);
+  --color-chinese-800: oklch(0.468 0.003 84.569);
+  --color-chinese-900: oklch(0.298 0.002 67.737);
+  --color-charcoal-50: oklch(0.938 0.001 17.179);
+  --color-charcoal-100: oklch(0.874 0.002 325.592);
+  --color-charcoal-200: oklch(0.744 0.004 337.385);
+  --color-charcoal-300: oklch(0.61 0.004 354.772);
+  --color-charcoal-400: oklch(0.466 0.007 351.055);
+  --color-charcoal-500: oklch(0.309 0.01 345.975);
+  --color-charcoal-600: oklch(0.271 0.008 351.468);
+  --color-charcoal-700: oklch(0.23 0.005 355.206);
+  --color-charcoal-800: oklch(0.187 0.006 337.928);
+  --color-charcoal-900: oklch(0.142 0.003 325.725);
+  --color-forest-50: oklch(0.977 0.008 186.895);
+  --color-forest-100: oklch(0.866 0.045 184.033);
+  --color-forest-200: oklch(0.757 0.08 182.259);
+  --color-forest-300: oklch(0.654 0.104 179.337);
+  --color-forest-400: oklch(0.557 0.104 175.819);
+  --color-forest-500: oklch(0.506 0.094 176.237);
+  --color-forest-600: oklch(0.453 0.085 175.779);
+  --color-forest-700: oklch(0.399 0.074 176.33);
+  --color-forest-800: oklch(0.342 0.063 177.215);
+  --color-forest-900: oklch(0.284 0.052 178.492);
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
-a:hover {
-  color: #535bf2;
+
+* {
+  scrollbar-color: #e0d8c4 #534842;
+  scrollbar-width: thin;
+}
+html {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Manrope", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  background-color: #e8e6e2;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+input,
+button,
+textarea,
+select {
+  font: inherit;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+#root {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  width: 100%;
+  min-height: 100%;
+  isolation: isolate;
 }
