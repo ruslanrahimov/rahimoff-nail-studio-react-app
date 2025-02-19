@@ -3,7 +3,6 @@ import AppointmentButton from "./AppointmentButton.jsx";
 import SectionHeader from "./SectionHeader.jsx";
 
 const Home = () => {
-
   return (
     <div className="home-container w-full pt-8 ">
       <section className="home__hero-container grid grid-cols-2 rounded-3xl mb-16 bg-chinese-200">
@@ -44,10 +43,7 @@ const Home = () => {
           </p>
         </div>
       </section>
-      <div className="studio">
-        <SectionHeader>Stüdyo</SectionHeader>
-      </div>
-      <section className="goals">
+     <section className="goals">
         <SectionHeader>Diğerlerimiz</SectionHeader>
       </section>
       <section className="brands">
