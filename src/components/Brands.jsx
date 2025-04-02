@@ -1,0 +1,14 @@
+import { brandsData } from "../data/brandsData.js";
+import BrandLogo from "./BrandLogo.jsx";
+
+const Brands = () => {
+  return (
+    <div className="brands grid grid-cols-6 gap-4 mb-28">
+      {brandsData.map((data) => (
+        <BrandLogo key={data.id} backgroundImage={data.image} />
+      ))}
+    </div>
+  );
+};
+
+export default Brands;

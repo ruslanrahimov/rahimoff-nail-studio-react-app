@@ -2,6 +2,7 @@ import heroImage from "../assets/hero.png";
 import AppointmentButton from "./AppointmentButton.jsx";
 import SectionHeader from "./SectionHeader.jsx";
 import Values from "./Values.jsx";
+import Brands from "./Brands.jsx";
 
 const Home = () => {
   return (
@@ -50,6 +51,7 @@ const Home = () => {
       </section>
       <section className="brands">
         <SectionHeader>Çalıştığımız Markalar</SectionHeader>
+        <Brands />
       </section>
     </div>
   );

@@ -1,5 +1,3 @@
-
-
 const ValueCard = ({ title, backgroundImage, children }) => {
   return (
     <div
