@@ -30,7 +30,7 @@ const brandsData = [
     id: 6,
     name: "staleks",
     image: `${baseUrl}staleks.svg`,
-  }
+  },
 ];
 
 export { brandsData };

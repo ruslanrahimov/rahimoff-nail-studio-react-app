@@ -37,7 +37,7 @@ const Navbar = () => {
           })}
         </ul>
       </div>
-      <AppointmentButton>Randevu Al</AppointmentButton>
+      <AppointmentButton url="#">Randevu Al</AppointmentButton>
     </nav>
   );
 };
