@@ -5,17 +5,18 @@ import Values from "./Values.jsx";
 import Brands from "./Brands.jsx";
 import { faqData } from "../data/faq.js";
 import { useState } from "react";
+import FAQItem from "./FAQItem.jsx";
 
 const Home = () => {
   const [currentFAQData, setCurrentFAQData] = useState(faqData);
-  function updateFaqState(id) {
+
+  function faqStateUpdateHandler(id) {
     setCurrentFAQData((prevState) =>
       prevState.map((faq) => {
         if (id === faq.id) {
           const nextFaqState = faq.state === "closed" ? "open" : "closed";
           return { ...faq, state: nextFaqState };
         }
-
         return faq;
       }),
     );
@@ -73,35 +74,7 @@ const Home = () => {
         <SectionHeader>Sıkça Sorulan Sorular </SectionHeader>
         <ul className="faq-list">
           {currentFAQData.map((data) => (
-            <li key={data.id} className="faq-list-item rounded-2xl p-5 mb-4 bg-chinese-300">
-              <button
-                onClick={() => updateFaqState(data.id)}
-                className="flex justify-between cursor-pointer w-full text-start text-xl"
-              >
-                {data.question}
-                <span
-                  style={{
-                    display: "block",
-                    transform: data.state === "open" ? "rotate(45deg)" : "rotate(0deg)",
-                    transition: "transform 0.2s ease-in-out",
-                  }}
-                  className="text-2xl"
-                >
-                  +
-                </span>
-              </button>
-              <p
-                style={{
-                  height: data.state === "open" ? 30 : 0,
-                  marginTop: data.state === "open" ? 8 : 0,
-                  overflow: "hidden",
-                  transition: "all 0.3s ease",
-                }}
-                className="text-charcoal-400"
-              >
-                {data.answer}
-              </p>
-            </li>
+            <FAQItem key={data.id} data={data} faqStateUpdateHandler={faqStateUpdateHandler} />
           ))}
         </ul>
       </section>

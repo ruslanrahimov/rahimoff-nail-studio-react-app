@@ -1,0 +1,20 @@
+.faq-answer {
+  height: 0;
+  margin-top: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faq-answer.opened {
+  height: 30px;
+  margin-top: 8px;
+}
+
+.faq-icon {
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.faq-icon.rotated {
+  transform: rotate(45deg);
+}
