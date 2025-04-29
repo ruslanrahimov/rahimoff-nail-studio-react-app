@@ -6,7 +6,10 @@ const About = () => {
   return (
     <div className="about py-11">
       <SectionHeader>Biz kimiz?</SectionHeader>
-      <div style={{backgroundImage: `url(${baseUrl}about.jpg`}} className="cover w-1/2 mx-auto my-0 h-100 rounded-2xl bg-center bg-cover bg-no-repeat"></div>
+      <div
+        style={{ backgroundImage: `url(${baseUrl}about.jpg` }}
+        className="cover w-1/2 mx-auto my-0 h-100 rounded-2xl bg-center bg-cover bg-no-repeat"
+      ></div>
       <div className="text-container w-1/2 mx-auto my-10">
         <p className="text-center">
           Rahimoff sadece bir güzellik stüdyosu değil, kendinize özen göstermenin ilhama dönüştüğü

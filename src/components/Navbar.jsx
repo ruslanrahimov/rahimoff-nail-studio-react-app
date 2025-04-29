@@ -28,7 +28,7 @@ const Navbar = () => {
               <li key={index}>
                 <NavLink
                   to={link.url}
-                  className="block p-1 hover:text-platinum-700 transition duration-200"
+                  className="block text-charcoal-900 p-1 hover:text-charcoal-300 transition duration-200"
                 >
                   {link.name}
                 </NavLink>

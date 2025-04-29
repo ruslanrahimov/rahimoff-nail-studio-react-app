@@ -6,7 +6,6 @@ import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
 import Home from "./components/Home.jsx";
 import ErrorPage from "./components/ErrorPage.jsx";
-import { services } from "./data/services.js";
 
 import "./App.css";
 
@@ -19,7 +18,7 @@ function App() {
       <div className="main-content mt-15 w-11/12 mx-auto">
         <Routes>
           <Route index path="/" element={<Home />} />
-          <Route path="/services" element={<Services services={{ ...services }} />} />
+          <Route path="/services" element={<Services />} />
           <Route path="/about" element={<About />} />
           <Route path="/contacts" element={<Contacts />} />
           <Route path="*" element={<ErrorPage />} />
