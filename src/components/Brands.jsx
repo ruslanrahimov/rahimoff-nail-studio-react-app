@@ -1,12 +1,28 @@
 import { brandsData } from "../data/brandsData.js";
-import BrandLogo from "./BrandLogo.jsx";
+import Slider from "react-slick";
+import "./Brands.css";
 
 const Brands = () => {
+  const settings = {
+    slidesToShow: 6,
+    speed: 1500,
+    arrows: false,
+    dots: false,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    easing: "linear",
+  };
+
+  console.log(brandsData);
   return (
-    <div className="brands flex flex-wrap justify-between gap-4 mb-28">
-      {brandsData.map((data) => (
-        <BrandLogo key={data.id} backgroundImage={data.image} />
-      ))}
+    <div className="brands-slides mb-28">
+      <Slider {...settings}>
+        {brandsData.map((data) => (
+          <div key={data.id}>
+            <span className="brand-logo block h-22" style={{ backgroundImage: `url(${data.image})`}}></span>
+          </div>
+        ))}
+      </Slider>
     </div>
   );
 };
