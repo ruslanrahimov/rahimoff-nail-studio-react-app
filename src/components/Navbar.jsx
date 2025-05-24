@@ -12,7 +12,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`navbar flex w-full justify-between h-15 px-5 items-center border-b border-b-platinum-600 fixed bg-platinum-500/50 backdrop-blur-md`}
+      className={`navbar flex w-full justify-between h-15 px-5 items-center border-b border-b-platinum-600 fixed bg-platinum-500/50 backdrop-blur-md z-10`}
     >
       <div className="links-wrapper flex items-center gap-10 h-full">
         <NavLink to="/">

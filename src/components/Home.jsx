@@ -2,10 +2,10 @@ import heroImage from "../assets/hero.png";
 import AppointmentButton from "./AppointmentButton.jsx";
 import SectionHeader from "./SectionHeader.jsx";
 import Values from "./Values.jsx";
-import Brands from "./Brands.jsx";
+import Brands from "./Brands/Brands.jsx";
 import { faqData } from "../data/faq.js";
 import { useState } from "react";
-import FAQItem from "./FAQItem.jsx";
+import FAQItem from "./FAQItem/FAQItem.jsx";
 
 const Home = () => {
   const [currentFAQData, setCurrentFAQData] = useState(faqData);
@@ -23,7 +23,7 @@ const Home = () => {
   }
 
   return (
-    <div className="home-container w-full pt-8 ">
+    <div className="home-container mt-15 w-11/12 mx-auto pt-8 ">
       <section className="home__hero-container grid grid-cols-2 rounded-3xl mb-16 bg-chinese-200">
         <div
           className="hero-image bg-cover rounded-l-3xl"

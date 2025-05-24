@@ -1,4 +1,4 @@
-import { brandsData } from "../data/brandsData.js";
+import { brandsData } from "../../data/brandsData.js";
 import Slider from "react-slick";
 import "./Brands.css";
 
@@ -13,13 +13,15 @@ const Brands = () => {
     easing: "linear",
   };
 
-  console.log(brandsData);
   return (
     <div className="brands-slides mb-28">
       <Slider {...settings}>
         {brandsData.map((data) => (
           <div key={data.id}>
-            <span className="brand-logo block h-22" style={{ backgroundImage: `url(${data.image})`}}></span>
+            <span
+              className="brand-logo block h-22"
+              style={{ backgroundImage: `url(${data.image})` }}
+            ></span>
           </div>
         ))}
       </Slider>

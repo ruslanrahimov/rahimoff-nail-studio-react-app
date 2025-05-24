@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router";
 import Services from "./components/Services.jsx";
 import About from "./components/About.jsx";
-import Contacts from "./components/Contacts.jsx";
+import Contacts from "./components/Contacts/Contacts.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
 import Home from "./components/Home.jsx";
@@ -15,7 +15,7 @@ function App() {
       <header>
         <Navbar />
       </header>
-      <div className="main-content mt-15 w-11/12 mx-auto">
+      <div className="main-content ">
         <Routes>
           <Route index path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />

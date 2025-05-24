@@ -5,7 +5,7 @@ const Services = () => {
   const [activeTab, setActiveTab] = useState("MANICURE");
 
   return (
-    <div className="services-wrapper">
+    <div className="services-wrapper mt-15 w-11/12 mx-auto">
       <h2 className="content-header font-raleway font-light text-lg text-charcoal-500 pt-8 uppercase tracking-widest mb-4">
         FİYAT LİSTESİ
       </h2>

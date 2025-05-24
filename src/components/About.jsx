@@ -4,7 +4,7 @@ const baseUrl = import.meta.env.BASE_URL;
 
 const About = () => {
   return (
-    <div className="about py-11">
+    <div className="about mt-15 w-11/12 mx-auto py-11">
       <SectionHeader>Biz kimiz?</SectionHeader>
       <div
         style={{ backgroundImage: `url(${baseUrl}about.jpg` }}
