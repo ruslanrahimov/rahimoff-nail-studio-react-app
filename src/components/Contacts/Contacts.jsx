@@ -1,9 +1,16 @@
 import { aboutUsSliderData } from "../../data/aboutUsSliderData.js";
 import PresentationSlider from "../PresentationSlider/PresentationSlider.jsx";
-
+import "./Contacts.css";
 const baseUrl = import.meta.env.BASE_URL;
 
 const Contacts = () => {
+  const settings = {
+    autoplay: true,
+    slidesToShow: 7,
+    infinite: true,
+    arrows: false,
+  };
+
   return (
     <>
       <div className="contacts grid grid-cols-2 w-1/2 m-auto py-20 gap-12">
@@ -39,7 +46,9 @@ const Contacts = () => {
           </div>
         </div>
       </div>
-      <PresentationSlider data={aboutUsSliderData} />
+      <div className="contacts-slider">
+        <PresentationSlider data={aboutUsSliderData} settings={settings} />
+      </div>
     </>
   );
 };

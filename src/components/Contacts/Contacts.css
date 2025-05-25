@@ -1,0 +1,10 @@
+.contacts-slider .slick-slider {
+  max-width: 110vw;
+  width: 100%;
+}
+
+.contacts-slider .panel {
+  display: block;
+  margin-left: -150px;
+  width: calc(100% + 300px);
+}

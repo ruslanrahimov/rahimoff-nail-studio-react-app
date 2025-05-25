@@ -9,14 +9,8 @@
   padding-bottom: 40px;
 }
 
-.panel {
-  display: block;
-  margin-left: -150px;
-  width: calc(100% + 300px);
-}
-
-.contact-slide {
+.presentation-slide {
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover ;
+  background-size: cover;
 }

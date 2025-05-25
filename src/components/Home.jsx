@@ -6,6 +6,8 @@ import Brands from "./Brands/Brands.jsx";
 import { faqData } from "../data/faq.js";
 import { useState } from "react";
 import FAQItem from "./FAQItem/FAQItem.jsx";
+import PresentationSlider from "./PresentationSlider/PresentationSlider.jsx";
+import { aboutUsSliderData } from "../data/aboutUsSliderData.js";
 
 const Home = () => {
   const [currentFAQData, setCurrentFAQData] = useState(faqData);
@@ -21,6 +23,13 @@ const Home = () => {
       }),
     );
   }
+
+  const sliderSettings = {
+    autoplay: true,
+    slidesToShow: 6,
+    infinite: true,
+    arrows: false,
+  };
 
   return (
     <div className="home-container mt-15 w-11/12 mx-auto pt-8 ">
@@ -61,6 +70,9 @@ const Home = () => {
             artık başka bir yer aramayacağınıza emin olabilirsiniz.
           </p>
         </div>
+      </section>
+      <section className="salon">
+        <PresentationSlider data={aboutUsSliderData} settings={sliderSettings} />
       </section>
       <section className="goals">
         <SectionHeader>Diğerlerimiz</SectionHeader>

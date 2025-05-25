@@ -7,26 +7,14 @@ export const tabContent = {
     description: "",
     services: [
       {
-        name: "Manikür",
-        description:
-          "El tırnaklarının şekillendirilmesi, tırnak çevresi bakımı ve cildin nemlendirilmesini içerir.",
+        name: "Klasik / Kombine / Donanımlı Manikür",
+        description: "Tırnak şekillendirme, et kesimi ve cilt bakımı içerir.",
         price: 300,
       },
       {
-        name: "Medikal Manikür",
-        description:
-          "Tırnak sağlığına odaklanan detaylı bir bakım; özellikle hassas ciltler ve özel ihtiyaçlar için uygundur.",
-        price: 500,
-      },
-      {
-        name: "Kalıcı Oje",
-        description: "Dayanıklı, uzun ömürlü ve estetik bir tırnak görünümü sağlar.",
+        name: "Manikür + Kalıcı Oje",
+        description: "Manikür sonrası uzun süre dayanıklı oje uygulaması.",
         price: 650,
-      },
-      {
-        name: "Jel tırnak veya Protez",
-        description: "Daha uzun, güçlü ve bakımlı tırnaklar için ideal bir seçenektir.",
-        price: 800,
       },
     ],
   },
@@ -36,44 +24,50 @@ export const tabContent = {
     description: "",
     services: [
       {
-        name: "Pedikür",
-        description:
-          "Ayak tırnaklarının şekillendirilmesi, tırnak çevresi bakımı ve topukların pürüzsüz hale getirilmesi işlemlerini kapsar. Yumuşak ve sağlıklı ayaklar için ideal bir bakım.",
-        price: 750,
+        name: "Ekspres Pedikür",
+        description: "Hızlı tırnak ve topuk bakımı.",
+        price: 2300,
       },
       {
-        name: "Medikal Pedikür",
-        description:
-          "Ayak sağlığına özel olarak hazırlanmış derinlemesine bir bakım. Hassas ayak problemlerine çözüm sunan kapsamlı bir hizmettir.",
-        price: 1000,
+        name: "Tam Pedikür",
+        description: "Detaylı ayak bakımı, tırnak şekillendirme ve topuk temizliği.",
+        price: 2700,
       },
       {
-        name: "Kalıcı Oje",
-        description:
-          "Bu işlem, ayak tırnaklarınıza doğal ve şık bir görünüm kazandırırken uzun süre bozulmayan bir estetik sağlar.",
-        price: 850,
+        name: "SMART Pedikür",
+        description: "Elektrikli cihazlarla detaylı profesyonel ayak bakımı.",
+        price: 2700,
+      },
+      {
+        name: "Pedikür + Kalıcı Oje",
+        description: "Pedikür sonrası dayanıklı oje uygulaması.",
+        price: 3900,
+      },
+      {
+        name: "Erkek Pedikürü",
+        description: "Erkeklere özel ayak ve tırnak bakımı.",
+        price: 3600,
       },
     ],
   },
   NAIL_ART: {
-    title: "Nail Art",
+    title: "Tırnak Süsleme",
     image: baseUrl + "art.jpg",
     description: "",
     services: [
       {
-        name: "French veya Ombre (10 Parmak)",
-        description:
-          "Tüm tırnaklara French stili veya Ombre (yumuşak renk geçişleri) uygulanır. Şık ve zarif bir görünüm sağlar.",
+        name: "French / Ombre (10 Parmak)",
+        description: "Tüm tırnaklara şık ve zarif geçişli tasarımlar.",
         price: 150,
       },
       {
         name: "İnci Tozu (10 Parmak)",
-        description: "Tırnaklara sedefli, parlak bir görünüm kazandıran özel inci tozu uygulaması.",
+        description: "Tırnaklara sedefli parlaklık kazandırır.",
         price: 0,
       },
       {
         name: "Nail Art (Parmak Başı)",
-        description: "Tırnak başına sanatsal tasarımlar.",
+        description: "Her tırnak için bireysel sanatsal tasarım.",
         price: 0,
       },
     ],
@@ -85,19 +79,17 @@ export const tabContent = {
     services: [
       {
         name: "Çıkartma (Jel)",
-        description:
-          "Tırnak üzerindeki jel kaplamanın dikkatlice ve sağlığa uygun şekilde çıkartılması.",
+        description: "Jel kaplamanın sağlıklı şekilde çıkartılması.",
         price: 200,
       },
       {
         name: "Çıkartma (Akrilik ve Tips)",
-        description:
-          "Akrilik veya tips uygulamaların profesyonel ve tırnaklara zarar vermeden çıkartılması.",
+        description: "Akrilik veya tips kaplamaların zarar vermeden sökülmesi.",
         price: 300,
       },
       {
         name: "Tek Tırnak Protez Tamiri",
-        description: "Kırılmış veya hasar görmüş tek bir tırnağın onarılması.",
+        description: "Hasar görmüş tek tırnağın onarımı.",
         price: 100,
       },
     ],

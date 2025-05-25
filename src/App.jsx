@@ -8,6 +8,8 @@ import Home from "./components/Home.jsx";
 import ErrorPage from "./components/ErrorPage.jsx";
 
 import "./App.css";
+import SalonRules from "./components/SalonRules.jsx";
+import PrivacyPolicy from "./components/PrivacyPolicy.jsx";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contacts" element={<Contacts />} />
           <Route path="*" element={<ErrorPage />} />
+          <Route path="/rules" element={<SalonRules />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
         </Routes>
       </div>
       <Footer />
