@@ -18,8 +18,12 @@ const Footer = () => {
               {link.name}
             </NavLink>
           ))}
-          <a href={INST_LINK} className="instagtam">Istagram</a>
-          <a href={WP_LINK} className="whatsapp">Whatsapp</a>
+          <a href={INST_LINK} className="instagtam">
+            Istagram
+          </a>
+          <a href={WP_LINK} className="whatsapp">
+            Whatsapp
+          </a>
         </div>
         <p className="block">© 2024 "Rahimoff" All rights reserved.</p>
       </div>

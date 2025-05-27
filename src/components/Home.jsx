@@ -29,20 +29,54 @@ const Home = () => {
     slidesToShow: 6,
     infinite: true,
     arrows: false,
+    responsive: [
+      {
+        breakpoint: 1440,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots: true,
+        },
+      },
+    ],
   };
 
   return (
-    <div className="home-container mt-15 w-11/12 mx-auto pt-8 ">
-      <section className="home__hero-container grid grid-cols-2 rounded-3xl mb-16 bg-chinese-200">
+    <div className="home-container mt-15 w-11/12 mx-auto pt-8 max-sm:w-full">
+      <section className="home__hero-container grid grid-cols-2 rounded-3xl mb-16 bg-chinese-200 max-lg:bg-transparent max-lg:grid-cols-1 max-lg:grid-rows-2">
         <div
-          className="hero-image bg-cover rounded-l-3xl"
+          className="hero-image h-full bg-cover min-lg:rounded-l-3xl"
           style={{ backgroundImage: `url(${heroImage})` }}
         ></div>
         <div className="hero-content px-14 py-10">
-          <h1 className="text-4xl mb-4 leading-snug">
+          <h1 className="text-4xl mb-4 leading-snug max-lg:text-xl max-lg:font-light max-lg:text-center">
             RAHIMOFF - KENDİNİZDEN ÖDÜN VERMEYİN, EN İYİSİNİ SEÇİN
           </h1>
-          <p className="mb-8 text-platinum-800">
+          <p className="mb-8 text-platinum-800 max-lg:text-[14px] max-lg:text-center">
             Rahimoff Nail Studio, tarzınızı ve kendinize olan güveninizi yansıtır. Bir kez
             denediğinizde, artık başka bir yer aramayacağınıza emin olabilirsiniz.
           </p>
@@ -53,15 +87,15 @@ const Home = () => {
       </section>
       <section className="about mb-16">
         <SectionHeader>Biz Kimiz</SectionHeader>
-        <div className="about-content grid grid-cols-2 gap-6 ">
-          <p className="text-platinum-800">
+        <div className="about-content grid grid-cols-2 gap-6 max-lg:grid-cols-1 max-lg:grid-rows-2 max-lg:gap-1">
+          <p className="text-platinum-800 max-lg:text-center">
             Rahimoff Nail Studio - sadece bir manikür stüdyosu değil, kendinize özen göstermenin
             gerçek bir keyfe dönüştüğü özel bir mekândır. Güzelliğe önem veriyor, en son trendleri
             takip ediyor ve yalnızca en kaliteli malzemeleri ve en güvenilir teknikleri
             kullanıyoruz. Şık iç tasarımımız, sıcak atmosferimiz ve yüksek standartlardaki
             hizmetimizle her ziyaretinizi özel kılıyoruz.
           </p>
-          <p className="text-platinum-800">
+          <p className="text-platinum-800 max-lg:text-center">
             Mükemmel bir manikürün sadece bakımlı tırnaklardan ibaret olmadığını biliyoruz; bu, aynı
             zamanda kendine güvenin bir ifadesidir. Bu yüzden misyonumuz, tekrar tekrar gelmek
             isteyeceğiniz bir yer yaratmak. Deneyimli uzmanlarımız, tam sterilizasyon güvencesi, mis

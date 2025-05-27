@@ -11,10 +11,19 @@ const Brands = () => {
     autoplay: true,
     autoplaySpeed: 3000,
     easing: "linear",
+    responsive: [
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   return (
-    <div className="brands-slides mb-28">
+    <div className="brands-slides mb-28 max-lg:mb-12">
       <Slider {...settings}>
         {brandsData.map((data) => (
           <div key={data.id}>
