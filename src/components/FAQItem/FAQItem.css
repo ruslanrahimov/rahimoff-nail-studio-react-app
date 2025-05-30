@@ -18,3 +18,10 @@
 .faq-icon.rotated {
   transform: rotate(45deg);
 }
+
+@media screen and (max-width: 768px) {
+  .faq-answer.opened {
+    height: 100px;
+    margin-top: 8px;
+  }
+}

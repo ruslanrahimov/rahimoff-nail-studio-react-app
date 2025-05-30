@@ -23,7 +23,7 @@ const Brands = () => {
   };
 
   return (
-    <div className="brands-slides mb-28 max-lg:mb-12">
+    <div className="brands-slides mb-28 max-lg:mb-4">
       <Slider {...settings}>
         {brandsData.map((data) => (
           <div key={data.id}>

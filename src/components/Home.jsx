@@ -67,13 +67,13 @@ const Home = () => {
   };
 
   return (
-    <div className="home-container mt-15 w-11/12 mx-auto pt-8 max-md:w-full ">
+    <div className="home-container mt-15 w-11/12 mx-auto pt-8 max-md:w-full max-md:pt-2">
       <section className="home__hero-container grid grid-cols-2 rounded-3xl mb-16 bg-chinese-200 max-lg:bg-transparent max-lg:grid-cols-1 max-lg:grid-rows-2">
         <div
           className="hero-image h-full bg-cover bg-center min-lg:rounded-l-3xl"
           style={{ backgroundImage: `url(${baseUrl}main.jpg)` }}
         ></div>
-        <div className="hero-content px-14 py-10">
+        <div className="hero-content px-14 py-10 max-md:p-8">
           <h1 className="text-4xl mb-4 leading-snug max-lg:text-xl max-lg:font-light max-lg:text-center">
             RAHIMOFF - KENDİNİZDEN ÖDÜN VERMEYİN, EN İYİSİNİ SEÇİN
           </h1>
@@ -88,7 +88,7 @@ const Home = () => {
       </section>
       <section className="about mb-16 max-md:px-2">
         <SectionHeader>Biz Kimiz</SectionHeader>
-        <div className="about-content grid grid-cols-2 gap-6 max-lg:grid-cols-1 max-lg:grid-rows-2 max-lg:gap-1">
+        <div className="about-content grid grid-cols-2 gap-6 max-lg:grid-cols-1 max-lg:grid-rows-subgrid max-lg:gap-4">
           <p className="text-platinum-800 max-lg:text-center">
             Rahimoff Nail Studio - sadece bir manikür stüdyosu değil, kendinize özen göstermenin
             gerçek bir keyfe dönüştüğü özel bir mekândır. Güzelliğe önem veriyor, en son trendleri
