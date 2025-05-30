@@ -10,22 +10,22 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="footer w-full font-raleway text-xs h-16 border-t border-t-platinum-600">
-      <div className="footer-inner h-full w-11/12 mx-auto flex justify-center items-center">
-        <div className="footer-links flex flex-1 gap-8">
+    <footer className="footer w-full font-raleway text-xs h-16 border-t border-t-platinum-600 max-md:h-auto max-md:pt-4 max-md:text-sm">
+      <div className="footer-inner h-full w-11/12 mx-auto grid grid-cols-2 py-4 max-md:grid-cols-1 max-md:grid-rows-2">
+        <div className="footer-links grid grid-cols-4 max-md:grid-cols-1 max-md:grid-rows-2 max-md:gap-5">
           {links.map((link) => (
-            <NavLink to={link.url} key={link.url}>
+            <NavLink className="text-center my-auto" to={link.url} key={link.url}>
               {link.name}
             </NavLink>
           ))}
-          <a href={INST_LINK} className="instagtam">
+          <a href={INST_LINK} className="instagtam my-auto text-center">
             Istagram
           </a>
-          <a href={WP_LINK} className="whatsapp">
+          <a href={WP_LINK} className="whatsapp my-auto text-center">
             Whatsapp
           </a>
         </div>
-        <p className="block">© 2024 "Rahimoff" All rights reserved.</p>
+        <p className="block text-end my-auto max-md:text-center">Rahimoff © 2024 </p>
       </div>
     </footer>
   );

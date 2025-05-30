@@ -1,4 +1,3 @@
-import heroImage from "../assets/hero.png";
 import AppointmentButton from "./AppointmentButton.jsx";
 import SectionHeader from "./SectionHeader.jsx";
 import Values from "./Values.jsx";
@@ -8,6 +7,8 @@ import { useState } from "react";
 import FAQItem from "./FAQItem/FAQItem.jsx";
 import PresentationSlider from "./PresentationSlider/PresentationSlider.jsx";
 import { aboutUsSliderData } from "../data/aboutUsSliderData.js";
+
+const baseUrl = import.meta.env.BASE_URL;
 
 const Home = () => {
   const [currentFAQData, setCurrentFAQData] = useState(faqData);
@@ -66,11 +67,11 @@ const Home = () => {
   };
 
   return (
-    <div className="home-container mt-15 w-11/12 mx-auto pt-8 max-sm:w-full">
+    <div className="home-container mt-15 w-11/12 mx-auto pt-8 max-md:w-full ">
       <section className="home__hero-container grid grid-cols-2 rounded-3xl mb-16 bg-chinese-200 max-lg:bg-transparent max-lg:grid-cols-1 max-lg:grid-rows-2">
         <div
-          className="hero-image h-full bg-cover min-lg:rounded-l-3xl"
-          style={{ backgroundImage: `url(${heroImage})` }}
+          className="hero-image h-full bg-cover bg-center min-lg:rounded-l-3xl"
+          style={{ backgroundImage: `url(${baseUrl}main.jpg)` }}
         ></div>
         <div className="hero-content px-14 py-10">
           <h1 className="text-4xl mb-4 leading-snug max-lg:text-xl max-lg:font-light max-lg:text-center">
@@ -85,7 +86,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="about mb-16">
+      <section className="about mb-16 max-md:px-2">
         <SectionHeader>Biz Kimiz</SectionHeader>
         <div className="about-content grid grid-cols-2 gap-6 max-lg:grid-cols-1 max-lg:grid-rows-2 max-lg:gap-1">
           <p className="text-platinum-800 max-lg:text-center">
@@ -108,15 +109,15 @@ const Home = () => {
       <section className="salon">
         <PresentationSlider data={aboutUsSliderData} settings={sliderSettings} />
       </section>
-      <section className="goals">
+      <section className="goals max-md:px-2">
         <SectionHeader>Diğerlerimiz</SectionHeader>
         <Values />
       </section>
-      <section className="brands">
+      <section className="brands max-md:px-2">
         <SectionHeader>Çalıştığımız Markalar</SectionHeader>
         <Brands />
       </section>
-      <section className="faq">
+      <section className="faq max-md:px-2 ">
         <SectionHeader>Sıkça Sorulan Sorular </SectionHeader>
         <ul className="faq-list">
           {currentFAQData.map((data) => (
