@@ -4,6 +4,8 @@ import { NavLink } from "react-router";
 import AppointmentButton from "./AppointmentButton.jsx";
 import { useState, useEffect } from "react";
 
+const wpChatLink = import.meta.env.VITE_WP_CHAT_LINK;
+
 const Navbar = () => {
   const links = [
     { name: "Ana Sayfa", url: "/" },
@@ -56,7 +58,7 @@ const Navbar = () => {
             })}
           </ul>
         </div>
-        <AppointmentButton url="#">Randevu Al</AppointmentButton>
+        <AppointmentButton url={wpChatLink}>Randevu Al</AppointmentButton>
       </nav>
       <nav className="nav-mobile h-14 w-full bg-platinum-500 fixed p-2 z-10 md:hidden ">
         <div className="nav-mobile-inner flex justify-between">

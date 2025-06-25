@@ -12,10 +12,10 @@ const Footer = () => {
   return (
     <footer className="footer w-full font-raleway text-xs h-16 border-t border-t-platinum-600 max-md:h-auto max-md:pt-4 max-md:text-sm">
       <div className="footer-inner h-full w-11/12 mx-auto grid grid-cols-2 py-4 max-md:grid-cols-1 max-md:grid-rows-2">
-        <div className="footer-links grid grid-cols-4 max-md:grid-cols-1 max-md:grid-rows-2 max-md:gap-3">
+        <div className="footer-links w-1/2 grid grid-cols-4 max-md:grid-cols-1 max-md:grid-rows-2 max-md:gap-3 max-lg:w-full">
           {links.map((link) => (
-            <NavLink className="text-center my-auto" to={link.url} key={link.url}>
-              {link.name}
+            <NavLink className="text-center my-auto" to={link.url} key={link.url}> {/*TODO Сделать что бы на мобильной версии при клике по ссылке скролл шел на самый верх*/}
+               {link.name}
             </NavLink>
           ))}
           <a href={INST_LINK} className="instagtam my-auto text-center">

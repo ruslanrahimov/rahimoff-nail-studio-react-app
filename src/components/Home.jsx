@@ -9,6 +9,7 @@ import PresentationSlider from "./PresentationSlider/PresentationSlider.jsx";
 import { aboutUsSliderData } from "../data/aboutUsSliderData.js";
 
 const baseUrl = import.meta.env.BASE_URL;
+const wpChatLink = import.meta.env.VITE_WP_CHAT_LINK;
 
 const Home = () => {
   const [currentFAQData, setCurrentFAQData] = useState(faqData);
@@ -82,7 +83,7 @@ const Home = () => {
             denediğinizde, artık başka bir yer aramayacağınıza emin olabilirsiniz.
           </p>
           <div className="flex">
-            <AppointmentButton>Randevu Al</AppointmentButton>
+            <AppointmentButton url={wpChatLink}>Randevu Al</AppointmentButton>
           </div>
         </div>
       </section>

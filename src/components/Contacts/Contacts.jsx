@@ -4,23 +4,57 @@ import "./Contacts.css";
 const baseUrl = import.meta.env.BASE_URL;
 
 const Contacts = () => {
-  const settings = {
+  const sliderSettings = {
     autoplay: true,
     slidesToShow: 7,
     infinite: true,
     arrows: false,
+    responsive: [
+      {
+        breakpoint: 1440,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          dots: false,
+        },
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          dots: false,
+        },
+      },
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          dots: false,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots: false,
+        },
+      },
+    ],
   };
 
   return (
-    <>
-      <div className="contacts grid grid-cols-2 w-1/2 m-auto py-20 gap-12">
+    <div className="max-md:flex max-md:flex-col-reverse max-md:mt-20">
+      <div className="contacts grid grid-cols-2 w-1/2 m-auto py-20 gap-12 max-md:grid-cols-1 max-md:w-11/12 max-md:pt-4 pb-8">
         <div
-          style={{ backgroundImage: `url(${baseUrl}about.webp` }}
+          style={{ backgroundImage: `url(${baseUrl}value-1.webp` }}
           className="image-cover rounded-xl h-110 bg-center bg-cover bg-no-repeat"
         ></div>
         <div className="info-container w-full flex flex-col justify-center">
           <div className="info text-charcoal-500">
-            <p className="cd text-3xl">101 cd. İstiklal mah.</p>
+            <p className="cd text-3xl">İstiklal mah. 101 cd.</p>
             <p className="apt text-xl mt-4">Valide Apartmanı NO:90, Kat 2</p>
             <a
               href="tel:+905060552137"
@@ -47,9 +81,9 @@ const Contacts = () => {
         </div>
       </div>
       <div className="contacts-slider">
-        <PresentationSlider data={aboutUsSliderData} settings={settings} />
+        <PresentationSlider data={aboutUsSliderData} settings={sliderSettings} />
       </div>
-    </>
+    </div>
   );
 };
 

@@ -1,6 +1,6 @@
 const SalonRules = () => {
   return (
-    <div className="max-w-4xl mx-auto font-raleway mt-20 p-6 text-gray-800">
+    <div className="max-w-4xl mx-auto font-raleway mt-20 p-6 text-gray-800 max-md:px-2">
       <h1 className="text-3xl font-medium mb-6">RAHIMOFF GÜZELLİK SALONU ZİYARET KURALLARI</h1>
 
       <section className="mb-6">

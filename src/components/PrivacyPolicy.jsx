@@ -1,6 +1,6 @@
 const PrivacyPolicy = () => {
   return (
-    <div className="pers-data font-raleway max-w-200 mt-30 mx-auto">
+    <div className="pers-data font-raleway max-w-200 mt-30 mx-auto max-md:px-2">
       <h1 className="text-3xl uppercase font-medium mb-6">
         Gizlilik ve Kişisel Verilerin Korunması Politikası
       </h1>

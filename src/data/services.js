@@ -78,13 +78,8 @@ export const tabContent = {
     description: "",
     services: [
       {
-        name: "Çıkartma (Jel)",
+        name: "Çıkartma (Jel, Akrilik, Tips)",
         description: "Jel kaplamanın sağlıklı şekilde çıkartılması.",
-        price: 200,
-      },
-      {
-        name: "Çıkartma (Akrilik ve Tips)",
-        description: "Akrilik veya tips kaplamaların zarar vermeden sökülmesi.",
         price: 300,
       },
       {
