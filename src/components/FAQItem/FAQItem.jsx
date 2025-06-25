@@ -13,7 +13,9 @@ const FAQItem = ({ data, faqStateUpdateHandler }) => {
         {question}
         <span className={`faq-icon text-2xl ${clsx({ rotated: state === "open" })}`}>+</span>
       </button>
-      <p className={`faq-answer text-charcoal-400 ${clsx({ opened: state === "open" })}`}>
+      <p
+        className={`faq-answer text-charcoal-400 max-md:text-sm ${clsx({ opened: state === "open" })}`}
+      >
         {answer}
       </p>
     </li>

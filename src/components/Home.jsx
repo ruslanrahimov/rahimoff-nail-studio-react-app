@@ -68,7 +68,7 @@ const Home = () => {
   };
 
   return (
-    <div className="home-container mt-15 w-11/12 mx-auto pt-8 max-md:w-full max-md:pt-2">
+    <div className="home-container mt-15 w-11/12 mx-auto pt-8 max-md:w-full max-md:pt-2 ">
       <section className="home__hero-container grid grid-cols-2 rounded-3xl mb-16 bg-chinese-200 max-lg:bg-transparent max-lg:grid-cols-1 max-lg:grid-rows-2">
         <div
           className="hero-image h-full bg-cover bg-center min-lg:rounded-l-3xl"
@@ -91,19 +91,16 @@ const Home = () => {
         <SectionHeader>Biz Kimiz</SectionHeader>
         <div className="about-content grid grid-cols-2 gap-6 max-lg:grid-cols-1 max-lg:grid-rows-subgrid max-lg:gap-4">
           <p className="text-platinum-800 max-lg:text-center">
-            Rahimoff Nail Studio - sadece bir manikür stüdyosu değil, kendinize özen göstermenin
-            gerçek bir keyfe dönüştüğü özel bir mekândır. Güzelliğe önem veriyor, en son trendleri
-            takip ediyor ve yalnızca en kaliteli malzemeleri ve en güvenilir teknikleri
-            kullanıyoruz. Şık iç tasarımımız, sıcak atmosferimiz ve yüksek standartlardaki
-            hizmetimizle her ziyaretinizi özel kılıyoruz.
+            Rahimoff Nail Studio, manikür ve pedikür hizmetlerini rahat ve temiz bir ortamda sunan
+            bir salondur. Amacımız, misafirlerimize kaliteli hizmeti uygun fiyatlarla sunarken
+            kendilerini iyi hissetmelerini sağlamaktır. Güncel teknikleri takip ediyor, hijyene
+            büyük önem veriyor ve her işlemde steril ekipman kullanıyoruz. Deneyimli ekibimiz, sade
+            ve huzurlu ortamımızda sizi en iyi şekilde ağırlamak için burada.
           </p>
           <p className="text-platinum-800 max-lg:text-center">
-            Mükemmel bir manikürün sadece bakımlı tırnaklardan ibaret olmadığını biliyoruz; bu, aynı
-            zamanda kendine güvenin bir ifadesidir. Bu yüzden misyonumuz, tekrar tekrar gelmek
-            isteyeceğiniz bir yer yaratmak. Deneyimli uzmanlarımız, tam sterilizasyon güvencesi, mis
-            gibi kahve kokusu ve rahatlatıcı müzik — her ayrıntı konforunuz için düşünüldü. Rahimoff
-            Nail Studio, tarzınızı ve kendinize olan güveninizi yansıtır. Bir kez denediğinizde,
-            artık başka bir yer aramayacağınıza emin olabilirsiniz.
+            İster tırnak bakımı, ister kalıcı oje veya protez tırnak olsun — her detay özenle
+            düşünülür. Kahvenizi yudumlarken kendinize ayırdığınız bu zamanı keyifle geçirmenizi
+            istiyoruz. Rahimoff, günlük hayatın koşturmacasında küçük ama değerli bir mola yeridir.
           </p>
         </div>
       </section>

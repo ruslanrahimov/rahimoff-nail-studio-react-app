@@ -3,14 +3,14 @@ export const faqData = [
     id: 1,
     question: "Hangi hizmetleri sunuyorsunuz?",
     answer:
-      "Manikür, pedikür, jel oje, protez tırnak, nail art (tırnak sanatı), el ve ayak bakımı, ayrıca erkekler için manikür ve pedikür hizmetleri sunuyoruz.",
+      "Manikür, pedikür, protez tırnak. Ayrıca, nasır, siğil benzeri oluşumlar, topuk çatlakları ve tırnak çevresindeki bazı problemler için özel bakım uygulamaları da yapıyoruz.",
     state: "closed",
   },
   {
     id: 2,
     question: "Hizmetleriniz ne kadar güvenli?",
     answer:
-      "Tüm aletlerimiz otoklavda sterilize edilir, tek kullanımlık malzemeler kullanılır ve sıkı hijyen kurallarına uyulur.",
+      "Tüm aletlerimiz sterilize edilir, tek kullanımlık malzemeler kullanılır ve sıkı hijyen kurallarına uyulur.",
     state: "closed",
   },
   {
@@ -43,27 +43,20 @@ export const faqData = [
   },
   {
     id: 7,
-    question: "Hediye kartı sunuyor musunuz?",
-    answer:
-      "Evet, belirli bir hizmet veya tutar için hediye kartlarımız mevcuttur. Sevdikleriniz için harika bir hediye seçeneği!",
-    state: "closed",
-  },
-  {
-    id: 8,
     question: "Salonun yakınında otopark var mı?",
     answer:
       "Evet, salonumuzun yanında kapalı ücretli otopark ve çevrede ücretsiz park alanları bulunmaktadır.",
     state: "closed",
   },
   {
-    id: 9,
+    id: 8,
     question: "Hangi ödeme yöntemlerini kabul ediyorsunuz?",
     answer:
       "Nakit, kredi/banka kartı ve mobil uygulamalarla yapılan havale/eft ödemelerini kabul ediyoruz.",
     state: "closed",
   },
   {
-    id: 10,
+    id: 9,
     question: "Sorunlu tırnaklarla çalışıyor musunuz?",
     answer:
       "Evet, batık tırnaklar, kırılgan veya zarar görmüş tırnaklar gibi sorunlarla ilgileniyoruz ve profesyonel bakım sağlıyoruz.",

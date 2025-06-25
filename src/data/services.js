@@ -3,7 +3,7 @@ const baseUrl = import.meta.env.BASE_URL;
 export const tabContent = {
   MANICURE: {
     title: "Manikür",
-    image: baseUrl + "manicure.webp",
+    image: baseUrl + "main.jpg",
     description: "",
     services: [
       {
@@ -12,81 +12,130 @@ export const tabContent = {
         price: 300,
       },
       {
-        name: "Manikür + Kalıcı Oje",
-        description: "Manikür sonrası uzun süre dayanıklı oje uygulaması.",
+        name: "Manikür + Jel güçlendirme + Kalıcı Oje",
+        description:
+          "Doğal tırnağı güçlendirmek için jel uygulaması yapılır, ardından seçtiğiniz renkte kalıcı oje ile tamamlanır. Şekillendirme ve klasik manikür dahildir.",
         price: 650,
+      },
+      {
+        name: "Manikür + Protezt Tırnak (Jel)",
+        description:
+          "Doğal tırnağın üzerine özel jel ile yapılan uzatma işlemi. Şekillendirme, manikür ve kalıcı parlaklık dahildir.",
+        price: 800,
+      },
+      {
+        name: "Manikür + Protezt Tırnak (Tips)",
+        description:
+          "Tırnak ucuna özel yapay uç (tips) eklenerek yapılan uzatma işlemi. Manikür ve şeffaf veya renkli kaplama ile tamamlanır.",
+        price: 800,
       },
     ],
   },
   PEDICURE: {
     title: "Pedikür",
-    image: baseUrl + "pedicure.jpeg",
-    description: "",
+    image: baseUrl + "pedicure.jpg",
+    description: "Tüm işlemler KANE tekniğiyle ve KANE profesyonel ürünleriyle uygulanır.",
     services: [
       {
-        name: "Ekspres Pedikür",
-        description: "Hızlı tırnak ve topuk bakımı.",
-        price: 2300,
+        name: "KANE Pedikür + Kalıcı Oje",
+        description: "KANE ürünleri ile detaylı pedikür ve dayanıklı kalıcı oje uygulaması.",
+        price: "850",
       },
       {
-        name: "Tam Pedikür",
-        description: "Detaylı ayak bakımı, tırnak şekillendirme ve topuk temizliği.",
-        price: 2700,
+        name: "KANE Pedikür (Ojesiz)",
+        description: "Elektrikli cihazlarla yapılan hassas ve derinlemesine bakım.",
+        price: "750",
       },
       {
-        name: "SMART Pedikür",
-        description: "Elektrikli cihazlarla detaylı profesyonel ayak bakımı.",
-        price: 2700,
-      },
-      {
-        name: "Pedikür + Kalıcı Oje",
-        description: "Pedikür sonrası dayanıklı oje uygulaması.",
-        price: 3900,
-      },
-      {
-        name: "Erkek Pedikürü",
-        description: "Erkeklere özel ayak ve tırnak bakımı.",
-        price: 3600,
-      },
-    ],
+        name: "Nasır / Çatlak / Siğil / Mantar",
+        description: "KANE protokolleriyle nasır, çatlak, siğil veya mantar sorunlarına yönelik özel bakım.",
+        price: "Fiyat değerlendirme sonrası belirlenir",
+      }
+    ]
   },
   NAIL_ART: {
     title: "Tırnak Süsleme",
-    image: baseUrl + "art.jpg",
-    description: "",
+    image: baseUrl + "art.webp",
+    description: "Farklı tarzlarda tırnak süsleme seçenekleriyle stilinizi yansıtın.",
     services: [
       {
-        name: "French / Ombre (10 Parmak)",
-        description: "Tüm tırnaklara şık ve zarif geçişli tasarımlar.",
-        price: 150,
+        name: "Nail Art (1 Tırnak)",
+        description: "El boyaması veya özel tasarım. Her bir tırnak için yapılır.",
+        price: 50,
       },
       {
-        name: "İnci Tozu (10 Parmak)",
-        description: "Tırnaklara sedefli parlaklık kazandırır.",
-        price: 0,
+        name: "Nokta, Çizgi, Vitray, Kedi Gözü",
+        description: "Basit ama etkili küçük süslemeler.",
+        price: 10,
       },
       {
-        name: "Nail Art (Parmak Başı)",
-        description: "Her tırnak için bireysel sanatsal tasarım.",
-        price: 0,
+        name: "French",
+        description: "Zarif klasik tırnak ucu tasarımları.",
+        price: 15,
+      },
+      {
+        name: "Geometri (2 öğeye kadar), Sticker, Slider, Stamping (1 baskı), Sim, Folyo, Ayna Tozu, Örümcek Jeli",
+        description: "Hafif süslemelerle sade şıklık.",
+        price: 20,
+      },
+      {
+        name: "Gliter Jel, Mermer, Stamping (çoklu baskı), Ayna Tozu (2 renk), Ombre",
+        description: "Daha belirgin ve dikkat çekici tasarımlar.",
+        price: 25,
+      },
+      {
+        name: "Boncuk",
+        description: "Tırnaklara hacimli minik süsler.",
+        price: "10-30",
+      },
+      {
+        name: "Geometrik Tasarım (3+ öğe)",
+        description: "Daha karmaşık ve dikkat çeken geometrik şekiller.",
+        price: "30-40",
+      },
+      {
+        name: "Ombre (çok renkli)",
+        description: "Birden fazla renk geçişli tırnak tasarımı.",
+        price: "30",
+      },
+      {
+        name: "Mermer (2+ renk)",
+        description: "Doğal taş görünümünde sofistike tasarımlar.",
+        price: 30,
+      },
+      {
+        name: "Kore Tasarımı (Hacimli)",
+        description: "3D ve göz alıcı Kore tarzı tırnak süslemeleri.",
+        price: "200-500",
+      },
+      {
+        name: "Taşlarla Süsleme (Tüm Tırnak)",
+        description: "Tüm tırnağı kaplayan taş süslemeler.",
+        price: "200-400",
       },
     ],
   },
   EXTRAS: {
     title: "Ekstralar",
-    image: baseUrl + "extras.webp",
+    image: baseUrl + "extras.jpg",
     description: "",
     services: [
       {
         name: "Çıkartma (Jel, Akrilik, Tips)",
-        description: "Jel kaplamanın sağlıklı şekilde çıkartılması.",
+        description: "Jel veya akrilik kaplamanın sağlıklı şekilde ve tırnağa zarar vermeden çıkartılması.",
         price: 300,
       },
       {
         name: "Tek Tırnak Protez Tamiri",
-        description: "Hasar görmüş tek tırnağın onarımı.",
+        description: "Sadece bu işlem için gelen müşteriler için geçerlidir. Toplu işlemlerde ayrı ücret alınmaz.",
+        price: 50,
+      },
+      {
+        name: "Tek Tırnak Uzatma",
+        description: "Sadece bu işlem için gelen müşteriler için geçerlidir. Tüm tırnak uzatma hizmetlerinde ekstra ücret alınmaz.",
         price: 100,
       },
     ],
-  },
+  }
+
 };

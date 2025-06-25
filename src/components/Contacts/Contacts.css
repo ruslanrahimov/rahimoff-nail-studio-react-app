@@ -17,8 +17,7 @@
 }
 
 @media screen and (max-width: 600px) {
- .image-cover{
-   display: none;
- }
-
+  .image-cover {
+    display: none;
+  }
 }

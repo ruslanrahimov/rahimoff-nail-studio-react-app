@@ -14,8 +14,10 @@ const Footer = () => {
       <div className="footer-inner h-full w-11/12 mx-auto grid grid-cols-2 py-4 max-md:grid-cols-1 max-md:grid-rows-2">
         <div className="footer-links w-1/2 grid grid-cols-4 max-md:grid-cols-1 max-md:grid-rows-2 max-md:gap-3 max-lg:w-full">
           {links.map((link) => (
-            <NavLink className="text-center my-auto" to={link.url} key={link.url}> {/*TODO Сделать что бы на мобильной версии при клике по ссылке скролл шел на самый верх*/}
-               {link.name}
+            <NavLink className="text-center my-auto" to={link.url} key={link.url}>
+              {" "}
+              {/*TODO Сделать что бы на мобильной версии при клике по ссылке скролл шел на самый верх*/}
+              {link.name}
             </NavLink>
           ))}
           <a href={INST_LINK} className="instagtam my-auto text-center">
@@ -25,7 +27,9 @@ const Footer = () => {
             Whatsapp
           </a>
         </div>
-        <p className="block text-end my-auto max-md:text-center">© 2024 Rahimoff All Rights Reserved</p>
+        <p className="block text-end my-auto max-md:text-center">
+          © 2024 Rahimoff All Rights Reserved
+        </p>
       </div>
     </footer>
   );
