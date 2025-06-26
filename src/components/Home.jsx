@@ -6,7 +6,7 @@ import { faqData } from "../data/faq.js";
 import { useState } from "react";
 import FAQItem from "./FAQItem/FAQItem.jsx";
 import PresentationSlider from "./PresentationSlider/PresentationSlider.jsx";
-import { aboutUsSliderData } from "../data/aboutUsSliderData.js";
+import { portfolioSliderData } from "../data/portfolioSliderData.js";
 
 const baseUrl = import.meta.env.BASE_URL;
 const wpChatLink = import.meta.env.VITE_WP_CHAT_LINK;
@@ -105,7 +105,7 @@ const Home = () => {
         </div>
       </section>
       <section className="salon">
-        <PresentationSlider data={aboutUsSliderData} settings={sliderSettings} />
+        <PresentationSlider data={portfolioSliderData} settings={sliderSettings} />
       </section>
       <section className="goals max-md:px-2">
         <SectionHeader>Diğerlerimiz</SectionHeader>

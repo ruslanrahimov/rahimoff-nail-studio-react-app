@@ -33,12 +33,12 @@ const Services = () => {
         {tabContent[activeTab].services.map((service, index) => {
           return (
             <li key={index} className="flex bg-chinese-300 my-4 p-5 rounded-xl">
-              <div className="left w-full">
+              <div className="left w-full max-md:pr-12">
                 <h3 className="text-sm max-md:pb-2">{service.name}</h3>
                 <p className="description text-xs">{service.description}</p>
               </div>
-              <div className="right flex w-full justify-end">
-                <p className="price block md:text-sm">{service.price} &#8378;</p>
+              <div className="right flex w-full justify-end max-md:flex-1">
+                <p className="price block md:text-sm">{service.price}</p>
               </div>
             </li>
           );

@@ -7,8 +7,8 @@ export const tabContent = {
     description: "",
     services: [
       {
-        name: "Klasik / Kombine / Donanımlı Manikür",
-        description: "Tırnak şekillendirme, et kesimi ve cilt bakımı içerir.",
+        name: "Manikür",
+        description: "Tırnak şekillendirme, et kesimi ve bakım.",
         price: 300,
       },
       {
@@ -18,13 +18,13 @@ export const tabContent = {
         price: 650,
       },
       {
-        name: "Manikür + Protezt Tırnak (Jel)",
+        name: "Manikür + Protez Tırnak (Jel)",
         description:
           "Doğal tırnağın üzerine özel jel ile yapılan uzatma işlemi. Şekillendirme, manikür ve kalıcı parlaklık dahildir.",
         price: 800,
       },
       {
-        name: "Manikür + Protezt Tırnak (Tips)",
+        name: "Manikür + Protez Tırnak (Tips)",
         description:
           "Tırnak ucuna özel yapay uç (tips) eklenerek yapılan uzatma işlemi. Manikür ve şeffaf veya renkli kaplama ile tamamlanır.",
         price: 800,
@@ -43,18 +43,19 @@ export const tabContent = {
       },
       {
         name: "KANE Pedikür (Ojesiz)",
-        description: "Elektrikli cihazlarla yapılan hassas ve derinlemesine bakım.",
+        description: "KANE ürünleri ile detaylı pedikür.",
         price: "750",
       },
       {
         name: "Nasır / Çatlak / Siğil / Mantar",
-        description: "KANE protokolleriyle nasır, çatlak, siğil veya mantar sorunlarına yönelik özel bakım.",
+        description:
+          "KANE protokolleriyle nasır, çatlak, siğil veya mantar sorunlarına yönelik özel bakım.",
         price: "Fiyat değerlendirme sonrası belirlenir",
-      }
-    ]
+      },
+    ],
   },
   NAIL_ART: {
-    title: "Tırnak Süsleme",
+    title: "Tırnak Süsleme (1 parmak)",
     image: baseUrl + "art.webp",
     description: "Farklı tarzlarda tırnak süsleme seçenekleriyle stilinizi yansıtın.",
     services: [
@@ -122,20 +123,16 @@ export const tabContent = {
     services: [
       {
         name: "Çıkartma (Jel, Akrilik, Tips)",
-        description: "Jel veya akrilik kaplamanın sağlıklı şekilde ve tırnağa zarar vermeden çıkartılması.",
+        description:
+          "Jel veya akrilik kaplamanın sağlıklı şekilde ve tırnağa zarar vermeden çıkartılması.",
         price: 300,
       },
       {
-        name: "Tek Tırnak Protez Tamiri",
-        description: "Sadece bu işlem için gelen müşteriler için geçerlidir. Toplu işlemlerde ayrı ücret alınmaz.",
-        price: 50,
-      },
-      {
         name: "Tek Tırnak Uzatma",
-        description: "Sadece bu işlem için gelen müşteriler için geçerlidir. Tüm tırnak uzatma hizmetlerinde ekstra ücret alınmaz.",
+        description:
+          "Sadece bu işlem için gelen müşteriler için geçerlidir. Tüm tırnak uzatma hizmetlerinde ekstra ücret alınmaz.",
         price: 100,
       },
     ],
-  }
-
+  },
 };

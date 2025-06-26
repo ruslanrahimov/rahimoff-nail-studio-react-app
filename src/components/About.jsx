@@ -14,16 +14,14 @@ const About = () => {
         ></div>
         <div className="text-container w-full mx-auto">
           <p className="block mb-8 text-platinum-900 text-sm">
-            Rahimoff sadece bir güzellik stüdyosu değil, kendinize özen göstermenin ilhama dönüştüğü
-            özel bir yer. Güzelliği yaşıyor, trendleri takip ediyor ve yalnızca dünya çapında
-            kendini kanıtlamış markaları tercih ediyoruz. Burada şık bir iç mekan, sıcak bir
-            atmosfer ve her ziyareti özel kılan kusursuz bir hizmet sizi bekliyor. Sizin her
-            gelişiniz, bizim sizin hikayenizin bir parçası haline geldiğimizin kanıtıdır. Misyonumuz
-            sadece hizmet sunmak değil, kendinizi her zaman rahat hissedeceğiniz “o özel yeri”
-            bulmanıza yardımcı olmaktır. Güleryüzlü resepsiyon ekibimiz, lezzetli kahvemiz veya bir
-            kadeh Prosecco, huzur veren müzik — her detay sizin konforunuz için özenle tasarlandı.
-            Rahimoff, sizin benzersiz stiliniz ve özgüveniniz için var. Eminiz ki, bir kez bizi
-            ziyaret ettiğinizde, başka bir yer aramak istemeyeceksiniz.
+            Rahimoff Nail Studio, manikür ve pedikür hizmetlerini rahat ve temiz bir ortamda sunan
+            bir salondur. Amacımız, misafirlerimize kaliteli hizmeti uygun fiyatlarla sunarken
+            kendilerini iyi hissetmelerini sağlamaktır. Güncel teknikleri takip ediyor, hijyene
+            büyük önem veriyor ve her işlemde steril ekipman kullanıyoruz. Deneyimli ekibimiz, sade
+            ve huzurlu ortamımızda sizi en iyi şekilde ağırlamak için burada. İster tırnak bakımı,
+            ister kalıcı oje veya protez tırnak olsun — her detay özenle düşünülür. Kahvenizi
+            yudumlarken kendinize ayırdığınız bu zamanı keyifle geçirmenizi istiyoruz. Rahimoff,
+            günlük hayatın koşturmacasında küçük ama değerli bir mola yeridir.
           </p>
           <AppointmentButton url={wpChatLink}>Randevu Al</AppointmentButton>
         </div>
