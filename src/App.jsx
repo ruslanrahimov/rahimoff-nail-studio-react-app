@@ -13,7 +13,7 @@ import PrivacyPolicy from "./components/PrivacyPolicy.jsx";
 
 function App() {
   return (
-    <BrowserRouter basename="/rahimoff-nail-studio-react-app">
+    <BrowserRouter basename="/">
       <header>
         <Navbar />
       </header>
