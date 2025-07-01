@@ -26,7 +26,8 @@ const portfolioSliderData = [
     id: 6,
     name: "staleks",
     image: `${baseUrl}port-6.webp`,
-  },{
+  },
+  {
     id: 7,
     name: "lunaline",
     image: `${baseUrl}port-7.webp`,

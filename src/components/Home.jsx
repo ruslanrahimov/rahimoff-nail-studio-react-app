@@ -1,4 +1,5 @@
 import AppointmentButton from "./AppointmentButton.jsx";
+import SecondaryLinkButton from "./SecondaryLinkButton.jsx";
 import SectionHeader from "./SectionHeader.jsx";
 import Values from "./Values.jsx";
 import Brands from "./Brands/Brands.jsx";
@@ -7,6 +8,7 @@ import { useState } from "react";
 import FAQItem from "./FAQItem/FAQItem.jsx";
 import PresentationSlider from "./PresentationSlider/PresentationSlider.jsx";
 import { portfolioSliderData } from "../data/portfolioSliderData.js";
+import Hero from "./Hero/Hero.jsx";
 
 const baseUrl = import.meta.env.BASE_URL;
 const wpChatLink = import.meta.env.VITE_WP_CHAT_LINK;
@@ -69,25 +71,27 @@ const Home = () => {
 
   return (
     <div className="home-container mt-15 w-11/12 mx-auto pt-8 max-md:w-full max-md:pt-2 ">
-      <section className="home__hero-container grid grid-cols-2 rounded-3xl mb-16 bg-chinese-200 max-lg:bg-transparent max-lg:grid-cols-1 max-lg:grid-rows-2">
-        <div
-          className="hero-image h-full bg-cover bg-center min-lg:rounded-l-3xl"
-          style={{ backgroundImage: `url(${baseUrl}main.jpg)` }}
-        ></div>
-        <div className="hero-content px-14 py-10 max-md:p-8">
-          <h1 className="text-4xl mb-4 leading-snug max-lg:text-xl max-lg:font-light max-lg:text-center">
-            RAHIMOFF - KENDİNİZDEN ÖDÜN VERMEYİN, EN İYİSİNİ SEÇİN
-          </h1>
-          <p className="mb-8 text-platinum-800 max-lg:text-[14px] max-lg:text-center">
-            Rahimoff Nail Studio, tarzınızı ve kendinize olan güveninizi yansıtır. Bir kez
-            denediğinizde, artık başka bir yer aramayacağınıza emin olabilirsiniz.
-          </p>
-          <div className="flex">
-            <AppointmentButton url={wpChatLink}>Randevu Al</AppointmentButton>
-          </div>
-        </div>
-      </section>
       <section className="about mb-16 max-md:px-2">
+        <Hero
+          title="RAHIMOFF - KENDİNİZDEN ÖDÜN VERMEYİN, EN İYİSİNİ SEÇİN"
+          text="Rahimoff Nail Studio, tarzınızı ve kendinize olan güveninizi yansıtır. Bir kez
+      denediğinizde, artık başka bir yer aramayacağınıza emin olabilirsiniz."
+          image={`${baseUrl}main.jpg`}
+          isReversed={false}
+        >
+          <AppointmentButton url={wpChatLink}>Randevu Al</AppointmentButton>
+        </Hero>
+        <Hero
+          title="TÜM İŞLEMLERDE - %10 İNDİRİM!"
+          text="01/08/2025 zamana kadar nakit ödemelerde geçerlidir"
+          image={`${baseUrl}discount-cover.webp`}
+          isReversed={true}
+        >
+         <div className="flex gap-4 w-full max-md:flex-col">
+           <AppointmentButton url={wpChatLink}>Randevu Al</AppointmentButton>
+           <SecondaryLinkButton path="/services" >Fiyat Listesi</SecondaryLinkButton>
+         </div>
+        </Hero>
         <SectionHeader>Biz Kimiz</SectionHeader>
         <div className="about-content grid grid-cols-2 gap-6 max-lg:grid-cols-1 max-lg:grid-rows-subgrid max-lg:gap-4">
           <p className="text-platinum-800 max-lg:text-center">

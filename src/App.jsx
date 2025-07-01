@@ -20,12 +20,12 @@ function App() {
       <div className="main-content ">
         <Routes>
           <Route index path="/" element={<Home />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contacts" element={<Contacts />} />
+          <Route path="services" element={<Services />} />
+          <Route path="about" element={<About />} />
+          <Route path="contacts" element={<Contacts />} />
           <Route path="*" element={<ErrorPage />} />
-          <Route path="/rules" element={<SalonRules />} />
-          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="rules" element={<SalonRules />} />
+          <Route path="privacy" element={<PrivacyPolicy />} />
         </Routes>
       </div>
       <Footer />
