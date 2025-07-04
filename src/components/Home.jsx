@@ -87,10 +87,10 @@ const Home = () => {
           image={`${baseUrl}discount-cover.webp`}
           isReversed={true}
         >
-         <div className="flex gap-4 w-full max-md:flex-col">
-           <AppointmentButton url={wpChatLink}>Randevu Al</AppointmentButton>
-           <SecondaryLinkButton path="/services" >Fiyat Listesi</SecondaryLinkButton>
-         </div>
+          <div className="flex gap-4 w-full max-md:flex-col">
+            <AppointmentButton url={wpChatLink}>Randevu Al</AppointmentButton>
+            <SecondaryLinkButton path="/services">Fiyat Listesi</SecondaryLinkButton>
+          </div>
         </Hero>
         <SectionHeader>Biz Kimiz</SectionHeader>
         <div className="about-content grid grid-cols-2 gap-6 max-lg:grid-cols-1 max-lg:grid-rows-subgrid max-lg:gap-4">

@@ -9,25 +9,25 @@ export const tabContent = {
       {
         name: "Manikür",
         description: "Tırnak şekillendirme, et kesimi ve bakım.",
-        price: 300,
+        price: 350,
       },
       {
         name: "Manikür + Jel güçlendirme + Kalıcı Oje",
         description:
           "Doğal tırnağı güçlendirmek için jel uygulaması yapılır, ardından seçtiğiniz renkte kalıcı oje ile tamamlanır. Şekillendirme ve klasik manikür dahildir.",
-        price: 650,
+        price: 700,
       },
       {
         name: "Manikür + Protez Tırnak (Jel)",
         description:
           "Doğal tırnağın üzerine özel jel ile yapılan uzatma işlemi. Şekillendirme, manikür ve kalıcı parlaklık dahildir.",
-        price: 800,
+        price: 850,
       },
       {
         name: "Manikür + Protez Tırnak (Tips)",
         description:
           "Tırnak ucuna özel yapay uç (tips) eklenerek yapılan uzatma işlemi. Manikür ve şeffaf veya renkli kaplama ile tamamlanır.",
-        price: 800,
+        price: 850,
       },
     ],
   },
@@ -39,12 +39,12 @@ export const tabContent = {
       {
         name: "KANE Pedikür + Kalıcı Oje",
         description: "KANE ürünleri ile detaylı pedikür ve dayanıklı kalıcı oje uygulaması.",
-        price: "850",
+        price: "900",
       },
       {
         name: "KANE Pedikür (Ojesiz)",
         description: "KANE ürünleri ile detaylı pedikür.",
-        price: "750",
+        price: "800",
       },
       {
         name: "Nasır / Çatlak / Siğil / Mantar",
@@ -60,6 +60,11 @@ export const tabContent = {
     description: "Farklı tarzlarda tırnak süsleme seçenekleriyle stilinizi yansıtın.",
     services: [
       {
+        name: "Tasarım jelleri",
+        description: "Simli, Disco, İnci",
+        price: 10,
+      },
+      {
         name: "Nail Art (1 Tırnak)",
         description: "El boyaması veya özel tasarım. Her bir tırnak için yapılır.",
         price: 50,
@@ -67,12 +72,12 @@ export const tabContent = {
       {
         name: "Nokta, Çizgi, Vitray, Kedi Gözü",
         description: "Basit ama etkili küçük süslemeler.",
-        price: 10,
+        price: 15,
       },
       {
         name: "French",
         description: "Zarif klasik tırnak ucu tasarımları.",
-        price: 15,
+        price: 20,
       },
       {
         name: "Geometri (2 öğeye kadar), Sticker, Slider, Stamping (1 baskı), Sim, Folyo, Ayna Tozu, Örümcek Jeli",
@@ -80,7 +85,7 @@ export const tabContent = {
         price: 20,
       },
       {
-        name: "Gliter Jel, Mermer, Stamping (çoklu baskı), Ayna Tozu (2 renk), Ombre",
+        name: "Mermer, Stamping (çoklu baskı), Ayna Tozu (2 renk), Ombre",
         description: "Daha belirgin ve dikkat çekici tasarımlar.",
         price: 25,
       },
@@ -107,13 +112,8 @@ export const tabContent = {
       {
         name: "Kore Tasarımı (Hacimli)",
         description: "3D ve göz alıcı Kore tarzı tırnak süslemeleri.",
-        price: "200-500",
-      },
-      {
-        name: "Taşlarla Süsleme (Tüm Tırnak)",
-        description: "Tüm tırnağı kaplayan taş süslemeler.",
-        price: "200-400",
-      },
+        price: "30-50",
+      }
     ],
   },
   EXTRAS: {
@@ -128,10 +128,21 @@ export const tabContent = {
         price: 300,
       },
       {
+        name: "Diğer Salon İşlemi Çıkartma",
+        description:
+          "Başka bir salonda yapılmış işlem çıkarttırılıp ve yeni bir işlem yapılacaksa, ek olarak 200₺ ücret alınır.",
+        price: 200,
+      },
+      {
         name: "Tek Tırnak Uzatma",
         description:
           "Sadece bu işlem için gelen müşteriler için geçerlidir. Tüm tırnak uzatma hizmetlerinde ekstra ücret alınmaz.",
         price: 100,
+      },
+      {
+        name: "L ve üzeri Uzunluk Ek Ücreti",
+        description: "L ve üzeri uzunluk tercih eden müşteriler için hizmet ücretine ek olarak alınır.",
+        price: "100 - 300",
       },
     ],
   },

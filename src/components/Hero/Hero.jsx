@@ -1,4 +1,3 @@
-
 const Hero = ({ title, text, image, isReversed, children }) => {
   return (
     <section
