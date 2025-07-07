@@ -73,15 +73,6 @@ const Home = () => {
     <div className="home-container mt-15 w-11/12 mx-auto pt-8 max-md:w-full max-md:pt-2 ">
       <section className="about mb-16 max-md:px-2">
         <Hero
-          title="RAHIMOFF - KENDİNİZDEN ÖDÜN VERMEYİN, EN İYİSİNİ SEÇİN"
-          text="Rahimoff Nail Studio, tarzınızı ve kendinize olan güveninizi yansıtır. Bir kez
-      denediğinizde, artık başka bir yer aramayacağınıza emin olabilirsiniz."
-          image={`${baseUrl}main.jpg`}
-          isReversed={false}
-        >
-          <AppointmentButton url={wpChatLink}>Randevu Al</AppointmentButton>
-        </Hero>
-        <Hero
           title="TÜM İŞLEMLERDE - %10 İNDİRİM!"
           text="01/08/2025 zamana kadar nakit ödemelerde geçerlidir"
           image={`${baseUrl}discount-cover.webp`}
@@ -91,6 +82,15 @@ const Home = () => {
             <AppointmentButton url={wpChatLink}>Randevu Al</AppointmentButton>
             <SecondaryLinkButton path="/services">Fiyat Listesi</SecondaryLinkButton>
           </div>
+        </Hero>
+        <Hero
+          title="RAHIMOFF - KENDİNİZDEN ÖDÜN VERMEYİN, EN İYİSİNİ SEÇİN"
+          text="Rahimoff Nail Studio, tarzınızı ve kendinize olan güveninizi yansıtır. Bir kez
+      denediğinizde, artık başka bir yer aramayacağınıza emin olabilirsiniz."
+          image={`${baseUrl}main.jpg`}
+          isReversed={false}
+        >
+          <AppointmentButton url={wpChatLink}>Randevu Al</AppointmentButton>
         </Hero>
         <SectionHeader>Biz Kimiz</SectionHeader>
         <div className="about-content grid grid-cols-2 gap-6 max-lg:grid-cols-1 max-lg:grid-rows-subgrid max-lg:gap-4">
