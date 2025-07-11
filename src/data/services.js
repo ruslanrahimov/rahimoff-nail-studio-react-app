@@ -113,7 +113,7 @@ export const tabContent = {
         name: "Kore Tasarımı (Hacimli)",
         description: "3D ve göz alıcı Kore tarzı tırnak süslemeleri.",
         price: "30-50",
-      }
+      },
     ],
   },
   EXTRAS: {
@@ -141,7 +141,8 @@ export const tabContent = {
       },
       {
         name: "L ve üzeri Uzunluk Ek Ücreti",
-        description: "L ve üzeri uzunluk tercih eden müşteriler için hizmet ücretine ek olarak alınır.",
+        description:
+          "L ve üzeri uzunluk tercih eden müşteriler için hizmet ücretine ek olarak alınır.",
         price: "100 - 300",
       },
     ],
