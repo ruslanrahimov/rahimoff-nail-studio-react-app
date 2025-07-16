@@ -84,11 +84,23 @@ const Home = () => {
           </div>
         </Hero>
         <Hero
+          title="Rahimoff Ekibine Protez Tırnak Uzmanı Aranıyor"
+          text="Isparta’nın merkezindeki modern ve şık salonumuza deneyimli veya yetenekli bir manikür ustası arıyoruz.
+Rahat çalışma ortamı, sabit müşteri portföyü ve güler yüzlü bir ekip seni bekliyor!"
+          image={`${baseUrl}hiring.webp`}
+          isReversed={false}
+        >
+          <div className="flex gap-4 w-full max-md:flex-col">
+            <AppointmentButton url={wpChatLink}>Başvur</AppointmentButton>
+            <SecondaryLinkButton path="/contacts">İletişim</SecondaryLinkButton>
+          </div>
+        </Hero>
+        <Hero
           title="RAHIMOFF - KENDİNİZDEN ÖDÜN VERMEYİN, EN İYİSİNİ SEÇİN"
           text="Rahimoff Nail Studio, tarzınızı ve kendinize olan güveninizi yansıtır. Bir kez
       denediğinizde, artık başka bir yer aramayacağınıza emin olabilirsiniz."
           image={`${baseUrl}main.jpg`}
-          isReversed={false}
+          isReversed={true}
         >
           <AppointmentButton url={wpChatLink}>Randevu Al</AppointmentButton>
         </Hero>
