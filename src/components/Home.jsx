@@ -74,7 +74,7 @@ const Home = () => {
       <section className="about mb-16 max-md:px-2">
         <Hero
           title="TÜM İŞLEMLERDE - %10 İNDİRİM!"
-          text="01/08/2025 zamana kadar nakit ödemelerde geçerlidir"
+          text="01/09/2025 zamana kadar nakit ödemelerde geçerlidir"
           image={`${baseUrl}discount-cover.webp`}
           isReversed={true}
         >
