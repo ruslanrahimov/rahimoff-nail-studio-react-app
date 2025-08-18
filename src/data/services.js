@@ -47,10 +47,15 @@ export const tabContent = {
         price: "800",
       },
       {
-        name: "Nasır / Çatlak / Siğil / Mantar",
-        description:
-          "KANE protokolleriyle nasır, çatlak, siğil veya mantar sorunlarına yönelik özel bakım.",
+        name: "Yoğun bakım pedikürü",
+        description: "KANE protokolleriyle nasır, çatlak ve diğer sorunlarına yönelik özel bakım.",
         price: "Fiyat değerlendirme sonrası belirlenir",
+      },
+      {
+        name: "Erkek Pedikürü",
+        description:
+          "Erkekler için özel tasarlanmış pedikür hizmetimiz ayaklarda biriken ölü deriyi nazikçe temizler, tırnakların sağlıklı ve düzenli görünmesini sağlar. Düzenli bakım sayesinde ayaklar daha hijyenik, rahat ve bakımlı bir görünüme kavuşur.",
+        price: "1500",
       },
     ],
   },
