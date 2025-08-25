@@ -15,19 +15,19 @@ export const tabContent = {
         name: "Manikür + Jel güçlendirme + Kalıcı Oje",
         description:
           "Doğal tırnağı güçlendirmek için jel uygulaması yapılır, ardından seçtiğiniz renkte kalıcı oje ile tamamlanır. Şekillendirme ve klasik manikür dahildir.",
-        price: 700,
+        price: 800,
       },
       {
         name: "Manikür + Protez Tırnak (Jel)",
         description:
           "Doğal tırnağın üzerine özel jel ile yapılan uzatma işlemi. Şekillendirme, manikür ve kalıcı parlaklık dahildir.",
-        price: 850,
+        price: 1000,
       },
       {
         name: "Manikür + Protez Tırnak (Tips)",
         description:
           "Tırnak ucuna özel yapay uç (tips) eklenerek yapılan uzatma işlemi. Manikür ve şeffaf veya renkli kaplama ile tamamlanır.",
-        price: 850,
+        price: 1000,
       },
     ],
   },
@@ -39,7 +39,7 @@ export const tabContent = {
       {
         name: "KANE Pedikür + Kalıcı Oje",
         description: "KANE ürünleri ile detaylı pedikür ve dayanıklı kalıcı oje uygulaması.",
-        price: "900",
+        price: "1000",
       },
       {
         name: "KANE Pedikür (Ojesiz)",
