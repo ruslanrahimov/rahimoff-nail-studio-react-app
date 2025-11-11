@@ -1,5 +1,3 @@
-import AppointmentButton from "./AppointmentButton.jsx";
-import SecondaryLinkButton from "./SecondaryLinkButton.jsx";
 import SectionHeader from "./SectionHeader.jsx";
 import Values from "./Values.jsx";
 import Brands from "./Brands/Brands.jsx";
@@ -8,10 +6,7 @@ import { useState } from "react";
 import FAQItem from "./FAQItem/FAQItem.jsx";
 import PresentationSlider from "./PresentationSlider/PresentationSlider.jsx";
 import { portfolioSliderData } from "../data/portfolioSliderData.js";
-import Hero from "./Hero/Hero.jsx";
-
-const baseUrl = import.meta.env.BASE_URL;
-const wpChatLink = import.meta.env.VITE_WP_CHAT_LINK;
+import HeroList from "./HeroList.jsx";
 
 const Home = () => {
         const [currentFAQData, setCurrentFAQData] = useState(faqData);
@@ -72,38 +67,7 @@ const Home = () => {
         return (
                 <div className="home-container mt-15 w-11/12 mx-auto pt-8 max-md:w-full max-md:pt-2 ">
                         <section className="about mb-16 max-md:px-2">
-                                <Hero
-                                        title="TÜM İŞLEMLERDE - %10 İNDİRİM!"
-                                        text="31/12/2025 zamana kadar nakit ödemelerde geçerlidir"
-                                        image={`${baseUrl}discount-cover.webp`}
-                                        isReversed={true}
-                                >
-                                        <div className="flex gap-4 w-full max-md:flex-col">
-                                                <AppointmentButton url={wpChatLink}>Randevu Al</AppointmentButton>
-                                                <SecondaryLinkButton path="/services">Fiyat Listesi</SecondaryLinkButton>
-                                        </div>
-                                </Hero>
-                                <Hero
-                                        title="Rahimoff Ekibine Protez Tırnak Uzmanı Aranıyor"
-                                        text="Isparta’nın merkezindeki modern ve şık salonumuza deneyimli veya yetenekli bir manikür ustası arıyoruz.
-Rahat çalışma ortamı, sabit müşteri portföyü ve güler yüzlü bir ekip seni bekliyor!"
-                                        image={`${baseUrl}hiring.webp`}
-                                        isReversed={false}
-                                >
-                                        <div className="flex gap-4 w-full max-md:flex-col">
-                                                <AppointmentButton url={wpChatLink}>Başvur</AppointmentButton>
-                                                <SecondaryLinkButton path="/contacts">İletişim</SecondaryLinkButton>
-                                        </div>
-                                </Hero>
-                                <Hero
-                                        title="RAHIMOFF - KENDİNİZDEN ÖDÜN VERMEYİN, EN İYİSİNİ SEÇİN"
-                                        text="Rahimoff Nail Studio, tarzınızı ve kendinize olan güveninizi yansıtır. Bir kez
-      denediğinizde, artık başka bir yer aramayacağınıza emin olabilirsiniz."
-                                        image={`${baseUrl}main.jpg`}
-                                        isReversed={true}
-                                >
-                                        <AppointmentButton url={wpChatLink}>Randevu Al</AppointmentButton>
-                                </Hero>
+                                <HeroList />
                                 <SectionHeader>Biz Kimiz</SectionHeader>
                                 <div className="about-content grid grid-cols-2 gap-6 max-lg:grid-cols-1 max-lg:grid-rows-subgrid max-lg:gap-4">
                                         <p className="text-platinum-800 max-lg:text-center">
