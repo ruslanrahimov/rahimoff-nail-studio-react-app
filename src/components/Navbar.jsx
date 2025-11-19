@@ -10,8 +10,8 @@ const Navbar = () => {
   const links = [
     { name: "Ana Sayfa", url: "/" },
     { name: "Hizmetlerimiz", url: "/services" },
-    { name: "Biz Kimiz", url: "/about" },
     { name: "İletişim", url: "/contacts" },
+    { name: "Uzmanlar", url: "/masters" },
   ];
 
   const [isMenuVisible, setIsMenuVisible] = useState("none");
