@@ -5,36 +5,34 @@ import { masters } from "../data/masters";
 const serviceIdToCategory = {};
 
 Object.entries(tabContent).forEach(([categoryKey, categoryValue]) => {
-        categoryValue.services.forEach((s) => {
-                serviceIdToCategory[s.id] = categoryKey;
-        });
+  categoryValue.services.forEach((s) => {
+    serviceIdToCategory[s.id] = categoryKey;
+  });
 });
 
 export function getMasterServicesByCategory(masterId) {
-        const master = masters.find((m) => m.id === masterId);
-        if (!master) return {};
+  const master = masters.find((m) => m.id === masterId);
+  if (!master) return {};
 
-        // group by category
-        const categories = {};
+  // group by category
+  const categories = {};
 
-        master.services.forEach((masterService) => {
-                const categoryKey = serviceIdToCategory[masterService.id];
-                if (!categoryKey) return;
+  master.services.forEach((masterService) => {
+    const categoryKey = serviceIdToCategory[masterService.id];
+    if (!categoryKey) return;
 
-                if (!categories[categoryKey]) categories[categoryKey] = [];
+    if (!categories[categoryKey]) categories[categoryKey] = [];
 
-                // find full service description
-                const serviceInfo = tabContent[categoryKey].services.find(
-                        (s) => s.id === masterService.id
-                );
+    // find full service description
+    const serviceInfo = tabContent[categoryKey].services.find((s) => s.id === masterService.id);
 
-                if (serviceInfo) {
-                        categories[categoryKey].push({
-                                ...serviceInfo,
-                                price: masterService.price,
-                        });
-                }
-        });
+    if (serviceInfo) {
+      categories[categoryKey].push({
+        ...serviceInfo,
+        price: masterService.price,
+      });
+    }
+  });
 
-        return categories;
+  return categories;
 }

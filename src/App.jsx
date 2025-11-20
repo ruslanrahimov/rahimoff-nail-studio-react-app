@@ -13,26 +13,26 @@ import SalonRules from "./components/SalonRules.jsx";
 import PrivacyPolicy from "./components/PrivacyPolicy.jsx";
 
 function App() {
-        return (
-                <BrowserRouter basename="/">
-                        <header>
-                                <Navbar />
-                        </header>
-                        <div className="main-content ">
-                                <Routes>
-                                        <Route index path="/" element={<Home />} />
-                                        <Route path="services" element={<Services />} />
-                                        <Route path="contacts" element={<Contacts />} />
-                                        <Route path="*" element={<ErrorPage />} />
-                                        <Route path="rules" element={<SalonRules />} />
-                                        <Route path="privacy" element={<PrivacyPolicy />} />
-                                        <Route path="masters" element={<MastersPage />} />
-                                        <Route path="/masters/:id" element={<MasterPage />} />
-                                </Routes>
-                        </div>
-                        <Footer />
-                </BrowserRouter>
-        );
+  return (
+    <BrowserRouter basename="/">
+      <header>
+        <Navbar />
+      </header>
+      <div className="main-content ">
+        <Routes>
+          <Route index path="/" element={<Home />} />
+          <Route path="services" element={<Services />} />
+          <Route path="contacts" element={<Contacts />} />
+          <Route path="*" element={<ErrorPage />} />
+          <Route path="rules" element={<SalonRules />} />
+          <Route path="privacy" element={<PrivacyPolicy />} />
+          <Route path="masters" element={<MastersPage />} />
+          <Route path="/masters/:id" element={<MasterPage />} />
+        </Routes>
+      </div>
+      <Footer />
+    </BrowserRouter>
+  );
 }
 
 export default App;
