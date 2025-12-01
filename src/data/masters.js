@@ -29,6 +29,17 @@ const unifiedServices = [
   { id: "extra-long-length", price: "100-300" },
 ];
 
+const overridePrices = (services, overrides) =>
+  services.map(s => ({
+    ...s,
+    price: overrides[s.id] ?? s.price,
+  }));
+
+const excludeCategories = (services, categories) =>
+  services.filter(
+    (service) => !categories.some((cat) => service.id.startsWith(`${cat}-`))
+  );
+
 export const masters = [
   {
     id: "elif",
@@ -99,21 +110,25 @@ export const masters = [
     name: "Hayruş K.",
     role: "Manikür, jel güçlendirme, uzatma ve modern nail art",
     experience: "1 yıllık tecrübe",
-    priceLevel: "500 TL",
-    rating: 3.5,
+    priceLevel: "850 TL",
+    rating: 4,
     description:
       "Doğal manikür, jel güçlendirme ve uzatma üzerine çalışır. Modern nail art, ince detaylı tasarımlar ve şekillendirmede estetik ve özenli bir yaklaşım sergiler.",
     photo: baseUrl + "hayrus.jpg",
     gallery: [
-      baseUrl + "hayrus/1.jpeg",
-      baseUrl + "hayrus/2.jpeg",
-      baseUrl + "hayrus/3.jpeg",
-      baseUrl + "hayrus/4.jpeg",
-      baseUrl + "hayrus/5.jpeg",
-      baseUrl + "hayrus/6.jpeg",
-      baseUrl + "hayrus/7.jpeg",
+      baseUrl + "hayrus/5.webp",
+      baseUrl + "hayrus/2.webp",
+      baseUrl + "hayrus/3.webp",
+      baseUrl + "hayrus/4.webp",
+      baseUrl + "hayrus/1.webp",
+      baseUrl + "hayrus/6.webp",
+      baseUrl + "hayrus/7.webp",
+      baseUrl + "hayrus/8.webp",
+      baseUrl + "hayrus/9.webp",
+      baseUrl + "hayrus/10.webp",
+      baseUrl + "hayrus/11.webp",
     ],
-    level: "junior-plus",
+    level: "middle",
     skills: [
       "manikür",
       "jel güçlendirme",
@@ -123,7 +138,10 @@ export const masters = [
       "şekillendirme",
       "gel boya",
     ],
-    services: unifiedServices,
+    services: overridePrices(excludeCategories(unifiedServices, ["pedicure"]), {
+      "manicure-protez-jel": 850,
+      "manicure-protez-tips": 850,
+    })
   },
 
   {
@@ -131,21 +149,21 @@ export const masters = [
     name: "Candan T.",
     role: "Manikür, jel uygulama, uzatma ve dekoratif tasarım",
     experience: "1 yıllık tecrübe",
-    priceLevel: "500 TL",
-    rating: 3.5,
+    priceLevel: "850 TL",
+    rating: 4,
     description:
       "Manikür, jel uygulama ve tırnak uzatma alanında ilerleyen bir uzmandır. Modern çizimler, dekoratif tasarımlar ve nail art üzerine dikkatli ve titiz çalışır.",
     photo: baseUrl + "candan.jpg",
     gallery: [
-      baseUrl + "candan/1.jpeg",
-      baseUrl + "candan/2.jpeg",
-      baseUrl + "candan/3.jpeg",
-      baseUrl + "candan/4.jpeg",
-      baseUrl + "candan/5.jpeg",
-      baseUrl + "candan/6.jpeg",
-      baseUrl + "candan/7.jpeg",
+      baseUrl + "candan/1.webp",
+      baseUrl + "candan/2.webp",
+      baseUrl + "candan/3.webp",
+      baseUrl + "candan/4.webp",
+      baseUrl + "candan/5.webp",
+      baseUrl + "candan/6.webp",
+      baseUrl + "candan/7.webp",
     ],
-    level: "junior-plus",
+    level: "middle",
     skills: [
       "manikür",
       "jel uygulama",
@@ -155,6 +173,9 @@ export const masters = [
       "çizim",
       "minimal tasarım",
     ],
-    services: unifiedServices,
+    services: overridePrices(excludeCategories(unifiedServices, ["pedicure"]), {
+      "manicure-protez-jel": 850,
+      "manicure-protez-tips": 850,
+    }),
   },
 ];
