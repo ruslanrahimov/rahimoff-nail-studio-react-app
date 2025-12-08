@@ -1,6 +1,6 @@
-const baseUrl = import.meta.env.BASE_URL;
 import AppointmentButton from "../components/AppointmentButton.jsx";
 import SecondaryLinkButton from "../components/SecondaryLinkButton.jsx";
+const baseUrl = import.meta.env.BASE_URL;
 
 export const heroData = [
   {

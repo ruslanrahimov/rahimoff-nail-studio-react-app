@@ -55,24 +55,6 @@ const MasterPage = () => {
 
   return (
     <>
-      <title>
-        {master.name} – {master.role} | Rahimoff Nail Studio Isparta
-      </title>
-
-      <meta
-        name="description"
-        content={`${master.name}: ${master.description}. ${master.experience}. Uzmanlık alanları: ${master.skills.join(", ")}.`}
-      />
-
-      <meta property="og:title" content={`${master.name} – ${master.role}`} />
-      <meta property="og:description" content={master.description} />
-      <meta property="og:image" content={master.photo} />
-      <meta property="og:type" content="profile" />
-
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={`${master.name} – ${master.role}`} />
-      <meta name="twitter:description" content={master.description} />
-      <meta name="twitter:image" content={master.photo} />
       <section className="container mx-auto mt-16 px-4 py-12 animate-fadeIn">
         {/* HEADER BLOCK */}
         <div className="flex flex-col lg:flex-row items-center lg:items-start gap-10">

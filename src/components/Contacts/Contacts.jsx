@@ -49,7 +49,7 @@ const Contacts = () => {
     <div className="max-md:flex max-md:flex-col-reverse max-md:mt-20">
       <div className="contacts grid grid-cols-2 w-1/2 m-auto py-20 gap-12 max-md:grid-cols-1 max-md:w-11/12 max-md:pt-4 pb-8">
         <div
-          style={{ backgroundImage: `url(${baseUrl}value-1.webp` }}
+          style={{ backgroundImage: `url(${baseUrl}value-1.webp)` }}
           className="image-cover rounded-xl h-110 bg-center bg-cover bg-no-repeat"
         ></div>
         <div className="info-container w-full flex flex-col justify-center">
