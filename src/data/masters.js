@@ -35,7 +35,7 @@ const overridePrices = (services, overrides) =>
     price: overrides[s.id] ?? s.price,
   }));
 
-const excludeCategories = (services, categories) =>
+const excludeCategories = (services, categories = []) =>
   services.filter(
     (service) => !categories.some((cat) => service.id.startsWith(`${cat}-`))
   );
@@ -45,7 +45,7 @@ export const masters = [
     id: "elif",
     name: "Elif Rahimov",
     role: "Problematik tırnaklar, zor mimari ve detaylı düzeltmeler",
-    experience: "6 yıllık tecrübe",
+    experience: "8 yıllık tecrübe",
     priceLevel: "1000 TL",
     rating: 5,
     description:
@@ -88,7 +88,14 @@ export const masters = [
       "pedikür uzmanlığı",
       "doğal tırnak güçlendirme",
     ],
-    services: unifiedServices,
+    services: overridePrices(excludeCategories(unifiedServices), {
+      "manicure-basic": 500,
+      "manicure-protez-jel": 1300,
+      "manicure-protez-tips": 1300,
+      "manicure-gel-guc-kalici": 1000,
+      "pedicure-kane-basic": 1000,
+      "pedicure-kane-kalici-oje": 1500,
+    })
   },
 
   {
@@ -136,7 +143,7 @@ export const masters = [
     name: "Hayruş K.",
     role: "Manikür, jel güçlendirme, uzatma ve modern nail art",
     experience: "1 yıllık tecrübe",
-    priceLevel: "850 TL",
+    priceLevel: "800 TL",
     rating: 4,
     description:
       "Doğal manikür, jel güçlendirme ve uzatma üzerine çalışır. Modern nail art, ince detaylı tasarımlar ve şekillendirmede estetik ve özenli bir yaklaşım sergiler.",
@@ -165,8 +172,8 @@ export const masters = [
       "gel boya",
     ],
     services: overridePrices(excludeCategories(unifiedServices, ["pedicure"]), {
-      "manicure-protez-jel": 850,
-      "manicure-protez-tips": 850,
+      "manicure-protez-jel": 900,
+      "manicure-protez-tips": 900,
     })
   },
 
@@ -175,7 +182,7 @@ export const masters = [
     name: "Candan T.",
     role: "Manikür, jel uygulama, uzatma ve dekoratif tasarım",
     experience: "1 yıllık tecrübe",
-    priceLevel: "850 TL",
+    priceLevel: "800 TL",
     rating: 4,
     description:
       "Manikür, jel uygulama ve tırnak uzatma alanında ilerleyen bir uzmandır. Modern çizimler, dekoratif tasarımlar ve nail art üzerine dikkatli ve titiz çalışır.",
@@ -200,8 +207,8 @@ export const masters = [
       "minimal tasarım",
     ],
     services: overridePrices(excludeCategories(unifiedServices, ["pedicure"]), {
-      "manicure-protez-jel": 850,
-      "manicure-protez-tips": 850,
+      "manicure-protez-jel": 900,
+      "manicure-protez-tips": 900,
     }),
   },
 ];
