@@ -23,14 +23,14 @@ export const heroData = [
                                 <br />
                                 <br />
                                 <span className="inline-block rounded-xl border border-rose-200 bg-rose-50 px-3 py-2 text-sm max-md:text-xs">
-                                        <span className="font-semibold">Protez Tırnak + 2 Tasarım (basit)</span>
+                                        <span className="font-semibold">Protez Tırnak</span>
                                         <br />
                                         <span className="font-semibold text-rose-600 text-lg">1000₺ yerine → sadece 700₺</span>
                                 </span>
                                 <br />
                                 <br />
                                 <span className="text-xs text-slate-500 max-md:text-[11px]">
-                                        Kampanya <span className="font-semibold text-rose-600">15 Aralık 2025</span> tarihine
+                                        Kampanya <span className="font-semibold text-rose-600">21 Aralık 2025</span> tarihine
                                         kadar geçerlidir.
                                 </span>
                                 <br />
