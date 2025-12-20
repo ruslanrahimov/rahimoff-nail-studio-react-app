@@ -30,15 +30,13 @@ const unifiedServices = [
 ];
 
 const overridePrices = (services, overrides) =>
-  services.map(s => ({
+  services.map((s) => ({
     ...s,
     price: overrides[s.id] ?? s.price,
   }));
 
 const excludeCategories = (services, categories = []) =>
-  services.filter(
-    (service) => !categories.some((cat) => service.id.startsWith(`${cat}-`))
-  );
+  services.filter((service) => !categories.some((cat) => service.id.startsWith(`${cat}-`)));
 
 export const masters = [
   {
@@ -95,7 +93,7 @@ export const masters = [
       "manicure-gel-guc-kalici": 1000,
       "pedicure-kane-basic": 1000,
       "pedicure-kane-kalici-oje": 1500,
-    })
+    }),
   },
 
   {
@@ -174,7 +172,7 @@ export const masters = [
     services: overridePrices(excludeCategories(unifiedServices, ["pedicure"]), {
       "manicure-protez-jel": 900,
       "manicure-protez-tips": 900,
-    })
+    }),
   },
 
   {
