@@ -52,21 +52,24 @@ const ReviewCard = ({ review, isActive }) => {
 const Reviews = () => {
         const [currentPage, setCurrentPage] = useState(0);
         const [isMobile, setIsMobile] = useState(false);
+        const [isTablet, setIsTablet] = useState(false);
         const reviewsRef = useRef(null);
         const cardsRef = useRef([]);
 
         useEffect(() => {
-                const checkMobile = () => {
-                        setIsMobile(window.innerWidth <= 768);
+                const checkDevice = () => {
+                        const width = window.innerWidth;
+                        setIsMobile(width <= 768);
+                        setIsTablet(width > 768 && width <= 1024);
                 };
 
-                checkMobile();
-                window.addEventListener('resize', checkMobile);
+                checkDevice();
+                window.addEventListener('resize', checkDevice);
 
-                return () => window.removeEventListener('resize', checkMobile);
+                return () => window.removeEventListener('resize', checkDevice);
         }, []);
 
-        const reviewsPerPage = isMobile ? 1 : 3;
+        const reviewsPerPage = isMobile ? 1 : isTablet ? 2 : 3;
         const totalPages = Math.ceil(reviews.length / reviewsPerPage);
 
         const currentReviews = reviews.slice(
@@ -88,7 +91,7 @@ const Reviews = () => {
                                 }
                         );
                 }
-        }, [currentPage, isMobile]);
+        }, [currentPage, isMobile, isTablet]);
 
         const handlePrevPage = () => {
                 setCurrentPage((prev) => {

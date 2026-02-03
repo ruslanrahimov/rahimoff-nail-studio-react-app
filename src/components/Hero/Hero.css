@@ -207,10 +207,16 @@
    MOBILE STYLES
    =================================== */
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .hero-modern {
     margin-bottom: 40px;
     padding-top: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-modern {
+    margin-bottom: 40px;
   }
 
   .hero-modern-grid {

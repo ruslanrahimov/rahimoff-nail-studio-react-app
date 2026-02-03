@@ -246,25 +246,26 @@ const ValueCard = ({ title, backgroundImage, children, index, parentInView = tru
 
         @media (max-width: 1024px) {
           .value-card {
-            height: 400px;
+            height: 340px;
           }
 
           .value-card__content {
-            padding: 36px 28px;
+            padding: 28px 24px;
           }
 
           .value-card__number {
-            font-size: 56px;
-            top: 24px;
-            right: 24px;
+            font-size: 48px;
+            top: 20px;
+            right: 20px;
           }
 
           .value-card__title {
-            font-size: 30px;
+            font-size: 24px;
           }
 
           .value-card__text {
-            font-size: 14px;
+            font-size: 12px;
+            line-height: 1.5;
           }
         }
 

@@ -48,7 +48,7 @@ const Navbar = () => {
         return (
                 <>
                         {/* Desktop Navbar */}
-                        <nav className="fixed top-0 left-0 right-0 w-full h-[54px] bg-[#fcfbf7] border-b border-[#e6e4de] z-50 max-md:hidden">
+                        <nav className="fixed top-0 left-0 right-0 w-full h-[54px] bg-[#fcfbf7] border-b border-[#e6e4de] z-50 max-lg:hidden">
                                 <div className="max-w-[1400px] mx-auto h-full px-6 flex items-center justify-between gap-6">
                                         <div className="flex items-center gap-10 lg:gap-20">
                                                 <NavLink to="/" className="flex-shrink-0">
@@ -108,7 +108,7 @@ const Navbar = () => {
                         </nav>
 
                         {/* Mobile Navbar */}
-                        <nav className="fixed top-0 left-0 right-0 w-full h-[54px] bg-[#fcfbf7] border-b border-[#e6e4de] z-50 md:hidden">
+                        <nav className="fixed top-0 left-0 right-0 w-full h-[54px] bg-[#fcfbf7] border-b border-[#e6e4de] z-50 lg:hidden">
                                 <div className="h-full px-5 flex items-center justify-between">
                                         <NavLink to="/">
                                                 <img
@@ -132,7 +132,7 @@ const Navbar = () => {
 
                         {/* Mobile Menu */}
                         {isMenuOpen && (
-                                <div className="fixed inset-0 bg-[#fcfbf7] z-[60] md:hidden">
+                                <div className="fixed inset-0 bg-[#fcfbf7] z-[60] lg:hidden">
                                         <div className="h-full flex flex-col">
                                                 <div className="h-[60px] px-5 flex items-center justify-between border-b border-[#e6e4de]">
                                                         <NavLink to="/" onClick={() => setIsMenuOpen(false)}>

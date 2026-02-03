@@ -141,7 +141,7 @@
   margin-bottom: 60px;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1024px) {
   .reviews-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 25px;

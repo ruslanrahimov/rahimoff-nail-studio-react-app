@@ -41,7 +41,7 @@ const Values = ({ inView = true }) => {
 
           @media (max-width: 1200px) {
             .values-grid {
-              gap: 20px;
+              gap: 18px;
             }
           }
 
@@ -51,8 +51,8 @@ const Values = ({ inView = true }) => {
             }
 
             .values-grid {
-              grid-template-columns: repeat(2, 1fr);
-              gap: 20px;
+              grid-template-columns: repeat(3, 1fr);
+              gap: 16px;
             }
           }
 
