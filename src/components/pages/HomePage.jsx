@@ -189,6 +189,7 @@ const Home = () => {
                                                                 </span>
                                                                 <span
                                                                         className="text-[24px] text-[#2e2e2e] transform group-hover:translate-x-[5px] group-hover:-translate-y-[5px] transition-transform duration-300 max-md:text-[20px]"
+                                                                        style={{ fontVariantEmoji: 'text' }}
                                                                 >
                                                                         ↗
                                                                 </span>

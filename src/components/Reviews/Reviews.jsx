@@ -144,6 +144,7 @@ const Reviews = () => {
                                                         onClick={handlePrevPage}
                                                         className="nav-button"
                                                         aria-label="Previous reviews"
+                                                        style={{ fontVariantEmoji: 'text' }}
                                                 >
                                                         ←
                                                 </button>
@@ -154,6 +155,7 @@ const Reviews = () => {
                                                         onClick={handleNextPage}
                                                         className="nav-button"
                                                         aria-label="Next reviews"
+                                                        style={{ fontVariantEmoji: 'text' }}
                                                 >
                                                         →
                                                 </button>

@@ -179,7 +179,7 @@ const MasterPage = () => {
               rel="noopener noreferrer"
               className="master-cta"
             >
-              Randevu Al →
+              Randevu Al <span style={{ fontVariantEmoji: 'text' }}>→</span>
             </a>
           </div>
         </div>

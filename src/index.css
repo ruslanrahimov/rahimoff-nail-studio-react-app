@@ -74,6 +74,7 @@ body {
   font-weight: 400;
   font-style: normal;
   background-color: #e8e6e2;
+  font-variant-emoji: text;
 }
 
 img,

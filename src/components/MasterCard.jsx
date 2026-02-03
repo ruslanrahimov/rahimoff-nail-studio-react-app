@@ -124,7 +124,7 @@ const MasterCard = ({
         <div className="master-card-link-wrapper">
           <span className="master-card-link">
             Detaylı Bilgi
-            <span className="master-card-link-arrow">↗</span>
+            <span className="master-card-link-arrow" style={{ fontVariantEmoji: 'text' }}>↗</span>
           </span>
         </div>
       </div>
