@@ -188,10 +188,21 @@ const Home = () => {
                                                                         {service.name}
                                                                 </span>
                                                                 <span
-                                                                        className="text-[24px] text-[#2e2e2e] transform group-hover:translate-x-[5px] group-hover:-translate-y-[5px] transition-transform duration-300 max-md:text-[20px]"
-                                                                        style={{ fontVariantEmoji: 'text' }}
+                                                                        className="text-[#2e2e2e] transform group-hover:translate-x-[5px] group-hover:-translate-y-[5px] transition-transform duration-300"
+                                                                        aria-hidden="true"
                                                                 >
-                                                                        ↗
+                                                                        <svg
+                                                                                className="w-[24px] h-[24px] max-md:w-[20px] max-md:h-[20px]"
+                                                                                viewBox="0 0 24 24"
+                                                                                fill="none"
+                                                                                stroke="currentColor"
+                                                                                strokeWidth="1.6"
+                                                                                strokeLinecap="round"
+                                                                                strokeLinejoin="round"
+                                                                        >
+                                                                                <path d="M7 17 L17 7" />
+                                                                                <path d="M10 7 H17 V14" />
+                                                                        </svg>
                                                                 </span>
                                                         </Link>
                                                 ))}

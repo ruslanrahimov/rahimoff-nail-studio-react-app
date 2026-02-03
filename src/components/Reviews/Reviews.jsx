@@ -144,9 +144,19 @@ const Reviews = () => {
                                                         onClick={handlePrevPage}
                                                         className="nav-button"
                                                         aria-label="Previous reviews"
-                                                        style={{ fontVariantEmoji: 'text' }}
                                                 >
-                                                        ←
+                                                        <svg
+                                                                viewBox="0 0 24 24"
+                                                                fill="none"
+                                                                stroke="currentColor"
+                                                                strokeWidth="1.8"
+                                                                strokeLinecap="round"
+                                                                strokeLinejoin="round"
+                                                                aria-hidden="true"
+                                                        >
+                                                                <path d="M19 12 H5" />
+                                                                <path d="M11 6 L5 12 L11 18" />
+                                                        </svg>
                                                 </button>
                                                 <span className="page-indicator">
                                                         {currentPage + 1} / {totalPages}
@@ -155,9 +165,19 @@ const Reviews = () => {
                                                         onClick={handleNextPage}
                                                         className="nav-button"
                                                         aria-label="Next reviews"
-                                                        style={{ fontVariantEmoji: 'text' }}
                                                 >
-                                                        →
+                                                        <svg
+                                                                viewBox="0 0 24 24"
+                                                                fill="none"
+                                                                stroke="currentColor"
+                                                                strokeWidth="1.8"
+                                                                strokeLinecap="round"
+                                                                strokeLinejoin="round"
+                                                                aria-hidden="true"
+                                                        >
+                                                                <path d="M5 12 H19" />
+                                                                <path d="M13 6 L19 12 L13 18" />
+                                                        </svg>
                                                 </button>
                                         </div>
                                 </div>

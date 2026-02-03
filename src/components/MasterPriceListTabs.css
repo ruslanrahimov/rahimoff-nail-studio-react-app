@@ -51,13 +51,23 @@
 }
 
 .price-tabs-dropdown-arrow {
-  font-size: 10px;
   color: #5a5a5a;
   transition: transform 0.3s ease;
+  width: 12px;
+  height: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .price-tabs-dropdown-arrow.open {
   transform: rotate(180deg);
+}
+
+.price-tabs-dropdown-arrow svg {
+  width: 10px;
+  height: 10px;
+  display: block;
 }
 
 .price-tabs-dropdown-menu {

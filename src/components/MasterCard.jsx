@@ -124,7 +124,19 @@ const MasterCard = ({
         <div className="master-card-link-wrapper">
           <span className="master-card-link">
             Detaylı Bilgi
-            <span className="master-card-link-arrow" style={{ fontVariantEmoji: 'text' }}>↗</span>
+            <span className="master-card-link-arrow" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M7 17 L17 7" />
+                <path d="M10 7 H17 V14" />
+              </svg>
+            </span>
           </span>
         </div>
       </div>

@@ -263,8 +263,18 @@
 }
 
 .master-card-link-arrow {
-  font-size: 14px;
+  width: 14px;
+  height: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.master-card-link-arrow svg {
+  width: 14px;
+  height: 14px;
+  display: block;
 }
 
 .master-card:hover .master-card-link {

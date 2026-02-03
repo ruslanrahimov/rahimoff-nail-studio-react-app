@@ -179,7 +179,20 @@ const MasterPage = () => {
               rel="noopener noreferrer"
               className="master-cta"
             >
-              Randevu Al <span style={{ fontVariantEmoji: 'text' }}>→</span>
+              Randevu Al{" "}
+              <span className="master-cta-arrow" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M5 12 H19" />
+                  <path d="M13 6 L19 12 L13 18" />
+                </svg>
+              </span>
             </a>
           </div>
         </div>

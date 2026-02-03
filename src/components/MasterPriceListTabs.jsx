@@ -22,7 +22,17 @@ const MasterPriceListTabs = ({ masterId }) => {
         >
           <span>{tabContent[active].title}</span>
           <span className={`price-tabs-dropdown-arrow ${isOpen ? "open" : ""}`}>
-            ▼
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M6 9 L12 15 L18 9" />
+            </svg>
           </span>
         </button>
 
