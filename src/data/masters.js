@@ -141,7 +141,7 @@ export const masters = [
                 name: "Hayrunnisa Kaymaz",
                 role: "Manikür, jel güçlendirme, uzatma ve modern nail art",
                 experience: "1 yıllık tecrübe",
-                priceLevel: "1000 TL",
+                priceLevel: "700 TL",
                 rating: 5,
                 description:
                         "Doğal manikür, jel güçlendirme ve uzatma üzerine çalışır. Modern nail art, ince detaylı tasarımlar ve şekillendirmede estetik ve özenli bir yaklaşım sergiler.",
@@ -159,7 +159,7 @@ export const masters = [
                         baseUrl + "hayrus/10.webp",
                         baseUrl + "hayrus/11.webp",
                 ],
-                level: "top",
+                level: "middle",
                 skills: [
                         "manikür",
                         "jel güçlendirme",
@@ -170,8 +170,8 @@ export const masters = [
                         "gel boya",
                 ],
                 services: overridePrices(excludeCategories(unifiedServices, ["pedicure"]), {
-                        "manicure-protez-jel": 1000,
-                        "manicure-protez-tips": 1000,
+                        "manicure-protez-jel": 800,
+                        "manicure-protez-tips": 800,
                 }),
         },
 

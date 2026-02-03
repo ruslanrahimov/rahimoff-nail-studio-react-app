@@ -1,13 +1,12 @@
+import { useEffect, useRef } from "react";
 import { useParams } from "react-router";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { masters } from "../../data/masters.js";
 import MasterPriceListTabs from "../MasterPriceListTabs.jsx";
+import "./MasterPage.css";
 
-const badgeStyles = {
-  top: "bg-yellow-100 text-yellow-800 border border-yellow-300",
-  middle: "bg-purple-100 text-purple-800 border border-purple-300",
-  "junior-plus": "bg-blue-100 text-blue-800 border border-blue-300",
-  intern: "bg-gray-100 text-gray-700 border border-gray-300",
-};
+gsap.registerPlugin(ScrollTrigger);
 
 const levelTitles = {
   top: "Top Master",
@@ -16,170 +15,209 @@ const levelTitles = {
   intern: "Stajyer",
 };
 
-const renderStars = (rating) => {
-  const stars = [];
-
-  for (let i = 1; i <= 5; i++) {
-    if (rating >= i) {
-      stars.push(
-        <span key={i} className="text-yellow-500 text-xl">
-          ★
-        </span>,
-      );
-    } else if (rating >= i - 0.5) {
-      stars.push(
-        <span key={i} className="text-yellow-500 text-xl relative">
-          <span className="text-yellow-500 absolute left-0 top-0 w-1/2 overflow-hidden">★</span>
-          <span className="text-gray-300">★</span>
-        </span>,
-      );
-    } else {
-      stars.push(
-        <span key={i} className="text-gray-300 text-xl">
-          ★
-        </span>,
-      );
-    }
-  }
-
-  return stars;
-};
-
 const MasterPage = () => {
   const { id } = useParams();
   const master = masters.find((m) => m.id === id);
 
+  const pageRef = useRef(null);
+  const headerRef = useRef(null);
+  const skillsRef = useRef(null);
+  const galleryRef = useRef(null);
+
+  useEffect(() => {
+    if (!master) return;
+
+    const ctx = gsap.context(() => {
+      const ease = "power3.out";
+
+      // Header animation
+      if (headerRef.current) {
+        gsap.fromTo(
+          headerRef.current.querySelector(".master-photo-wrapper"),
+          { opacity: 0, x: -30 },
+          { opacity: 1, x: 0, duration: 0.8, ease }
+        );
+
+        gsap.fromTo(
+          headerRef.current.querySelector(".master-info"),
+          { opacity: 0, x: 30 },
+          { opacity: 1, x: 0, duration: 0.8, ease, delay: 0.2 }
+        );
+      }
+
+      // Skills animation
+      if (skillsRef.current) {
+        const tags = skillsRef.current.querySelectorAll(".master-skill-tag");
+        gsap.fromTo(
+          tags,
+          { opacity: 0, y: 10 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.4,
+            ease,
+            stagger: 0.05,
+            scrollTrigger: {
+              trigger: skillsRef.current,
+              start: "top 80%",
+              once: true,
+            },
+          }
+        );
+      }
+
+      // Gallery animation
+      if (galleryRef.current) {
+        const items = galleryRef.current.querySelectorAll(".master-gallery-item");
+        gsap.fromTo(
+          items,
+          { opacity: 0, y: 20 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            ease,
+            stagger: 0.1,
+            scrollTrigger: {
+              trigger: galleryRef.current,
+              start: "top 80%",
+              once: true,
+            },
+          }
+        );
+      }
+    }, pageRef);
+
+    return () => ctx.revert();
+  }, [master]);
+
+  const renderStars = (rating) => {
+    const stars = [];
+    for (let i = 1; i <= 5; i++) {
+      if (rating >= i) {
+        stars.push(
+          <span key={i} className="master-star filled">
+            ★
+          </span>
+        );
+      } else if (rating >= i - 0.5) {
+        stars.push(
+          <span key={i} className="master-star filled" style={{ opacity: 0.5 }}>
+            ★
+          </span>
+        );
+      } else {
+        stars.push(
+          <span key={i} className="master-star">
+            ★
+          </span>
+        );
+      }
+    }
+    return stars;
+  };
+
   if (!master) {
-    return <p className="text-center mt-20 text-lg">Master bulunamadı.</p>;
+    return (
+      <div className="master-page">
+        <div className="master-page-container">
+          <p
+            style={{
+              fontFamily: "Manrope, sans-serif",
+              fontSize: "14px",
+              color: "#5a5a5a",
+              textAlign: "center",
+              padding: "60px 0",
+            }}
+          >
+            Master bulunamadı.
+          </p>
+        </div>
+      </div>
+    );
   }
 
+  const levelClassName = `level-${master.level}`;
+
   return (
-    <>
-      <section className="container mx-auto mt-16 px-4 py-12 animate-fadeIn">
-        {/* HEADER BLOCK */}
-        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-10">
-          {/* Foto */}
-          <div className="relative">
-            <img
-              src={master.photo}
-              alt={master.name}
-              className="w-72 h-72 object-cover rounded-xl border border-gray-200"
-            />
+    <div ref={pageRef} className="master-page">
+      <div className="master-page-container">
+        {/* HEADER SECTION */}
+        <div ref={headerRef} className="master-header">
+          {/* Photo */}
+          <div className="master-photo-wrapper">
+            <img src={master.photo} alt={master.name} className="master-photo" />
+            <div className="master-photo-overlay"></div>
+            <div className="master-photo-corner-accent"></div>
 
             {/* Badge */}
-            <span
-              className={`
-              absolute top-2 right-2 
-              px-3 py-1 text-xs font-semibold rounded-full
-              ${badgeStyles[master.level]}
-            `}
-            >
-              {levelTitles[master.level]}
-            </span>
+            <div className={`master-badge ${levelClassName}`}>
+              <span className="master-badge-text">{levelTitles[master.level]}</span>
+            </div>
           </div>
 
-          {/* INFORMATION */}
-          <div
-            className="
-    flex-1 text-left pt-4 lg:pt-6 
-    max-md:text-center max-md:flex max-md:flex-col max-md:items-center
-  "
-          >
-            {/* Имя мастера */}
-            <h1 className="text-4xl font-bold text-gray-900 leading-tight">{master.name}</h1>
+          {/* Info */}
+          <div className="master-info">
+            <h1 className="master-name">{master.name}</h1>
+            <p className="master-role">{master.role}</p>
 
-            {/* Роль */}
-            <p className="text-gray-700 text-base mt-2 font-medium max-md:max-w-sm">
-              {master.role}
-            </p>
-
-            {/* Опыт + рейтинг */}
-            <div
-              className="
-      flex items-center gap-6 mt-4 
-      max-md:justify-center
-    "
-            >
-              <span className="text-chinese-600 text-sm font-semibold">{master.experience}</span>
-
-              <div className="flex items-center">{renderStars(master.rating)}</div>
+            {/* Meta */}
+            <div className="master-meta">
+              <span className="master-experience">{master.experience}</span>
+              <div className="master-rating">{renderStars(master.rating)}</div>
             </div>
 
-            {/* Описание */}
-            <p
-              className="
-      text-gray-600 text-[15px] leading-relaxed mt-6 max-w-xl 
-      max-md:max-w-sm
-    "
-            >
-              {master.description}
-            </p>
+            {/* Description */}
+            <p className="master-description">{master.description}</p>
 
             {/* CTA */}
             <a
               href={`https://wa.me/905060552137?text=${encodeURIComponent(
-                `Merhaba! ${master.name} için randevu almak istiyorum. Müsait olduğunuz saatleri paylaşabilir misiniz?`,
+                `Merhaba! ${master.name} için randevu almak istiyorum. Müsait olduğunuz saatleri paylaşabilir misiniz?`
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="
-    inline-block mt-8 px-7 py-2.5 bg-black text-white text-sm font-medium 
-    hover:bg-gray-800 transition 
-    max-md:w-full max-md:max-w-xs max-md:mx-auto text-center
-  "
+              className="master-cta"
             >
-              Randevu Al
+              Randevu Al →
             </a>
           </div>
         </div>
 
-        {/* Skills */}
-        <h3 className="text-lg font-semibold text-charcoal-900 mt-12 mb-3">Uzmanlık Alanları</h3>
-        <div className="flex flex-wrap gap-2">
-          {master.skills.map((skill, i) => (
-            <span
-              key={i}
-              className="px-3 py-1 text-xs bg-gray-100 text-gray-700 border border-gray-300 rounded-full"
-            >
-              {skill}
-            </span>
-          ))}
+        {/* SKILLS SECTION */}
+        <div ref={skillsRef} className="master-skills-section">
+          <h2 className="master-section-title">Uzmanlık Alanları</h2>
+          <div className="master-skills-list">
+            {master.skills.map((skill, i) => (
+              <span key={i} className="master-skill-tag">
+                {skill}
+              </span>
+            ))}
+          </div>
         </div>
 
-        {/* Price List */}
+        {/* PRICE LIST */}
         <MasterPriceListTabs masterId={master.id} />
 
-        {/* Gallery */}
-        <h2 className="text-xl font-semibold mt-12 mb-5">Çalışmalar</h2>
+        {/* GALLERY SECTION */}
+        <div ref={galleryRef} className="master-gallery-section">
+          <h2 className="master-section-title">Çalışmalar</h2>
+          <div className="master-gallery-grid">
+            {/* Featured first image */}
+            <div className="master-gallery-item featured">
+              <img src={master.gallery[0]} alt="" className="master-gallery-image" />
+            </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-          {/* FIRST LARGE IMAGE */}
-          <div className="col-span-2 sm:col-span-3">
-            <img
-              src={master.gallery[0]}
-              alt=""
-              className="
-        w-full h-64 sm:h-96 object-cover rounded-xl border border-gray-200 
-        hover:opacity-95 transition
-      "
-            />
+            {/* Other images */}
+            {master.gallery.slice(1).map((img, i) => (
+              <div key={i} className="master-gallery-item">
+                <img src={img} alt="" className="master-gallery-image" />
+              </div>
+            ))}
           </div>
-
-          {/* OTHER IMAGES */}
-          {master.gallery.slice(1).map((img, i) => (
-            <img
-              key={i}
-              src={img}
-              alt=""
-              className="
-        w-full h-48 object-cover rounded-xl border border-gray-200 
-        hover:opacity-90 transition
-      "
-            />
-          ))}
         </div>
-      </section>
-    </>
+      </div>
+    </div>
   );
 };
 

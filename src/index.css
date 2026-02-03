@@ -2,6 +2,9 @@
 
 @theme {
   --font-raleway: "Raleway", serif;
+  --color-burgundy-500: #6c2521;
+  --color-burgundy-600: #5a1f1c;
+  --color-burgundy-700: #481916;
   --color-platinum-50: oklch(0.994 0.001 106.423);
   --color-platinum-100: oklch(0.985 0.001 106.423);
   --color-platinum-200: oklch(0.97 0.003 84.559);

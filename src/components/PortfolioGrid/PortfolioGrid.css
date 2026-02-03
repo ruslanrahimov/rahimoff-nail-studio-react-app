@@ -1,0 +1,326 @@
+/* Portfolio Stack - Aggressive Overlapping Layers */
+
+.portfolio-stack-container {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 30px;
+  position: relative;
+  min-height: 180vh;
+  overflow: visible;
+}
+
+.portfolio-stack {
+  position: relative;
+  width: 100%;
+  padding-bottom: 100px;
+}
+
+/* Portfolio Row - Each row of 3 items with dramatic overlap */
+.portfolio-row {
+  position: sticky;
+  top: 100px;
+  width: 100%;
+  margin-bottom: -320px; /* Aggressive negative margin for 85% overlap */
+  opacity: 0;
+  transform: translateY(100px) scale(0.96) rotateX(8deg);
+  transform-origin: center top;
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  perspective: 1500px;
+  contain: layout style paint;
+}
+
+.portfolio-row:last-child {
+  margin-bottom: 0; /* Remove negative margin on last row */
+}
+
+.portfolio-stack--visible .portfolio-row {
+  opacity: 1;
+  transform: translateY(0) scale(1) rotateX(0deg);
+}
+
+.portfolio-row__inner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding: 40px 32px;
+  background: linear-gradient(135deg, #ebe9e0 0%, #e8e6dd 100%);
+  border-radius: 20px;
+  box-shadow:
+    0 -2px 0 rgba(255, 255, 255, 0.8) inset,
+    0 1px 3px rgba(0, 0, 0, 0.05) inset,
+    0 8px 24px rgba(46, 46, 46, 0.08),
+    0 16px 48px rgba(46, 46, 46, 0.06),
+    0 32px 80px rgba(46, 46, 46, 0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle texture overlay for depth */
+.portfolio-row__inner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(46, 46, 46, 0.01) 2px,
+      rgba(46, 46, 46, 0.01) 4px
+    );
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+/* Decorative edge highlight */
+.portfolio-row__inner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.6) 20%,
+    rgba(255, 255, 255, 0.6) 80%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* Individual Portfolio Cards */
+.portfolio-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  z-index: 10;
+}
+
+.portfolio-card__inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #1a1a1a;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.1),
+    0 4px 8px rgba(0, 0, 0, 0.08),
+    0 8px 16px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portfolio-card:hover .portfolio-card__inner {
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.12),
+    0 8px 16px rgba(0, 0, 0, 0.12),
+    0 16px 32px rgba(0, 0, 0, 0.1),
+    0 24px 48px rgba(0, 0, 0, 0.08);
+  transform: scale(1.01);
+}
+
+.portfolio-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portfolio-card:hover .portfolio-card__image {
+  transform: scale(1.08);
+}
+
+.portfolio-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.1) 60%,
+    rgba(0, 0, 0, 0.25) 100%
+  );
+  opacity: 0.6;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+.portfolio-card:hover .portfolio-card__overlay {
+  opacity: 0.3;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .portfolio-stack-container {
+    min-height: 150vh;
+    padding: 0 20px;
+  }
+
+  .portfolio-row {
+    top: 80px;
+    margin-bottom: -280px;
+  }
+
+  .portfolio-row__inner {
+    gap: 18px;
+    padding: 32px 24px;
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-stack-container {
+    min-height: 120vh;
+    padding: 0 16px;
+  }
+
+  .portfolio-row {
+    top: 70px;
+    margin-bottom: -200px; /* Less aggressive overlap on smaller screens */
+    transform: translateY(80px) scale(0.97) rotateX(6deg);
+  }
+
+  .portfolio-row__inner {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    padding: 28px 20px;
+    border-radius: 14px;
+  }
+
+  .portfolio-card {
+    aspect-ratio: 1 / 1;
+  }
+
+  /* Hide third item on tablets in 2-column layout */
+  .portfolio-card:nth-child(3) {
+    display: none;
+  }
+
+  .portfolio-card__inner {
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio-stack-container {
+    min-height: 100vh;
+    padding: 0 12px;
+  }
+
+  .portfolio-row {
+    top: 60px;
+    margin-bottom: -140px; /* Moderate overlap on mobile */
+    transform: translateY(60px) scale(0.98) rotateX(4deg);
+  }
+
+  .portfolio-row__inner {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 24px 16px;
+    border-radius: 12px;
+  }
+
+  .portfolio-card {
+    aspect-ratio: 4 / 5;
+  }
+
+  /* Show all items in single column on mobile */
+  .portfolio-card:nth-child(3) {
+    display: block;
+  }
+
+  .portfolio-card__inner {
+    border-radius: 10px;
+  }
+}
+
+/* Staggered animation delays for dramatic entrance */
+.portfolio-row:nth-child(1) {
+  transition-delay: 0s;
+  z-index: 101;
+}
+
+.portfolio-row:nth-child(2) {
+  transition-delay: 0.1s;
+  z-index: 102;
+}
+
+.portfolio-row:nth-child(3) {
+  transition-delay: 0.2s;
+  z-index: 103;
+}
+
+.portfolio-row:nth-child(4) {
+  transition-delay: 0.3s;
+  z-index: 104;
+}
+
+.portfolio-row:nth-child(5) {
+  transition-delay: 0.4s;
+  z-index: 105;
+}
+
+.portfolio-row:nth-child(6) {
+  transition-delay: 0.5s;
+  z-index: 106;
+}
+
+.portfolio-row:nth-child(7) {
+  transition-delay: 0.6s;
+  z-index: 107;
+}
+
+.portfolio-row:nth-child(8) {
+  transition-delay: 0.7s;
+  z-index: 108;
+}
+
+/* Add depth cue with subtle border */
+.portfolio-row__inner {
+  border: 1px solid rgba(46, 46, 46, 0.06);
+}
+
+/* Enhanced card stagger within rows */
+.portfolio-card:nth-child(1) {
+  transition-delay: 0s;
+}
+
+.portfolio-card:nth-child(2) {
+  transition-delay: 0.05s;
+}
+
+.portfolio-card:nth-child(3) {
+  transition-delay: 0.1s;
+}
+
+/* Performance optimizations */
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-row,
+  .portfolio-card,
+  .portfolio-card__inner,
+  .portfolio-card__image,
+  .portfolio-card__overlay {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .portfolio-row {
+    opacity: 1;
+    transform: none;
+    position: relative;
+    top: auto;
+    margin-bottom: 40px;
+    filter: none;
+  }
+}

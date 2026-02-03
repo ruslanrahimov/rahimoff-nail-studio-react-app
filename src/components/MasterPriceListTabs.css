@@ -1,0 +1,273 @@
+/* ===================================
+   MASTER PRICE LIST TABS
+   Clean, editorial design
+   =================================== */
+
+.price-tabs-section {
+  margin: 60px 0;
+}
+
+.price-tabs-title {
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #2e2e2e;
+  letter-spacing: 2px;
+  margin: 0 0 24px 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e5e3db;
+}
+
+/* ===================================
+   MOBILE DROPDOWN
+   =================================== */
+
+.price-tabs-dropdown {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.price-tabs-dropdown-button {
+  font-family: "Manrope", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #2e2e2e;
+  background: #ffffff;
+  border: 1px solid #d4d4d0;
+  padding: 14px 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.price-tabs-dropdown-button:hover {
+  border-color: #6c2521;
+}
+
+.price-tabs-dropdown-arrow {
+  font-size: 10px;
+  color: #5a5a5a;
+  transition: transform 0.3s ease;
+}
+
+.price-tabs-dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+.price-tabs-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  border: 1px solid #d4d4d0;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  overflow: hidden;
+}
+
+.price-tabs-dropdown-item {
+  font-family: "Manrope", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #2e2e2e;
+  background: #ffffff;
+  border: none;
+  border-bottom: 1px solid #e5e3db;
+  padding: 14px 20px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.price-tabs-dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.price-tabs-dropdown-item:hover {
+  background: #fcfbf7;
+}
+
+.price-tabs-dropdown-item.active {
+  background: #6c2521;
+  color: #ffffff;
+}
+
+/* ===================================
+   DESKTOP TABS
+   =================================== */
+
+.price-tabs-list {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #e5e3db;
+  padding-bottom: 20px;
+}
+
+.price-tab-button {
+  font-family: "Manrope", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #5a5a5a;
+  background: transparent;
+  border: 1px solid #e5e3db;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.price-tab-button:hover {
+  border-color: #d4d4d0;
+  background: #ffffff;
+  color: #2e2e2e;
+}
+
+.price-tab-button.active {
+  background: #6c2521;
+  border-color: #6c2521;
+  color: #ffffff;
+}
+
+/* ===================================
+   PRICE LIST CONTENT
+   =================================== */
+
+.price-list-content {
+  background: #ffffff;
+  border: 1px solid #e5e3db;
+  padding: 30px;
+}
+
+.price-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  padding: 20px 0;
+  border-bottom: 1px solid #e5e3db;
+  transition: all 0.3s ease;
+}
+
+.price-item:last-child {
+  border-bottom: none;
+}
+
+.price-item:hover {
+  background: #fcfbf7;
+  margin: 0 -20px;
+  padding: 20px;
+}
+
+.price-item-info {
+  flex: 1;
+}
+
+.price-item-name {
+  font-family: "Manrope", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #2e2e2e;
+  margin: 0 0 6px 0;
+  letter-spacing: 0.3px;
+}
+
+.price-item-description {
+  font-family: "Manrope", sans-serif;
+  font-size: 11px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: #5a5a5a;
+  margin: 0;
+  letter-spacing: 0.2px;
+}
+
+.price-item-price {
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #6c2521;
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+}
+
+/* ===================================
+   RESPONSIVE - MOBILE
+   =================================== */
+
+@media (max-width: 768px) {
+  .price-list-content {
+    padding: 20px;
+  }
+
+  .price-item {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px 0;
+  }
+
+  .price-item:hover {
+    margin: 0 -12px;
+    padding: 16px 12px;
+  }
+
+  .price-item-price {
+    font-size: 13px;
+  }
+
+  .price-tabs-list {
+    overflow-x: auto;
+    padding-bottom: 15px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .price-tab-button {
+    font-size: 10px;
+    padding: 8px 16px;
+  }
+}
+
+/* ===================================
+   ANIMATION
+   =================================== */
+
+.price-list-animate {
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===================================
+   ACCESSIBILITY
+   =================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .price-list-animate {
+    animation: none !important;
+  }
+
+  .price-item {
+    transition: none !important;
+  }
+}

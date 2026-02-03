@@ -1,11 +1,10 @@
+import { useEffect, useRef } from "react";
 import { Link } from "react-router";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import "./MasterCard.css";
 
-const badgeStyles = {
-  top: "bg-yellow-100 text-yellow-800 border border-yellow-300",
-  middle: "bg-purple-100 text-purple-800 border border-purple-300",
-  "junior-plus": "bg-blue-100 text-blue-800 border border-blue-300",
-  intern: "bg-gray-100 text-gray-700 border border-gray-300",
-};
+gsap.registerPlugin(ScrollTrigger);
 
 const levelTitles = {
   top: "Top Master",
@@ -25,93 +24,109 @@ const MasterCard = ({
   level,
   rating,
 }) => {
+  const cardRef = useRef(null);
+
+  useEffect(() => {
+    if (!cardRef.current) return;
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        cardRef.current,
+        {
+          opacity: 0,
+          y: 30,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: cardRef.current,
+            start: "top 85%",
+            once: true,
+          },
+        }
+      );
+    }, cardRef);
+
+    return () => ctx.revert();
+  }, []);
+
   const renderStars = (rating) => {
     const stars = [];
     for (let i = 1; i <= 5; i++) {
       if (rating >= i) {
         stars.push(
-          <span key={i} className="text-yellow-500 text-lg">
+          <span key={i} className="master-card-star filled">
             ★
-          </span>,
+          </span>
         );
       } else if (rating >= i - 0.5) {
         stars.push(
-          <span key={i} className="text-yellow-500 text-lg relative">
-            <span className="text-yellow-500 absolute left-0 top-0 w-1/2 overflow-hidden">★</span>
-            <span className="text-gray-300">★</span>
-          </span>,
+          <span key={i} className="master-card-star filled" style={{ opacity: 0.5 }}>
+            ★
+          </span>
         );
       } else {
         stars.push(
-          <span key={i} className="text-gray-300 text-lg">
+          <span key={i} className="master-card-star">
             ★
-          </span>,
+          </span>
         );
       }
     }
     return stars;
   };
 
-  return (
-    <Link
-      to={`/masters/${id}`}
-      className="
-        block bg-white rounded-3xl p-6 text-center transition-all duration-300 
-        hover:-translate-y-1 hover:bg-gray-50 
-        cursor-pointer animate-fadeIn border border-gray-200
-      "
-    >
-      {/* Фото + бейдж */}
-      <div className="relative flex justify-center mb-6">
-        <img
-          src={photo}
-          alt={name}
-          className="
-            w-40 h-40 object-cover rounded-full 
-            scale-100 transition-transform duration-300 group-hover:scale-105
-            border border-gray-200
-          "
-        />
+  const levelClassName = `level-${level}`;
 
-        <span
-          className={`
-            absolute bottom-0 transform translate-y-1/3 
-            px-4 py-1 text-xs font-semibold rounded-full 
-            ${badgeStyles[level]}
-          `}
-        >
-          {levelTitles[level]}
-        </span>
+  return (
+    <Link to={`/masters/${id}`} ref={cardRef} className="master-card master-card-animate">
+      {/* Corner accent - appears on hover */}
+      <div className="master-card-corner-accent"></div>
+
+      {/* Photo Section - Full Width */}
+      <div className="master-card-photo-section">
+        <img src={photo} alt={name} className="master-card-photo" />
+        <div className="master-card-photo-overlay"></div>
+
+        {/* Level badge */}
+        <div className={`master-card-level ${levelClassName}`}>
+          <span className="master-card-level-text">{levelTitles[level]}</span>
+        </div>
       </div>
 
-      {/* Имя */}
-      <h3 className="text-xl font-semibold text-gray-900">{name}</h3>
+      {/* Content Section */}
+      <div className="master-card-content">
+        {/* Name */}
+        <h3 className="master-card-name">{name}</h3>
 
-      {/* Специализация */}
-      <p className="text-gray-700 text-sm font-medium mt-1">{role}</p>
+        {/* Role */}
+        <p className="master-card-role">{role}</p>
 
-      {/* Опыт */}
-      <p className="text-chinese-600 text-xs font-semibold mt-1">{experience}</p>
+        {/* Divider */}
+        <div className="master-card-divider"></div>
 
-      {/* Цена */}
-      <p className="text-lg font-bold text-gray-900 mt-3 tracking-wide">
-        {priceLevel} <span className="text-chinese-600 text-sm">’den başlayan fiyatlar</span>
-      </p>
+        {/* Experience & Price */}
+        <div className="master-card-meta">
+          <span className="master-card-experience">{experience}</span>
+          <span className="master-card-price">{priceLevel}</span>
+        </div>
 
-      {/* Звезды */}
-      <div className="flex justify-center mt-2 mb-2">{renderStars(rating)}</div>
+        {/* Rating */}
+        <div className="master-card-rating">{renderStars(rating)}</div>
 
-      {/* Описание */}
-      <p className="text-gray-600 mt-3 text-sm leading-relaxed">{description}</p>
+        {/* Description */}
+        <p className="master-card-description">{description}</p>
 
-      {/* “Ссылка” (стилизованная, но карточка кликабельна вся) */}
-      <div
-        className="
-          mt-6 inline-block text-black font-semibold text-sm  
-          underline decoration-gray-400 underline-offset-4
-        "
-      >
-        Detaylı Bilgi →
+        {/* Link */}
+        <div className="master-card-link-wrapper">
+          <span className="master-card-link">
+            Detaylı Bilgi
+            <span className="master-card-link-arrow">↗</span>
+          </span>
+        </div>
       </div>
     </Link>
   );

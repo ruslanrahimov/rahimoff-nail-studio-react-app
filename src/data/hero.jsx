@@ -6,7 +6,7 @@ const wpChatLink = import.meta.env.VITE_WP_CHAT_LINK;
 export const heroData = [
         {
                 title: "TÜM İŞLEMLERDE - %10 İNDİRİM!",
-                text: "31/12/2025 zamana kadar nakit ödemelerde geçerlidir",
+                text: "01/03/2026 zamana kadar nakit ödemelerde geçerlidir",
                 image: `${baseUrl}discount-cover.webp`,
                 isReversed: true,
                 buttons: (

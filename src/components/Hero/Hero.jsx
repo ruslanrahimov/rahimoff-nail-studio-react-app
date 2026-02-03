@@ -1,51 +1,81 @@
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import "./Hero.css";
+
 const Hero = ({ title, text, image, isReversed, children }) => {
+  const heroRef = useRef(null);
+  const imageRef = useRef(null);
+  const contentRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+      // Elegant staggered entrance animation
+      tl.fromTo(
+        imageRef.current,
+        { opacity: 0, scale: 1.05 },
+        { opacity: 1, scale: 1, duration: 1.2 }
+      )
+        .fromTo(
+          contentRef.current.querySelector(".hero-title"),
+          { opacity: 0, y: 30 },
+          { opacity: 1, y: 0, duration: 0.8 },
+          "-=0.6"
+        )
+        .fromTo(
+          contentRef.current.querySelector(".hero-text"),
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 0.6 },
+          "-=0.4"
+        )
+        .fromTo(
+          contentRef.current.querySelector(".hero-buttons"),
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 0.6 },
+          "-=0.3"
+        );
+    }, heroRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section
-      className={`
-        grid grid-cols-2 grid-rows-1 rounded-3xl mb-8 bg-chinese-200
-        max-md:bg-transparent max-md:grid-cols-1 max-md:grid-rows-[auto_auto]
-      `}
-    >
-      {/* IMAGE */}
-      <div
-        className={`
-          hero-image w-full bg-center bg-cover bg-no-repeat row-span-2
-          
-          /* DESKTOP BORDER RADIUS */
-          ${
-            isReversed
-              ? "min-lg:col-start-2 min-lg:col-end-3 min-lg:rounded-r-3xl"
-              : "min-lg:col-start-1 min-lg:col-end-2 min-lg:rounded-l-3xl"
-          }
-          
-          /* MOBILE: NO BORDER RADIUS */
-          max-md:row-span-1
-          max-md:min-h-[260px]
-          max-md:rounded-none
-        `}
-        style={{
-          backgroundImage: `url(${image})`,
-        }}
-      ></div>
+    <section ref={heroRef} className="hero-modern">
+      <div className={`hero-modern-grid ${isReversed ? "hero-reversed" : ""}`}>
+        {/* IMAGE */}
+        <div className="hero-modern-image-wrapper">
+          <div
+            ref={imageRef}
+            className="hero-modern-image"
+            style={{
+              backgroundImage: `url(${image})`,
+            }}
+          >
+            <div className="hero-image-overlay"></div>
+          </div>
+          {/* Decorative element */}
+          <div className="hero-decorative-accent"></div>
+        </div>
 
-      {/* CONTENT */}
-      <div
-        className={`
-          hero-content px-14 py-10
-          max-md:p-6 max-md:text-center 
-          max-md:rounded-none
-        `}
-      >
-        <h1
-          className="text-4xl mb-4 leading-snug
-                     max-lg:text-xl max-lg:font-light max-md:text-2xl"
-        >
-          {title}
-        </h1>
+        {/* CONTENT */}
+        <div ref={contentRef} className="hero-modern-content">
+          <div className="hero-content-inner">
+            <div className="hero-label">
+              <span className="hero-label-text">PROMOSYON</span>
+              <div className="hero-label-line"></div>
+            </div>
 
-        <p className="mb-8 text-platinum-800 max-lg:text-[14px] max-md:text-[15px]">{text}</p>
+            <h1 className="hero-title">{title}</h1>
 
-        <div className="flex justify-start max-md:justify-center">{children}</div>
+            <p className="hero-text">{text}</p>
+
+            <div className="hero-buttons">{children}</div>
+
+            {/* Decorative corner element */}
+            <div className="hero-corner-accent"></div>
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -1,0 +1,398 @@
+/* ===================================
+   MASTER DETAIL PAGE
+   Clean, editorial design matching homepage
+   =================================== */
+
+.master-page {
+  background: #fcfbf7;
+  min-height: 100vh;
+  padding: 100px 30px 80px;
+}
+
+.master-page-container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* ===================================
+   HEADER SECTION
+   =================================== */
+
+.master-header {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 60px;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+/* Photo Section */
+.master-photo-wrapper {
+  position: relative;
+  height: 480px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #e5e3db;
+}
+
+.master-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.master-photo-wrapper:hover .master-photo {
+  transform: scale(1.05);
+}
+
+/* Photo overlay */
+.master-photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+  pointer-events: none;
+}
+
+/* Corner accent on photo */
+.master-photo-corner-accent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  border-top: 1px solid rgba(108, 37, 33, 0.3);
+  border-right: 1px solid rgba(108, 37, 33, 0.3);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Badge on photo - matching MasterCard styles */
+.master-badge {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  z-index: 2;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+.master-badge.level-top {
+  background: rgba(108, 37, 33, 0.95);
+  border-left: 3px solid #c9a869;
+}
+
+.master-badge.level-middle {
+  background: rgba(45, 74, 94, 0.95);
+  border-left: 3px solid #7a9eb5;
+}
+
+.master-badge.level-junior-plus {
+  background: rgba(90, 69, 112, 0.95);
+  border-left: 3px solid #9d87b8;
+}
+
+.master-badge.level-intern {
+  background: rgba(90, 109, 90, 0.95);
+  border-left: 3px solid #88a888;
+}
+
+.master-badge-text {
+  font-family: "Manrope", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Info Section */
+.master-info {
+  padding: 20px 0;
+}
+
+.master-name {
+  font-family: "Manrope", sans-serif;
+  font-size: 48px;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: #2e2e2e;
+  letter-spacing: -1px;
+  margin: 0 0 12px 0;
+  line-height: 1.1;
+}
+
+.master-role {
+  font-family: "Manrope", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #6c2521;
+  margin: 0 0 24px 0;
+  max-width: 500px;
+}
+
+/* Meta info */
+.master-meta {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #e5e3db;
+}
+
+.master-experience {
+  font-family: "Manrope", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: #5a5a5a;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.master-rating {
+  display: flex;
+  gap: 4px;
+}
+
+.master-star {
+  font-size: 18px;
+  color: #e5e3db;
+}
+
+.master-star.filled {
+  color: #c9a869;
+}
+
+/* Description */
+.master-description {
+  font-family: "Manrope", sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: #5a5a5a;
+  margin: 0 0 40px 0;
+  letter-spacing: 0.2px;
+  max-width: 560px;
+}
+
+/* CTA Button */
+.master-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Manrope", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: #6c2521;
+  border: 1px solid #6c2521;
+  padding: 14px 32px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.master-cta:hover {
+  background: #8b3a36;
+  border-color: #8b3a36;
+  box-shadow: 0 4px 16px rgba(108, 37, 33, 0.3);
+}
+
+/* ===================================
+   SKILLS SECTION
+   =================================== */
+
+.master-skills-section {
+  margin-bottom: 60px;
+}
+
+.master-section-title {
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #2e2e2e;
+  letter-spacing: 2px;
+  margin: 0 0 20px 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e5e3db;
+}
+
+.master-skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.master-skill-tag {
+  font-family: "Manrope", sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #5a5a5a;
+  background: #ffffff;
+  border: 1px solid #e5e3db;
+  padding: 8px 16px;
+  transition: all 0.3s ease;
+}
+
+.master-skill-tag:hover {
+  background: #fcfbf7;
+  border-color: #d4d4d0;
+  color: #2e2e2e;
+}
+
+/* ===================================
+   GALLERY SECTION
+   =================================== */
+
+.master-gallery-section {
+  margin-top: 60px;
+}
+
+.master-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.master-gallery-item {
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #e5e3db;
+  aspect-ratio: 1;
+}
+
+.master-gallery-item.featured {
+  grid-column: span 3;
+  aspect-ratio: 16 / 9;
+}
+
+.master-gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.master-gallery-item:hover .master-gallery-image {
+  transform: scale(1.05);
+}
+
+/* ===================================
+   RESPONSIVE - TABLET
+   =================================== */
+
+@media (max-width: 1024px) {
+  .master-page {
+    padding: 90px 25px 60px;
+  }
+
+  .master-header {
+    grid-template-columns: 320px 1fr;
+    gap: 40px;
+  }
+
+  .master-photo-wrapper {
+    height: 420px;
+  }
+
+  .master-name {
+    font-size: 40px;
+  }
+
+  .master-gallery-grid {
+    gap: 15px;
+  }
+}
+
+/* ===================================
+   RESPONSIVE - MOBILE
+   =================================== */
+
+@media (max-width: 768px) {
+  .master-page {
+    padding: 80px 20px 40px;
+  }
+
+  .master-header {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .master-photo-wrapper {
+    height: 380px;
+  }
+
+  .master-name {
+    font-size: 32px;
+    letter-spacing: -0.5px;
+  }
+
+  .master-role {
+    font-size: 12px;
+  }
+
+  .master-description {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  .master-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .master-cta {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .master-gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .master-gallery-item.featured {
+    grid-column: span 1;
+  }
+
+  .master-photo-corner-accent {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* ===================================
+   ANIMATION HELPERS
+   =================================== */
+
+.master-animate-in {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* ===================================
+   ACCESSIBILITY
+   =================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .master-photo,
+  .master-gallery-image {
+    transition: none !important;
+  }
+}

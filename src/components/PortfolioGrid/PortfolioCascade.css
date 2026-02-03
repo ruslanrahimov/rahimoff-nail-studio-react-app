@@ -1,0 +1,334 @@
+/* Portfolio Cascade - Layered Scroll Effect */
+
+.portfolio-cascade {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: #1a1a1a;
+  overflow: hidden;
+}
+
+.portfolio-cascade__sections {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+/* Individual Section */
+.cascade-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  contain: layout style paint;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+  background: #1a1a1a;
+}
+
+/* Images Grid */
+.cascade-section__images {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* 3 images layout */
+.cascade-section__images:has(> :nth-child(3):last-child) {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.cascade-section__image-wrapper {
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.cascade-section__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.6s ease, filter 0.6s ease;
+}
+
+.cascade-section__image-wrapper:hover .cascade-section__image {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+/* Section Number */
+.cascade-section__number {
+  position: absolute;
+  bottom: 60px;
+  right: 60px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 10rem;
+  font-weight: 200;
+  color: rgba(255, 255, 255, 0.05);
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Scroll Indicator */
+.portfolio-cascade__scroll-indicator {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  opacity: 0.8;
+  animation: fade-pulse 2s ease-in-out infinite;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.scroll-indicator__text {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.scroll-indicator__line {
+  width: 1px;
+  height: 50px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.8),
+    transparent
+  );
+  animation: scroll-line 2s ease-in-out infinite;
+}
+
+@keyframes fade-pulse {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes scroll-line {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  50% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  51% {
+    transform: scaleY(1);
+    transform-origin: bottom;
+  }
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+}
+
+/* Large Desktop (1400px+) */
+@media (min-width: 1400px) {
+  .cascade-section__images {
+    gap: 24px;
+  }
+}
+
+/* Tablet Layout (768px - 1024px) */
+@media (max-width: 1024px) {
+  .cascade-section {
+    padding: 50px 40px;
+  }
+
+  .cascade-section__images {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  /* 3 images still use 3 columns */
+  .cascade-section__images:has(> :nth-child(3):last-child) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* 4 images use 2x2 grid on tablet */
+  .cascade-section__images:has(> :nth-child(4):last-child) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cascade-section__number {
+    font-size: 8rem;
+    bottom: 50px;
+    right: 40px;
+  }
+}
+
+/* Mobile Layout (max 768px) */
+@media (max-width: 768px) {
+  .cascade-section {
+    padding: 80px 24px 40px;
+  }
+
+  .cascade-section__images {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  /* All layouts use 2 columns on mobile */
+  .cascade-section__images:has(> :nth-child(3):last-child) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cascade-section__image-wrapper {
+    aspect-ratio: 4/5;
+  }
+
+  .cascade-section__number {
+    font-size: 5rem;
+    bottom: 40px;
+    right: 24px;
+    opacity: 0.5;
+  }
+
+  .portfolio-cascade__scroll-indicator {
+    bottom: 30px;
+  }
+
+  .scroll-indicator__text {
+    font-size: 0.65rem;
+  }
+
+  .scroll-indicator__line {
+    height: 40px;
+  }
+}
+
+/* Small Mobile (max 480px) */
+@media (max-width: 480px) {
+  .cascade-section {
+    padding: 60px 20px 30px;
+  }
+
+  .cascade-section__images {
+    gap: 10px;
+  }
+
+  .cascade-section__number {
+    font-size: 4rem;
+  }
+}
+
+/* Landscape Mobile */
+@media (max-width: 900px) and (max-height: 500px) {
+  .cascade-section {
+    padding: 30px;
+  }
+
+  .cascade-section__images {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    max-height: 80vh;
+  }
+
+  /* Keep all images in a row for landscape */
+  .cascade-section__images:has(> :nth-child(3):last-child) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .cascade-section__image-wrapper {
+    aspect-ratio: 3/4;
+  }
+
+  .cascade-section__number {
+    display: none;
+  }
+
+  .portfolio-cascade__scroll-indicator {
+    display: none;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .cascade-section {
+    position: relative;
+    height: 100vh;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .portfolio-cascade__scroll-indicator {
+    display: none;
+  }
+
+  .scroll-indicator__line {
+    animation: none;
+  }
+
+  .cascade-section__image {
+    transition: none;
+  }
+
+  @keyframes fade-pulse {
+    0%, 100% {
+      opacity: 0.8;
+    }
+  }
+}
+
+/* High Contrast */
+@media (prefers-contrast: high) {
+  .cascade-section__image-wrapper {
+    border: 2px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .cascade-section__number {
+    color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Print Styles */
+@media print {
+  .portfolio-cascade {
+    background: white;
+  }
+
+  .cascade-section {
+    position: relative;
+    height: auto;
+    page-break-inside: avoid;
+    margin-bottom: 2rem;
+    padding: 20px;
+  }
+
+  .cascade-section__images {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .portfolio-cascade__scroll-indicator {
+    display: none;
+  }
+
+  .cascade-section__number {
+    display: none;
+  }
+}

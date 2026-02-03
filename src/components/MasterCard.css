@@ -1,0 +1,392 @@
+/* ===================================
+   MASTER CARD COMPONENT
+   Clean, editorial design matching homepage
+   =================================== */
+
+.master-card {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #e5e3db;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  display: block;
+  text-decoration: none;
+}
+
+.master-card:hover {
+  border-color: #d4d4d0;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(90, 74, 58, 0.1);
+}
+
+/* ===================================
+   DECORATIVE CORNER ACCENT
+   =================================== */
+
+.master-card-corner-accent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  border-top: 1px solid rgba(108, 37, 33, 0.2);
+  border-right: 1px solid rgba(108, 37, 33, 0.2);
+  pointer-events: none;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.master-card:hover .master-card-corner-accent {
+  opacity: 1;
+}
+
+/* ===================================
+   PHOTO SECTION - FULL WIDTH
+   =================================== */
+
+.master-card-photo-section {
+  position: relative;
+  height: 320px;
+  overflow: hidden;
+  background: #f5f3ed;
+}
+
+.master-card-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.master-card:hover .master-card-photo {
+  transform: scale(1.05);
+}
+
+/* Subtle gradient overlay */
+.master-card-photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ===================================
+   LEVEL BADGES - STRIPE DESIGN
+   =================================== */
+
+.master-card-level {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  padding: 8px 24px;
+  z-index: 2;
+  backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+  border-left: 3px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.master-card:hover .master-card-level {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* TOP MASTER - Burgundy */
+.master-card-level.level-top {
+  background: rgba(108, 37, 33, 0.95);
+  border-left-color: #c9a869;
+}
+
+/* MIDDLE MASTER - Deep Blue */
+.master-card-level.level-middle {
+  background: rgba(45, 74, 94, 0.95);
+  border-left-color: #7a9eb5;
+}
+
+/* JUNIOR+ - Purple */
+.master-card-level.level-junior-plus {
+  background: rgba(90, 69, 112, 0.95);
+  border-left-color: #9d87b8;
+}
+
+/* INTERN - Sage Green */
+.master-card-level.level-intern {
+  background: rgba(90, 109, 90, 0.95);
+  border-left-color: #88a888;
+}
+
+.master-card-level-text {
+  font-family: "Manrope", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* ===================================
+   CONTENT SECTION
+   =================================== */
+
+.master-card-content {
+  padding: 28px 30px 30px;
+  background: #ffffff;
+}
+
+/* Name */
+.master-card-name {
+  font-family: "Manrope", sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: #2e2e2e;
+  letter-spacing: -0.5px;
+  margin: 0 0 6px 0;
+  text-align: center;
+}
+
+/* Role */
+.master-card-role {
+  font-family: "Manrope", sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #6c2521;
+  text-align: center;
+  margin: 0 0 16px 0;
+  min-height: 28px;
+}
+
+/* Divider line */
+.master-card-divider {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    rgba(108, 37, 33, 0) 0%,
+    rgba(108, 37, 33, 0.3) 50%,
+    rgba(108, 37, 33, 0) 100%
+  );
+  margin: 14px auto 16px;
+}
+
+/* Experience & Price */
+.master-card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 14px;
+  padding: 0 10px;
+}
+
+.master-card-experience,
+.master-card-price {
+  font-family: "Manrope", sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  color: #5a5a5a;
+  letter-spacing: 0.3px;
+}
+
+.master-card-price {
+  font-weight: 500;
+  color: #2e2e2e;
+}
+
+/* Rating stars */
+.master-card-rating {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.master-card-star {
+  font-size: 16px;
+  color: #e5e3db;
+  transition: all 0.3s ease;
+}
+
+.master-card-star.filled {
+  color: #c9a869;
+}
+
+.master-card:hover .master-card-star.filled {
+  color: #b89450;
+}
+
+/* Description */
+.master-card-description {
+  font-family: "Manrope", sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: #5a5a5a;
+  text-align: center;
+  margin: 0 0 20px 0;
+  letter-spacing: 0.2px;
+}
+
+/* ===================================
+   LINK SECTION
+   =================================== */
+
+.master-card-link-wrapper {
+  text-align: center;
+  padding-top: 16px;
+  border-top: 1px solid #e5e3db;
+}
+
+.master-card-link {
+  font-family: "Manrope", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #2e2e2e;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.master-card-link-arrow {
+  font-size: 14px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.master-card:hover .master-card-link {
+  color: #6c2521;
+}
+
+.master-card:hover .master-card-link-arrow {
+  transform: translate(3px, -3px);
+}
+
+/* ===================================
+   RESPONSIVE - TABLET
+   =================================== */
+
+@media (max-width: 1024px) {
+  .master-card-photo-section {
+    height: 280px;
+  }
+
+  .master-card-content {
+    padding: 25px 25px 25px;
+  }
+
+  .master-card-name {
+    font-size: 22px;
+  }
+
+  .master-card-role {
+    font-size: 10px;
+    min-height: 26px;
+  }
+}
+
+/* ===================================
+   RESPONSIVE - MOBILE
+   =================================== */
+
+@media (max-width: 768px) {
+  .master-card-photo-section {
+    height: 240px;
+  }
+
+  .master-card-content {
+    padding: 22px 20px 20px;
+  }
+
+  .master-card-name {
+    font-size: 20px;
+  }
+
+  .master-card-role {
+    font-size: 10px;
+    min-height: 24px;
+    margin-bottom: 14px;
+  }
+
+  .master-card-divider {
+    margin: 12px auto 14px;
+  }
+
+  .master-card-description {
+    font-size: 11px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .master-card-meta {
+    flex-direction: column;
+    gap: 6px;
+    text-align: center;
+    padding: 0;
+    margin-bottom: 12px;
+  }
+
+  .master-card-rating {
+    margin-bottom: 14px;
+  }
+
+  .master-card-link-wrapper {
+    padding-top: 14px;
+  }
+
+  .master-card-corner-accent {
+    width: 40px;
+    height: 40px;
+  }
+
+  .master-card-level {
+    bottom: 15px;
+    right: 15px;
+    padding: 6px 20px;
+  }
+
+  .master-card-level-text {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+  }
+}
+
+/* ===================================
+   ANIMATION HELPERS
+   =================================== */
+
+.master-card-animate {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* ===================================
+   ACCESSIBILITY
+   =================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .master-card,
+  .master-card-photo,
+  .master-card-link-arrow,
+  .master-card-level {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .master-card:hover {
+    transform: none;
+  }
+}

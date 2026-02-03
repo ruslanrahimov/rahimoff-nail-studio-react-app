@@ -1,8 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router";
 import Services from "./components/pages/Services.jsx";
-import Contacts from "./components/Contacts/Contacts.jsx";
 import Navbar from "./components/Navbar.jsx";
-import Footer from "./components/Footer.jsx";
+import Footer from "./components/Footer/Footer.jsx";
 import Home from "./components/pages/HomePage.jsx";
 import ErrorPage from "./components/pages/ErrorPage.jsx";
 import MastersPage from "./components/pages/MastersPage.jsx";
@@ -23,7 +22,6 @@ function App() {
                                 <Routes>
                                         <Route index path="/" element={<Home />} />
                                         <Route path="services" element={<Services />} />
-                                        <Route path="contacts" element={<Contacts />} />
                                         <Route path="*" element={<ErrorPage />} />
                                         <Route path="rules" element={<SalonRules />} />
                                         <Route path="privacy" element={<PrivacyPolicy />} />
