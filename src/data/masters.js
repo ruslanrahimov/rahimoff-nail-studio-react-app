@@ -145,7 +145,7 @@ export const masters = [
                 rating: 5,
                 description:
                         "Doğal manikür, jel güçlendirme ve uzatma üzerine çalışır. Modern nail art, ince detaylı tasarımlar ve şekillendirmede estetik ve özenli bir yaklaşım sergiler.",
-                photo: baseUrl + "hayrus.webp",
+                photo: baseUrl + "hayrus.jpg",
                 gallery: [
                         baseUrl + "hayrus/5.webp",
                         baseUrl + "hayrus/2.webp",
