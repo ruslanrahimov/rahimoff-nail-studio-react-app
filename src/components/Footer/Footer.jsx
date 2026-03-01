@@ -1,4 +1,4 @@
-import { NavLink } from "react-router";
+import { NavLink, useLocation } from "react-router";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -14,6 +14,14 @@ const MAPS_LINK =
 
 const Footer = () => {
         const footerRef = useRef(null);
+        const location = useLocation();
+
+        useEffect(() => {
+                const timer = setTimeout(() => {
+                        ScrollTrigger.refresh();
+                }, 100);
+                return () => clearTimeout(timer);
+        }, [location.pathname]);
 
         const legalLinks = [
                 { name: "Gizlilik ve Güvenlik", url: "/privacy" },
