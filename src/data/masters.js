@@ -86,6 +86,7 @@ export const masters = [
                         "pedikür uzmanlığı",
                         "doğal tırnak güçlendirme",
                 ],
+                promotions: [],
                 services: overridePrices(excludeCategories(unifiedServices), {
                         "manicure-basic": 500,
                         "manicure-protez-jel": 1300,
@@ -98,7 +99,7 @@ export const masters = [
 
         {
                 id: "akgul",
-                name: "Akgül Kaymaz",
+                name: "Uzman Akgül",
                 role: "Profesyonel manikür, pedikür ve doğal tırnak güçlendirme",
                 experience: "5 yıllık tecrübe",
                 priceLevel: "1000 TL",
@@ -133,12 +134,13 @@ export const masters = [
                         "hijyenik bakım",
                         "kalıcı parlaklık teknikleri",
                 ],
+                promotions: [],
                 services: unifiedServices,
         },
 
         {
                 id: "hayrus",
-                name: "Hayrunnisa Kaymaz",
+                name: "Uzman Hayrunnisa",
                 role: "Manikür, jel güçlendirme, uzatma ve modern nail art",
                 experience: "1 yıllık tecrübe",
                 priceLevel: "700 TL",
@@ -169,9 +171,61 @@ export const masters = [
                         "şekillendirme",
                         "gel boya",
                 ],
+                promotions: [
+                        {
+                                title: "Tasarımda %50 İndirim",
+                                description:
+                                        "Hayrunnisa'ya manikürünü  yaptır, istediğin Nail Art'ta %50 indirim kazan. Nail art, french, ombre, geometrik — hangi desen olursa olsun indirim tasarıma uygulanır.",
+                                discount: "%50",
+                                validUntil: "31 Mart 2026",
+                                service: "Tüm Nail Art Tasarımları",
+                                type: "percent",
+                        },
+                ],
                 services: overridePrices(excludeCategories(unifiedServices, ["pedicure"]), {
                         "manicure-protez-jel": 800,
                         "manicure-protez-tips": 800,
+                        "manicure-gel-guc-kalici": 700,
+                }),
+        },
+
+        {
+                id: "pelin",
+                name: "Uzman Pelin",
+                role: "Manikür, jel güçlendirme, tırnak uzatma ve nail art",
+                experience: "1 yıllık tecrübe",
+                priceLevel: "800 TL",
+                rating: 5,
+                description:
+                        "Güzellik sektörüne olan tutkusunu Rahimoff Studio'da gerçek bir ustalığa dönüştürdü. Ekibimizle birlikte manikür, jel güçlendirme ve nail art konularında en iyi teknikleri öğrenerek kendine özgü, özenli bir dokunuş geliştirdi. Sıcakkanlı yaklaşımı ve detaylara verdiği önemle her müşteriye kişisel bir deneyim sunar.",
+                photo: baseUrl + "pelin/pelin.webp",
+                gallery: [],
+                level: "middle",
+                skills: [
+                        "manikür",
+                        "jel güçlendirme",
+                        "tırnak uzatma",
+                        "nail art",
+                        "modern tasarım",
+                        "şekillendirme",
+                        "gel boya",
+                ],
+                promotions: [
+                        {
+                                title: "Arkadaşını Getir, İkili Kazan",
+                                description:
+                                        "Pelin ile randevu al — ziyaretinde garantili %30 indirim senin. Yanında yeni bir müşteri olan arkadaşını da getir: ikinize toplam %50 ek indirim! Paylaşımı siz belirleyin: her biri %40, ya da birine %50 + diğerine %30 — tamamen size kalmış. Arkadaş yeni müşteri olmalı.",
+                                discount: "%30 + %50",
+                                validUntil: "31 Mart 2026",
+                                service: "Tüm Manikür Hizmetleri",
+                                type: "percent",
+                        },
+                ],
+                services: overridePrices(excludeCategories(unifiedServices, ["pedicure"]), {
+                        "manicure-protez-jel": 800,
+                        "manicure-protez-tips": 800,
+                        "manicure-gel-guc-kalici": 700,
+
                 }),
         },
 
