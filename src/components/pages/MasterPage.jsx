@@ -1,9 +1,10 @@
 import { useEffect, useRef } from "react";
-import { useParams } from "react-router";
+import { useParams, useLocation } from "react-router";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { masters } from "../../data/masters.js";
 import MasterPriceListTabs from "../MasterPriceListTabs.jsx";
+import MasterPromotions from "../MasterPromotions.jsx";
 import "./MasterPage.css";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -17,6 +18,7 @@ const levelTitles = {
 
 const MasterPage = () => {
   const { id } = useParams();
+  const location = useLocation();
   const master = masters.find((m) => m.id === id);
 
   const pageRef = useRef(null);
@@ -90,6 +92,15 @@ const MasterPage = () => {
 
     return () => ctx.revert();
   }, [master]);
+
+  useEffect(() => {
+    if (!location.hash) return;
+    const targetId = location.hash.slice(1);
+    const target = document.getElementById(targetId);
+    if (target) {
+      setTimeout(() => target.scrollIntoView({ behavior: "smooth", block: "start" }), 600);
+    }
+  }, [location.hash]);
 
   const renderStars = (rating) => {
     const stars = [];
@@ -208,6 +219,17 @@ const MasterPage = () => {
             ))}
           </div>
         </div>
+
+        {/* PROMOTIONS */}
+        {master.promotions?.length > 0 && (
+          <div id="promotions">
+          <MasterPromotions
+            promotions={master.promotions}
+            masterName={master.name}
+            whatsappNumber="905060552137"
+          />
+          </div>
+        )}
 
         {/* PRICE LIST */}
         <MasterPriceListTabs masterId={master.id} />

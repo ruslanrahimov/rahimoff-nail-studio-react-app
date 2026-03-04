@@ -10,7 +10,7 @@ import FAQItem from "./../FAQItem/FAQItem.jsx";
 import PortfolioCascade from "./../PortfolioGrid/PortfolioCascade.jsx";
 import { portfolioCascadeData } from "../../data/portfolioCascadeData.js";
 import { tabContent } from "../../data/services.js";
-import HeroList from "./../HeroList.jsx";
+import HeroMasters from "./../HeroMasters/HeroMasters.jsx";
 import Reviews from "./../Reviews/Reviews.jsx";
 import About from "./../About/About.jsx";
 import SectionHeading from "./../SectionHeading/SectionHeading.jsx";
@@ -161,7 +161,7 @@ const Home = () => {
         return (
                 <div ref={pageRef} className="home-container mt-[54px] w-full mx-auto max-md:mt-[54px]">
                         <section ref={servicesPreviewRef} className="services-preview bg-[#fcfbf7] pt-0 pb-[80px] px-[30px] min-h-[100vh] max-md:pb-[60px] max-md:px-[20px]">
-                                <HeroList />
+                                <HeroMasters />
                                 <div className="max-w-[1140px] mx-auto">
                                         <SectionHeading
                                                 label="SERVICES"
