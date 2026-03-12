@@ -171,17 +171,7 @@ export const masters = [
                         "şekillendirme",
                         "gel boya",
                 ],
-                promotions: [
-                        {
-                                title: "Tasarımda %50 İndirim",
-                                description:
-                                        "Hayrunnisa'ya manikürünü  yaptır, istediğin Nail Art'ta %50 indirim kazan. Nail art, french, ombre, geometrik — hangi desen olursa olsun indirim tasarıma uygulanır.",
-                                discount: "%50",
-                                validUntil: "31 Mart 2026",
-                                service: "Tüm Nail Art Tasarımları",
-                                type: "percent",
-                        },
-                ],
+                promotions: [],
                 services: overridePrices(excludeCategories(unifiedServices, ["pedicure"]), {
                         "manicure-protez-jel": 800,
                         "manicure-protez-tips": 800,
@@ -212,12 +202,12 @@ export const masters = [
                 ],
                 promotions: [
                         {
-                                title: "Arkadaşını Getir, İkili Kazan",
+                                title: "Nakit Ödemede %20 İndirim",
                                 description:
-                                        "Pelin ile randevu al — ziyaretinde garantili %30 indirim senin. Yanında yeni bir müşteri olan arkadaşını da getir: ikinize toplam %50 ek indirim! Paylaşımı siz belirleyin: her biri %40, ya da birine %50 + diğerine %30 — tamamen size kalmış. Arkadaş yeni müşteri olmalı.",
-                                discount: "%30 + %50",
+                                        "Pelin ile randevu al ve nakit ödeme yap — tüm hizmetlerde %20 indirim kazan. İndirim yalnızca nakit ödemelerde geçerlidir.",
+                                discount: "%20",
                                 validUntil: "31 Mart 2026",
-                                service: "Tüm Manikür Hizmetleri",
+                                service: "Tüm Hizmetler",
                                 type: "percent",
                         },
                 ],

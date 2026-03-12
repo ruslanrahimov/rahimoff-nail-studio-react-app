@@ -2,7 +2,14 @@ import { useEffect, useRef } from "react";
 import { Link } from "react-router";
 import { gsap } from "gsap";
 import { masters } from "../../data/masters.js";
+import { generalPromotions } from "../../data/promotions.js";
 import "./HeroMasters.css";
+
+const SparkleIcon = () => (
+  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M12 2 L13.8 10.2 L22 12 L13.8 13.8 L12 22 L10.2 13.8 L2 12 L10.2 10.2 Z" />
+  </svg>
+);
 
 const baseUrl = import.meta.env.BASE_URL;
 
@@ -85,16 +92,56 @@ const HeroMasters = () => {
                 <div className="hero-m-label-line" />
               </div>
               <h1 className="hero-m-title">
-                UZMAN<br />
-                <span>TEKLİFLERİ</span>
+                KAMPANYALAR
               </h1>
               <p className="hero-m-desc">
                 Uzmanlarımızın sizi bekleyen kişisel fırsatları
               </p>
             </div>
 
+            {/* General promo rows */}
+            {generalPromotions.length > 0 && (
+              <div className="hero-m-rows">
+                {generalPromotions.length > 0 && masterPromos.length > 0 && (
+                  <div className="hero-m-section-label">
+                    <span>STÜDYO GENELİ</span>
+                  </div>
+                )}
+                {generalPromotions.map((promo) => (
+                  <Link key={promo.id} to="/promotions" className="hero-m-row hero-m-row--general">
+                    <div className="hero-m-general-icon-wrap">
+                      <SparkleIcon />
+                    </div>
+
+                    <div className="hero-m-info">
+                      <span className="hero-m-name">{promo.title}</span>
+                      <span className="hero-m-promo-title">{promo.service}</span>
+                    </div>
+
+                    <div className="hero-m-badge">
+                      <span className="hero-m-badge-value">{promo.discount}</span>
+                      <span className="hero-m-badge-label">İndirim</span>
+                    </div>
+
+                    <div className="hero-m-arrow" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M5 12 H19" />
+                        <path d="M13 6 L19 12 L13 18" />
+                      </svg>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            )}
+
             {/* Master promo rows */}
+            {masterPromos.length > 0 && (
             <div className="hero-m-rows">
+              {generalPromotions.length > 0 && (
+                <div className="hero-m-section-label">
+                  <span>UZMANLARDAN</span>
+                </div>
+              )}
               {masterPromos.map((item, i) => (
                 <Link
                   key={item.id}
@@ -135,6 +182,7 @@ const HeroMasters = () => {
                 </Link>
               ))}
             </div>
+            )}
 
             {/* Footer: all masters link */}
             <div className="hero-m-footer">
