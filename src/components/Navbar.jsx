@@ -13,6 +13,7 @@ const Navbar = () => {
                 { name: "Yorumlar", url: "#reviews", targetId: "reviews", isScroll: true },
                 { name: "İletişim", url: "#footer", targetId: "footer", isScroll: true },
                 { name: "Uzmanlar", url: "/masters" },
+                { name: "Kampanyalar", url: "/promotions" },
         ];
 
         const [isMenuOpen, setIsMenuOpen] = useState(false);
