@@ -1,20 +1,20 @@
 const baseUrl = import.meta.env.BASE_URL;
 
 const unifiedServices = [
-        { id: "manicure-basic", price: 350 },
-        { id: "manicure-gel-guc-kalici", price: 800 },
-        { id: "manicure-protez-jel", price: 1000 },
-        { id: "manicure-protez-tips", price: 1000 },
+        { id: "manicure-basic", price: 400 },
+        { id: "manicure-gel-guc-kalici", price: 950 },
+        { id: "manicure-protez-jel", price: 1100 },
+        { id: "manicure-protez-tips", price: 1100 },
 
-        { id: "pedicure-kane-kalici-oje", price: 1000 },
-        { id: "pedicure-kane-basic", price: 800 },
+        { id: "pedicure-kane-kalici-oje", price: 1200 },
+        { id: "pedicure-kane-basic", price: 1000 },
         { id: "pedicure-intensive", price: null },
         { id: "pedicure-men", price: 1500 },
 
         { id: "art-tasarim-jelleri", price: 10 },
         { id: "art-nailart-basic", price: 50 },
-        { id: "art-simple-lines", price: 15 },
-        { id: "art-french", price: 20 },
+        { id: "art-simple-lines", price: 20 },
+        { id: "art-french", price: 25 },
         { id: "art-light-design", price: 20 },
         { id: "art-advanced-design", price: 25 },
         { id: "art-beads", price: "10-30" },
@@ -93,7 +93,7 @@ export const masters = [
                         "manicure-protez-tips": 1300,
                         "manicure-gel-guc-kalici": 1000,
                         "pedicure-kane-basic": 1000,
-                        "pedicure-kane-kalici-oje": 1500,
+                        "pedicure-kane-kalici-oje": 1200,
                 }),
         },
 
@@ -173,9 +173,9 @@ export const masters = [
                 ],
                 promotions: [],
                 services: overridePrices(excludeCategories(unifiedServices, ["pedicure"]), {
-                        "manicure-protez-jel": 800,
-                        "manicure-protez-tips": 800,
-                        "manicure-gel-guc-kalici": 700,
+                        "manicure-protez-jel": 950,
+                        "manicure-protez-tips": 950,
+                        "manicure-gel-guc-kalici": 800,
                 }),
         },
 
@@ -212,9 +212,9 @@ export const masters = [
                         },
                 ],
                 services: overridePrices(excludeCategories(unifiedServices, ["pedicure"]), {
-                        "manicure-protez-jel": 800,
-                        "manicure-protez-tips": 800,
-                        "manicure-gel-guc-kalici": 700,
+                        "manicure-protez-jel": 950,
+                        "manicure-protez-tips": 950,
+                        "manicure-gel-guc-kalici": 800,
 
                 }),
         },
