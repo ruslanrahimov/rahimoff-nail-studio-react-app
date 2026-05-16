@@ -200,17 +200,7 @@ export const masters = [
                         "şekillendirme",
                         "gel boya",
                 ],
-                promotions: [
-                        {
-                                title: "Nakit Ödemede %20 İndirim",
-                                description:
-                                        "Pelin ile randevu al ve nakit ödeme yap — tüm hizmetlerde %20 indirim kazan. İndirim yalnızca nakit ödemelerde geçerlidir.",
-                                discount: "%20",
-                                validUntil: "31 Mart 2026",
-                                service: "Tüm Hizmetler",
-                                type: "percent",
-                        },
-                ],
+                promotions: [],
                 services: overridePrices(excludeCategories(unifiedServices, ["pedicure"]), {
                         "manicure-protez-jel": 950,
                         "manicure-protez-tips": 950,
