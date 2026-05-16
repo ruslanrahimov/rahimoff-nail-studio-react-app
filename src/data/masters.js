@@ -201,11 +201,10 @@ export const masters = [
                         "gel boya",
                 ],
                 promotions: [],
-                services: overridePrices(excludeCategories(unifiedServices, ["pedicure"]), {
+                services: overridePrices(unifiedServices, {
                         "manicure-protez-jel": 950,
                         "manicure-protez-tips": 950,
                         "manicure-gel-guc-kalici": 800,
-
                 }),
         },
 
