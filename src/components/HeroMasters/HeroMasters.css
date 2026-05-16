@@ -25,7 +25,7 @@
 
 .hero-m-image-col {
   position: relative;
-  height: 600px;
+  min-height: 460px;
   overflow: hidden;
 }
 
@@ -403,7 +403,7 @@
 
 @media (max-width: 1024px) {
   .hero-m-image-col {
-    height: 500px;
+    min-height: 400px;
   }
 
   .hero-m-content-col {
