@@ -1,24 +1,28 @@
-import { clsx } from "clsx";
-import logo from "../assets/logo.webp";
 import { NavLink, useLocation, useNavigate } from "react-router";
 import { useState, useEffect } from "react";
 
 const wpChatLink = import.meta.env.VITE_WP_CHAT_LINK;
 
+const linkBase = "text-[13px] font-normal uppercase tracking-[0.1em] transition-colors duration-200 text-[#e8ddd0] hover:text-white";
+const linkActive = "text-[13px] font-normal uppercase tracking-[0.1em] text-white underline underline-offset-4 decoration-[#e8ddd0]";
+
 const Navbar = () => {
         const links = [
-                { name: "Ana Sayfa", url: "/" },
-                { name: "Hizmetlerimiz", url: "/services" },
-                { name: "Portfolyo", url: "#portfolio", targetId: "portfolio", isScroll: true },
-                { name: "Yorumlar", url: "#reviews", targetId: "reviews", isScroll: true },
-                { name: "İletişim", url: "#footer", targetId: "footer", isScroll: true },
+{ name: "Hizmetlerimiz", url: "/services" },
                 { name: "Uzmanlar", url: "/masters" },
                 { name: "Kampanyalar", url: "/promotions" },
         ];
 
         const [isMenuOpen, setIsMenuOpen] = useState(false);
+        const [isScrolled, setIsScrolled] = useState(false);
         const location = useLocation();
         const navigate = useNavigate();
+
+        useEffect(() => {
+                const handleScroll = () => setIsScrolled(window.scrollY > 0);
+                window.addEventListener("scroll", handleScroll, { passive: true });
+                return () => window.removeEventListener("scroll", handleScroll);
+        }, []);
 
         useEffect(() => {
                 if (isMenuOpen) {
@@ -26,7 +30,6 @@ const Navbar = () => {
                 } else {
                         document.body.style.overflow = "";
                 }
-
                 return () => {
                         document.body.style.overflow = "";
                 };
@@ -49,57 +52,60 @@ const Navbar = () => {
         return (
                 <>
                         {/* Desktop Navbar */}
-                        <nav className="fixed top-0 left-0 right-0 w-full h-[54px] bg-[#fcfbf7] border-b border-[#e6e4de] z-50 max-lg:hidden">
+                        <nav className={`fixed top-0 left-0 right-0 w-full h-[54px] bg-[#7B2D3E] z-50 max-lg:hidden border-b transition-colors duration-300 ${isScrolled ? "border-[#e8ddd0]" : "border-transparent"}`}>
                                 <div className="max-w-[1400px] mx-auto h-full px-6 flex items-center justify-between gap-6">
-                                        <div className="flex items-center gap-10 lg:gap-20">
-                                                <NavLink to="/" className="flex-shrink-0">
-                                                        <img
-                                                                src={logo}
-                                                                alt="Rahimoff Nail Studio"
-                                                                className="h-9 w-auto object-contain"
-                                                        />
-                                                </NavLink>
+                                        <ul className="flex items-center gap-6">
+                                                {links.map((link, index) => (
+                                                        <li key={index}>
+                                                                {link.isScroll ? (
+                                                                        <button
+                                                                                type="button"
+                                                                                onClick={(event) => handleSectionScroll(event, link.targetId)}
+                                                                                className={`${linkBase} bg-transparent border-0 p-0 cursor-pointer`}
+                                                                                style={{ fontFamily: "Manrope, sans-serif" }}
+                                                                        >
+                                                                                {link.name}
+                                                                        </button>
+                                                                ) : (
+                                                                        <NavLink
+                                                                                to={link.url}
+                                                                                className={({ isActive }) => isActive ? linkActive : linkBase}
+                                                                                style={{ fontFamily: "Manrope, sans-serif" }}
+                                                                        >
+                                                                                {link.name}
+                                                                        </NavLink>
+                                                                )}
+                                                        </li>
+                                                ))}
+                                        </ul>
 
-                                                <ul className="flex items-center gap-7">
-                                                        {links.map((link, index) => (
-                                                                <li key={index}>
-                                                                        {link.isScroll ? (
-                                                                                <button
-                                                                                        type="button"
-                                                                                        onClick={(event) => handleSectionScroll(event, link.targetId)}
-                                                                                        className="text-[14px] font-normal uppercase tracking-[0.08em] transition-colors duration-200 text-[#2e2e2e] hover:text-burgundy-500 bg-transparent border-0 p-0 cursor-pointer"
-                                                                                        style={{ fontFamily: "Manrope, sans-serif" }}
-                                                                                >
-                                                                                        {link.name}
-                                                                                </button>
-                                                                        ) : (
-                                                                                <NavLink
-                                                                                        to={link.url}
-                                                                                        className={({ isActive }) =>
-                                                                                                `text-[14px] font-normal uppercase tracking-[0.08em] transition-colors duration-200 ${isActive ? "text-burgundy-500" : "text-[#2e2e2e] hover:text-burgundy-500"
-                                                                                                }`
-                                                                                        }
-                                                                                        style={{ fontFamily: "Manrope, sans-serif" }}
-                                                                                >
-                                                                                        {link.name}
-                                                                                </NavLink>
-                                                                        )}
-                                                                </li>
-                                                        ))}
-                                                </ul>
-                                        </div>
+                                        <NavLink to="/" className="absolute left-1/2 -translate-x-1/2 flex-shrink-0">
+                                                <img
+                                                        src="/logo-new.png"
+                                                        alt="Rahimoff Nail Studio"
+                                                        className="h-8 w-auto object-contain"
+                                                />
+                                        </NavLink>
 
-                                        <div className="flex items-center gap-4">
-                                                <a
-                                                        href="tel:+905060552137"
-                                                        className="text-[14px] font-normal text-[#2e2e2e] uppercase tracking-[0.08em] hover:text-burgundy-500 transition-colors duration-200"
+                                        <div className="flex items-center gap-5">
+                                                <button
+                                                        type="button"
+                                                        onClick={(event) => handleSectionScroll(event, "footer")}
+                                                        className={`${linkBase} bg-transparent border-0 p-0 cursor-pointer`}
                                                         style={{ fontFamily: "Manrope, sans-serif" }}
                                                 >
-                                                        +90 506 055 21 37
+                                                        İletişim
+                                                </button>
+                                                <a
+                                                        href="tel:+905060352137"
+                                                        className="text-[13px] font-normal text-[#e8ddd0] uppercase tracking-[0.1em] hover:text-white transition-colors duration-200"
+                                                        style={{ fontFamily: "Manrope, sans-serif" }}
+                                                >
+                                                        +90 506 035 21 37
                                                 </a>
                                                 <a
                                                         href={wpChatLink}
-                                                        className="px-4 py-1.5 bg-burgundy-500 text-white text-[13px] font-normal uppercase tracking-[0.08em] hover:bg-burgundy-700 transition-colors duration-200"
+                                                        className="px-5 py-1.5 border border-[#e8ddd0] text-[#e8ddd0] text-[12px] font-normal uppercase tracking-[0.1em] hover:bg-[#e8ddd0] hover:text-[#7B2D3E] transition-colors duration-200"
                                                         style={{ fontFamily: "Manrope, sans-serif" }}
                                                 >
                                                         Randevu Al
@@ -109,11 +115,11 @@ const Navbar = () => {
                         </nav>
 
                         {/* Mobile Navbar */}
-                        <nav className="fixed top-0 left-0 right-0 w-full h-[54px] bg-[#fcfbf7] border-b border-[#e6e4de] z-50 lg:hidden">
+                        <nav className="fixed top-0 left-0 right-0 w-full h-[54px] bg-[#7B2D3E] z-50 lg:hidden">
                                 <div className="h-full px-5 flex items-center justify-between">
                                         <NavLink to="/">
                                                 <img
-                                                        src={logo}
+                                                        src="/logo-new.png"
                                                         alt="Rahimoff Nail Studio"
                                                         className="h-8 w-auto object-contain"
                                                 />
@@ -124,21 +130,21 @@ const Navbar = () => {
                                                 className="w-8 h-8 flex flex-col justify-center items-center gap-[5px]"
                                                 aria-label="Open menu"
                                         >
-                                                <span className="w-5 h-[2px] bg-[#2e2e2e]"></span>
-                                                <span className="w-5 h-[2px] bg-[#2e2e2e]"></span>
-                                                <span className="w-5 h-[2px] bg-[#2e2e2e]"></span>
+                                                <span className="w-5 h-[2px] bg-[#e8ddd0]"></span>
+                                                <span className="w-5 h-[2px] bg-[#e8ddd0]"></span>
+                                                <span className="w-5 h-[2px] bg-[#e8ddd0]"></span>
                                         </button>
                                 </div>
                         </nav>
 
                         {/* Mobile Menu */}
                         {isMenuOpen && (
-                                <div className="fixed inset-0 bg-[#fcfbf7] z-[60] lg:hidden">
+                                <div className="fixed inset-0 bg-[#7B2D3E] z-[60] lg:hidden">
                                         <div className="h-full flex flex-col">
-                                                <div className="h-[60px] px-5 flex items-center justify-between border-b border-[#e6e4de]">
+                                                <div className="h-[60px] px-5 flex items-center justify-between border-b border-[#9a3a5a]">
                                                         <NavLink to="/" onClick={() => setIsMenuOpen(false)}>
                                                                 <img
-                                                                        src={logo}
+                                                                        src="/logo-new.png"
                                                                         alt="Rahimoff Nail Studio"
                                                                         className="h-8 w-auto object-contain"
                                                                 />
@@ -146,7 +152,7 @@ const Navbar = () => {
 
                                                         <button
                                                                 onClick={() => setIsMenuOpen(false)}
-                                                                className="w-8 h-8 flex items-center justify-center text-[#2e2e2e] text-2xl"
+                                                                className="w-8 h-8 flex items-center justify-center text-[#e8ddd0] text-2xl"
                                                                 aria-label="Close menu"
                                                         >
                                                                 ×
@@ -156,12 +162,12 @@ const Navbar = () => {
                                                 <div className="flex-1 flex flex-col justify-between overflow-y-auto">
                                                         <ul className="pt-8 px-5">
                                                                 {links.map((link, index) => (
-                                                                        <li key={index} className="border-b border-[#e6e4de]">
+                                                                        <li key={index} className="border-b border-[#9a3a5a]">
                                                                                 {link.isScroll ? (
                                                                                         <button
                                                                                                 type="button"
                                                                                                 onClick={(event) => handleSectionScroll(event, link.targetId)}
-                                                                                                className="block w-full py-4 text-lg font-normal uppercase tracking-[0.02em] text-[#2e2e2e] text-left bg-transparent border-0 cursor-pointer"
+                                                                                                className="block w-full py-4 text-lg font-normal uppercase tracking-[0.05em] text-[#e8ddd0] text-left bg-transparent border-0 cursor-pointer"
                                                                                                 style={{ fontFamily: "Manrope, sans-serif" }}
                                                                                         >
                                                                                                 {link.name}
@@ -171,8 +177,7 @@ const Navbar = () => {
                                                                                                 to={link.url}
                                                                                                 onClick={() => setIsMenuOpen(false)}
                                                                                                 className={({ isActive }) =>
-                                                                                                        `block py-4 text-lg font-normal uppercase tracking-[0.02em] ${isActive ? "text-burgundy-500" : "text-[#2e2e2e]"
-                                                                                                        }`
+                                                                                                        `block py-4 text-lg font-normal uppercase tracking-[0.05em] ${isActive ? "text-white" : "text-[#e8ddd0]"}`
                                                                                                 }
                                                                                                 style={{ fontFamily: "Manrope, sans-serif" }}
                                                                                         >
@@ -185,30 +190,30 @@ const Navbar = () => {
 
                                                         <div className="px-5 pb-8 space-y-5">
                                                                 <div>
-                                                                        <p className="text-[11px] uppercase text-[#2e2e2e] opacity-60 mb-2" style={{ fontFamily: "Manrope, sans-serif" }}>
+                                                                        <p className="text-[11px] uppercase text-[#e8ddd0] opacity-60 mb-2" style={{ fontFamily: "Manrope, sans-serif" }}>
                                                                                 Çalışma Saatleri
                                                                         </p>
-                                                                        <p className="text-sm text-[#2e2e2e]" style={{ fontFamily: "Manrope, sans-serif" }}>
+                                                                        <p className="text-sm text-[#e8ddd0]" style={{ fontFamily: "Manrope, sans-serif" }}>
                                                                                 Pzt - Cmt: 10:00 - 20:00
                                                                         </p>
                                                                 </div>
 
                                                                 <div>
-                                                                        <p className="text-[11px] uppercase text-[#2e2e2e] opacity-60 mb-2" style={{ fontFamily: "Manrope, sans-serif" }}>
+                                                                        <p className="text-[11px] uppercase text-[#e8ddd0] opacity-60 mb-2" style={{ fontFamily: "Manrope, sans-serif" }}>
                                                                                 İletişim
                                                                         </p>
                                                                         <a
-                                                                                href="tel:+905060552137"
-                                                                                className="block text-lg text-[#2e2e2e]"
+                                                                                href="tel:+905060352137"
+                                                                                className="block text-lg text-[#e8ddd0]"
                                                                                 style={{ fontFamily: "Manrope, sans-serif" }}
                                                                         >
-                                                                                +90 506 055 21 37
+                                                                                +90 506 035 21 37
                                                                         </a>
                                                                 </div>
 
                                                                 <a
                                                                         href={wpChatLink}
-                                                                        className="block w-full py-3 bg-burgundy-500 text-white text-center text-[12px] font-normal uppercase tracking-[0.02em] hover:bg-burgundy-700 transition-colors duration-200"
+                                                                        className="block w-full py-3 border border-[#e8ddd0] text-[#e8ddd0] text-center text-[12px] font-normal uppercase tracking-[0.05em] hover:bg-[#e8ddd0] hover:text-[#7B2D3E] transition-colors duration-200"
                                                                         style={{ fontFamily: "Manrope, sans-serif" }}
                                                                 >
                                                                         Randevu Al
