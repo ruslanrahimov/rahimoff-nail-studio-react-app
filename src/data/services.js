@@ -31,6 +31,12 @@ export const tabContent = {
                                 description: "Yapay tırnak ucu (tips) ile yapılan uzatma işlemi.",
                                 price: 1100,
                         },
+                        {
+                                id: "manicure-men",
+                                name: "Erkek Manikürü",
+                                description: "Erkekler için tırnak şekillendirme ve bakım.",
+                                price: 500,
+                        },
                 ],
         },
 

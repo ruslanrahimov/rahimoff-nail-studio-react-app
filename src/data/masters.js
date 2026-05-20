@@ -5,6 +5,7 @@ const unifiedServices = [
         { id: "manicure-gel-guc-kalici", price: 950 },
         { id: "manicure-protez-jel", price: 1100 },
         { id: "manicure-protez-tips", price: 1100 },
+        { id: "manicure-men", price: 500 },
 
         { id: "pedicure-kane-kalici-oje", price: 1200 },
         { id: "pedicure-kane-basic", price: 1000 },
