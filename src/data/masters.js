@@ -45,7 +45,7 @@ export const masters = [
                 name: "Elif Rahimov",
                 role: "Problematik tırnaklar, zor mimari ve detaylı düzeltmeler",
                 experience: "8 yıllık tecrübe",
-                priceLevel: "1000 TL",
+                priceLevel: "1300 TL",
                 rating: 5,
                 description:
                         "Problematik ve zor tırnaklarda uzmanlaşmış bir üst düzey masterdır. Travmatik tırnaklar, zor mimari ve detaylı düzeltmelerde yüksek hassasiyetle çalışır.",
@@ -104,7 +104,7 @@ export const masters = [
                 name: "Uzman Akgül",
                 role: "Profesyonel manikür, pedikür ve doğal tırnak güçlendirme",
                 experience: "5 yıllık tecrübe",
-                priceLevel: "1000 TL",
+                priceLevel: "1100 TL",
                 rating: 5,
                 description:
                         "Profesyonel manikür ve pedikürde deneyimli bir uzmandır. Ayak bakımı, çatlak topuk ve SPA işlemlerinde titiz çalışır, doğal tırnak güçlendirmede başarılıdır.",
@@ -149,7 +149,7 @@ export const masters = [
                 name: "Uzman Hayrunnisa",
                 role: "Manikür, jel güçlendirme, uzatma ve modern nail art",
                 experience: "1 yıllık tecrübe",
-                priceLevel: "700 TL",
+                priceLevel: "950 TL",
                 rating: 5,
                 description:
                         "Doğal manikür, jel güçlendirme ve uzatma üzerine çalışır. Modern nail art, ince detaylı tasarımlar ve şekillendirmede estetik ve özenli bir yaklaşım sergiler.",
@@ -186,7 +186,7 @@ export const masters = [
                 name: "Uzman Pelin",
                 role: "Manikür, jel güçlendirme, tırnak uzatma ve nail art",
                 experience: "1 yıllık tecrübe",
-                priceLevel: "800 TL",
+                priceLevel: "950 TL",
                 rating: 5,
                 description:
                         "Güzellik sektörüne olan tutkusunu Rahimoff Studio'da gerçek bir ustalığa dönüştürdü. Ekibimizle birlikte manikür, jel güçlendirme ve nail art konularında en iyi teknikleri öğrenerek kendine özgü, özenli bir dokunuş geliştirdi. Sıcakkanlı yaklaşımı ve detaylara verdiği önemle her müşteriye kişisel bir deneyim sunar.",
