@@ -160,8 +160,8 @@ const Home = () => {
 
         return (
                 <div ref={pageRef} className="home-container mt-[54px] w-full mx-auto max-md:mt-[54px]">
-                        <section ref={servicesPreviewRef} className="services-preview bg-[#fcfbf7] pt-0 pb-[80px] px-[30px] min-h-[100vh] max-md:pb-[60px] max-md:px-[20px]">
-                                <HeroMasters />
+                        <HeroMasters />
+                        <section ref={servicesPreviewRef} className="services-preview bg-[#fcfbf7] pt-[100px] pb-[80px] px-[30px] max-md:pt-[60px] max-md:pb-[60px] max-md:px-[20px]">
                                 <div className="max-w-[1140px] mx-auto">
                                         <SectionHeading
                                                 label="SERVICES"

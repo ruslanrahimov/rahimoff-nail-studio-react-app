@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { tabContent } from "../data/services";
 import { getMasterServicesByCategory } from "../utils/getMasterServicesByCategory";
+import DurationBadge from "./DurationBadge.jsx";
 import "./MasterPriceListTabs.css";
 
 const MasterPriceListTabs = ({ masterId }) => {
@@ -77,6 +78,11 @@ const MasterPriceListTabs = ({ masterId }) => {
               <div className="price-item-info">
                 <h3 className="price-item-name">{service.name}</h3>
                 <p className="price-item-description">{service.description}</p>
+                {service.duration != null && (
+                  <div className="price-item-meta">
+                    <DurationBadge duration={service.duration} />
+                  </div>
+                )}
               </div>
 
               {/* Price */}

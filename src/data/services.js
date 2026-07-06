@@ -1,5 +1,8 @@
 const baseUrl = import.meta.env.BASE_URL;
 
+// duration: işlemin yaklaşık süresi (serbest metin, olduğu gibi gösterilir).
+// Örn: "30dk ortalama", "1.5 saat ortalama", "2 saat ortalama". null ise süre gösterilmez.
+
 export const tabContent = {
         MANICURE: {
                 title: "Manikür",
@@ -10,7 +13,8 @@ export const tabContent = {
                                 id: "manicure-basic",
                                 name: "Manikür",
                                 description: "Tırnak şekillendirme, et kesimi ve bakım.",
-                                price: 400,
+                                price: 500,
+                                duration: "30dk ortalama",
                         },
                         {
                                 id: "manicure-gel-guc-kalici",
@@ -18,24 +22,28 @@ export const tabContent = {
                                 description:
                                         "Doğal tırnağı güçlendirmek için jel uygulaması yapılır, ardından kalıcı oje ile tamamlanır.",
                                 price: 950,
+                                duration: "1.5 saat ortalama",
                         },
                         {
                                 id: "manicure-protez-jel",
                                 name: "Manikür + Protez Tırnak (Jel)",
                                 description: "Doğal tırnağın üzerine özel jel ile yapılan uzatma işlemi.",
                                 price: 1100,
+                                duration: "2 saat ortalama",
                         },
                         {
                                 id: "manicure-protez-tips",
                                 name: "Manikür + Protez Tırnak (Tips)",
                                 description: "Yapay tırnak ucu (tips) ile yapılan uzatma işlemi.",
                                 price: 1100,
+                                duration: "2 saat ortalama",
                         },
                         {
                                 id: "manicure-men",
                                 name: "Erkek Manikürü",
                                 description: "Erkekler için tırnak şekillendirme ve bakım.",
-                                price: 500,
+                                price: 750,
+                                duration: "30dk ortalama",
                         },
                 ],
         },
@@ -49,25 +57,29 @@ export const tabContent = {
                                 id: "pedicure-kane-kalici-oje",
                                 name: "KANE Pedikür + Kalıcı Oje",
                                 description: "KANE ürünleri ile detaylı pedikür ve kalıcı oje.",
-                                price: 1200,
+                                price: 1300,
+                                duration: "1.5 saat ortalama",
                         },
                         {
                                 id: "pedicure-kane-basic",
                                 name: "KANE Pedikür (Ojesiz)",
                                 description: "KANE ürünleri ile detaylı bakım.",
                                 price: 1000,
+                                duration: "1 saat ortalama",
                         },
                         {
                                 id: "pedicure-intensive",
                                 name: "Yoğun bakım pedikürü",
                                 description: "Nasır, çatlak ve diğer sorunlara özel tedavi.",
                                 price: "Fiyat değerlendirme sonrası belirlenir",
+                                duration: null,
                         },
                         {
                                 id: "pedicure-men",
                                 name: "Erkek Pedikürü",
                                 description: "Erkek ayağı için geliştirilmiş özel bakım protokolü.",
                                 price: 1500,
+                                duration: "1 saat ortalama",
                         },
                 ],
         },
@@ -98,8 +110,8 @@ export const tabContent = {
                         {
                                 id: "art-french",
                                 name: "French",
-                                description: "Klasik zarif uç tasarımı.",
-                                price: 25,
+                                description: "Klasik zarif uç tasarımı. (10 parmak için fiyat)",
+                                price: 300,
                         },
                         {
                                 id: "art-light-design",
@@ -128,8 +140,8 @@ export const tabContent = {
                         {
                                 id: "art-ombre-multi",
                                 name: "Ombre (çok renkli)",
-                                description: "Renk geçişli tasarım.",
-                                price: "30",
+                                description: "Renk geçişli tasarım. (10 parmak için fiyat)",
+                                price: 300,
                         },
                         {
                                 id: "art-mermer-advanced",
@@ -155,13 +167,14 @@ export const tabContent = {
                                 id: "extra-remove-gel",
                                 name: "Çıkartma (Jel, Akrilik, Tips)",
                                 description: "Kaplamanın sağlıklı ve zarar vermeden çıkarılması.",
-                                price: 300,
+                                price: 400,
+                                duration: "30dk ortalama",
                         },
                         {
                                 id: "extra-remove-other-salon",
                                 name: "Diğer Salon İşlemi Çıkartma",
                                 description: "Başka salonda yapılan işlemin çıkartılması.",
-                                price: 200,
+                                price: 300,
                         },
                         {
                                 id: "extra-one-nail-extension",

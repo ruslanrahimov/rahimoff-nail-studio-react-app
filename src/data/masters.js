@@ -1,13 +1,13 @@
 const baseUrl = import.meta.env.BASE_URL;
 
 const unifiedServices = [
-        { id: "manicure-basic", price: 400 },
+        { id: "manicure-basic", price: 500 },
         { id: "manicure-gel-guc-kalici", price: 950 },
         { id: "manicure-protez-jel", price: 1100 },
         { id: "manicure-protez-tips", price: 1100 },
-        { id: "manicure-men", price: 500 },
+        { id: "manicure-men", price: 750 },
 
-        { id: "pedicure-kane-kalici-oje", price: 1200 },
+        { id: "pedicure-kane-kalici-oje", price: 1300 },
         { id: "pedicure-kane-basic", price: 1000 },
         { id: "pedicure-intensive", price: null },
         { id: "pedicure-men", price: 1500 },
@@ -15,17 +15,17 @@ const unifiedServices = [
         { id: "art-tasarim-jelleri", price: 10 },
         { id: "art-nailart-basic", price: 50 },
         { id: "art-simple-lines", price: 20 },
-        { id: "art-french", price: 25 },
+        { id: "art-french", price: 300 },
         { id: "art-light-design", price: 20 },
         { id: "art-advanced-design", price: 25 },
         { id: "art-beads", price: "10-30" },
         { id: "art-geometry-advanced", price: "30-40" },
-        { id: "art-ombre-multi", price: "30" },
+        { id: "art-ombre-multi", price: 300 },
         { id: "art-mermer-advanced", price: 30 },
         { id: "art-korean-3d", price: "30-50" },
 
-        { id: "extra-remove-gel", price: 300 },
-        { id: "extra-remove-other-salon", price: 200 },
+        { id: "extra-remove-gel", price: 400 },
+        { id: "extra-remove-other-salon", price: 300 },
         { id: "extra-one-nail-extension", price: 100 },
         { id: "extra-long-length", price: "100-300" },
 ];
@@ -89,12 +89,13 @@ export const masters = [
                 ],
                 promotions: [],
                 services: overridePrices(excludeCategories(unifiedServices), {
-                        "manicure-basic": 500,
-                        "manicure-protez-jel": 1300,
-                        "manicure-protez-tips": 1300,
-                        "manicure-gel-guc-kalici": 1000,
-                        "pedicure-kane-basic": 1000,
-                        "pedicure-kane-kalici-oje": 1200,
+                        "manicure-basic": 800,
+                        "manicure-men": 800,
+                        "manicure-protez-jel": 1600,
+                        "manicure-protez-tips": 1600,
+                        "manicure-gel-guc-kalici": 1300,
+                        "pedicure-kane-kalici-oje": 1500,
+                        "pedicure-kane-basic": 1200,
                 }),
         },
 
@@ -136,7 +137,11 @@ export const masters = [
                         "kalıcı parlaklık teknikleri",
                 ],
                 promotions: [],
-                services: unifiedServices,
+                services: overridePrices(unifiedServices, {
+                        "manicure-gel-guc-kalici": 1100,
+                        "manicure-protez-jel": 1300,
+                        "manicure-protez-tips": 1300,
+                }),
         },
 
         {
@@ -173,11 +178,7 @@ export const masters = [
                         "gel boya",
                 ],
                 promotions: [],
-                services: overridePrices(excludeCategories(unifiedServices, ["pedicure"]), {
-                        "manicure-protez-jel": 950,
-                        "manicure-protez-tips": 950,
-                        "manicure-gel-guc-kalici": 800,
-                }),
+                services: unifiedServices,
         },
 
         {
@@ -202,11 +203,7 @@ export const masters = [
                         "gel boya",
                 ],
                 promotions: [],
-                services: overridePrices(unifiedServices, {
-                        "manicure-protez-jel": 950,
-                        "manicure-protez-tips": 950,
-                        "manicure-gel-guc-kalici": 800,
-                }),
+                services: unifiedServices,
         },
 
 ];

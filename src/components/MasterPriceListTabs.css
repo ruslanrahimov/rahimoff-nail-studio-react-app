@@ -204,6 +204,10 @@
   letter-spacing: 0.2px;
 }
 
+.price-item-meta {
+  margin-top: 8px;
+}
+
 .price-item-price {
   font-family: "Manrope", sans-serif;
   font-size: 14px;

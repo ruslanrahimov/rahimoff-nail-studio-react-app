@@ -1,32 +1,212 @@
 /* ===================================
-   HERO MASTERS
-   Editorial luxury — homepage hero
-   Image left / master promo catalog right
+   HERO MASTERS — editorial homepage hero
+   Content left / atmospheric image right
    =================================== */
 
 .hero-masters {
   width: 100%;
-  margin: 0 0 60px 0;
+  margin: 0;
   position: relative;
 }
 
 .hero-masters-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  background-color: #fcfbf7;
-  border-top: 1px solid rgba(46, 46, 46, 0.1);
-  border-bottom: 1px solid rgba(46, 46, 46, 0.1);
+  grid-template-columns: 1.05fr 1fr;
+  background-color: #ffffff;
+  border-top: 1px solid rgba(46, 46, 46, 0.08);
+  border-bottom: 1px solid rgba(46, 46, 46, 0.08);
   overflow: hidden;
+  min-height: 620px;
 }
 
 /* ===================================
-   LEFT: IMAGE COLUMN
+   LEFT: CONTENT COLUMN
+   =================================== */
+
+.hero-m-content-col {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 96px 80px;
+  position: relative;
+}
+
+.hero-m-inner {
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Label row */
+.hero-m-label {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 36px;
+}
+
+.hero-m-label-text {
+  font-family: "Manrope", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: #6c2521;
+  white-space: nowrap;
+}
+
+.hero-m-label-line {
+  flex: 0 0 80px;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    rgba(108, 37, 33, 0.45) 0%,
+    rgba(108, 37, 33, 0) 100%
+  );
+}
+
+/* Editorial title */
+.hero-m-title {
+  font-family: "Manrope", sans-serif;
+  font-size: 64px;
+  font-weight: 300;
+  line-height: 1.06;
+  letter-spacing: -1.5px;
+  color: #2a241f;
+  margin: 0 0 28px 0;
+}
+
+.hero-m-title-accent {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+  color: #2a241f;
+}
+
+/* Descriptor */
+.hero-m-desc {
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #6a5f55;
+  letter-spacing: 0.2px;
+  margin: 0 0 40px 0;
+  max-width: 440px;
+}
+
+/* ===================================
+   ACTIONS
+   =================================== */
+
+.hero-m-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 56px;
+}
+
+.hero-m-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 28px;
+  font-family: "Manrope", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.hero-m-btn--primary {
+  background-color: #6c2521;
+  color: #f4efe5;
+  border-color: #6c2521;
+}
+
+.hero-m-btn--primary:hover {
+  background-color: #571c19;
+  border-color: #571c19;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px -10px rgba(108, 37, 33, 0.5);
+}
+
+.hero-m-btn--primary svg {
+  width: 14px;
+  height: 14px;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.hero-m-btn--primary:hover svg {
+  transform: translate(3px, -3px);
+}
+
+.hero-m-btn--ghost {
+  background-color: transparent;
+  color: #2a241f;
+  border-color: rgba(42, 36, 31, 0.3);
+}
+
+.hero-m-btn--ghost:hover {
+  background-color: #2a241f;
+  color: #f4efe5;
+  border-color: #2a241f;
+  transform: translateY(-1px);
+}
+
+/* ===================================
+   STATS ROW
+   =================================== */
+
+.hero-m-stats {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px 16px;
+  font-family: "Manrope", sans-serif;
+  font-size: 12px;
+  color: #6a5f55;
+  letter-spacing: 0.3px;
+}
+
+.hero-m-stats li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hero-m-stats strong {
+  font-weight: 700;
+  color: #2a241f;
+}
+
+.hero-m-stats-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background-color: rgba(108, 37, 33, 0.4);
+}
+
+/* ===================================
+   RIGHT: IMAGE COLUMN
    =================================== */
 
 .hero-m-image-col {
   position: relative;
-  min-height: 460px;
   overflow: hidden;
+  min-height: 620px;
 }
 
 .hero-m-image {
@@ -38,362 +218,55 @@
   position: relative;
 }
 
-/* Subtle right-edge fade toward beige */
+/* Subtle left-edge fade toward white */
 .hero-m-image-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    to right,
-    rgba(252, 251, 247, 0) 65%,
-    rgba(252, 251, 247, 0.1) 100%
+    to left,
+    rgba(255, 255, 255, 0) 70%,
+    rgba(255, 255, 255, 0.15) 100%
   );
   pointer-events: none;
 }
 
-/* Bottom depth gradient for studio name legibility */
-.hero-m-image-bottom-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 42%;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.35) 0%,
-    transparent 100%
-  );
-  pointer-events: none;
-}
-
-/* Studio name watermark — reads elegantly over image */
 .hero-m-studio-watermark {
   position: absolute;
-  bottom: 26px;
-  left: 28px;
+  bottom: 30px;
+  right: 32px;
   font-family: "Manrope", sans-serif;
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 8px;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.68);
+  color: rgba(255, 255, 255, 0.7);
   z-index: 2;
   user-select: none;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35);
 }
 
-/* Gold corner accent — top right */
+/* Gold corner accent — top left of image */
 .hero-m-corner-accent {
   position: absolute;
-  top: 26px;
-  right: 26px;
-  width: 54px;
-  height: 54px;
-  border-top: 1px solid rgba(201, 168, 105, 0.55);
-  border-right: 1px solid rgba(201, 168, 105, 0.55);
+  top: 28px;
+  left: 28px;
+  width: 56px;
+  height: 56px;
+  border-top: 1px solid rgba(201, 168, 105, 0.6);
+  border-left: 1px solid rgba(201, 168, 105, 0.6);
   pointer-events: none;
   z-index: 2;
-}
-
-/* ===================================
-   RIGHT: CONTENT COLUMN
-   =================================== */
-
-.hero-m-content-col {
-  display: flex;
-  align-items: center;
-  background-color: #fcfbf7;
-  padding: 60px 56px;
-}
-
-.hero-m-inner {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-/* ===================================
-   HEADER AREA
-   =================================== */
-
-.hero-m-header {
-  margin-bottom: 26px;
-}
-
-/* Label row */
-.hero-m-label {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 18px;
-}
-
-.hero-m-label-text {
-  font-family: "Manrope", sans-serif;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: #6c2521;
-  white-space: nowrap;
-}
-
-.hero-m-label-line {
-  flex: 1;
-  max-width: 56px;
-  height: 1px;
-  background: linear-gradient(
-    to right,
-    rgba(108, 37, 33, 0.35) 0%,
-    rgba(108, 37, 33, 0) 100%
-  );
-}
-
-/* Editorial title — 2 lines, generous weight contrast */
-.hero-m-title {
-  font-family: "Manrope", sans-serif;
-  font-size: 52px;
-  font-weight: 300;
-  line-height: 1.05;
-  letter-spacing: -1.5px;
-  text-transform: uppercase;
-  color: #2e2e2e;
-  margin: 0 0 14px 0;
-}
-
-/* Descriptor */
-.hero-m-desc {
-  font-family: "Manrope", sans-serif;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1.6;
-  color: #888;
-  letter-spacing: 0.2px;
-  margin: 0;
-}
-
-/* ===================================
-   MASTER PROMO ROWS
-   =================================== */
-
-.hero-m-rows {
-  border-top: 1px solid #e5e3db;
-  margin-bottom: 22px;
-}
-
-.hero-m-row {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 14px 0;
-  border-bottom: 1px solid #e5e3db;
-  text-decoration: none;
-  position: relative;
-}
-
-/* Hover wash — extends beyond padding */
-.hero-m-row::before {
-  content: "";
-  position: absolute;
-  left: -56px;
-  right: -56px;
-  top: 0;
-  bottom: 0;
-  background: rgba(108, 37, 33, 0.028);
-  opacity: 0;
-  transition: opacity 0.25s ease;
-  pointer-events: none;
-}
-
-.hero-m-row:hover::before {
-  opacity: 1;
-}
-
-.hero-m-row:hover .hero-m-photo {
-  transform: scale(1.08);
-}
-
-.hero-m-row:hover .hero-m-arrow svg {
-  transform: translateX(4px);
-}
-
-/* Photo square */
-.hero-m-photo-wrap {
-  width: 64px;
-  height: 76px;
-  flex-shrink: 0;
-  overflow: hidden;
-  border: 1px solid #e5e3db;
-}
-
-.hero-m-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  display: block;
-  transition: transform 0.4s ease;
-}
-
-/* Info: name + promo title */
-.hero-m-info {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  min-width: 0;
-}
-
-.hero-m-name {
-  font-family: "Manrope", sans-serif;
-  font-size: 15px;
-  font-weight: 600;
-  color: #2e2e2e;
-  letter-spacing: 0.2px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.hero-m-promo-title {
-  font-family: "Manrope", sans-serif;
-  font-size: 11px;
-  font-weight: 400;
-  color: #6c2521;
-  letter-spacing: 0.2px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* Discount badge */
-.hero-m-badge {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  flex-shrink: 0;
-  min-width: 54px;
-}
-
-.hero-m-badge-value {
-  font-family: "Manrope", sans-serif;
-  font-size: 22px;
-  font-weight: 300;
-  color: #6c2521;
-  line-height: 1;
-  letter-spacing: -0.5px;
-  display: block;
-}
-
-.hero-m-badge-label {
-  font-family: "Manrope", sans-serif;
-  font-size: 7px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #c9a869;
-  margin-top: 3px;
-  display: block;
-}
-
-/* Arrow */
-.hero-m-arrow {
-  flex-shrink: 0;
-  color: #2e2e2e;
-  display: flex;
-  align-items: center;
-}
-
-.hero-m-arrow svg {
-  width: 15px;
-  height: 15px;
-  display: block;
-  transition: transform 0.3s ease;
-}
-
-/* ===================================
-   FOOTER: ALL MASTERS LINK
-   =================================== */
-
-.hero-m-footer {
-  display: flex;
-  align-items: center;
-}
-
-.hero-m-all-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  font-family: "Manrope", sans-serif;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #5a5a5a;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.hero-m-all-link svg {
-  width: 13px;
-  height: 13px;
-  display: block;
-  transition: transform 0.3s ease;
-}
-
-.hero-m-all-link:hover {
-  color: #6c2521;
-}
-
-.hero-m-all-link:hover svg {
-  transform: translate(3px, -3px);
-}
-
-/* ===================================
-   SECTION DIVIDER LABEL
-   =================================== */
-
-.hero-m-section-label {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 0 6px;
-  border-bottom: 1px solid #e5e3db;
-}
-
-.hero-m-section-label span {
-  font-family: "Manrope", sans-serif;
-  font-size: 8px;
-  font-weight: 600;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: #c9a869;
-}
-
-/* ===================================
-   GENERAL PROMO ROW ICON
-   =================================== */
-
-.hero-m-general-icon-wrap {
-  width: 64px;
-  height: 76px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(201, 168, 105, 0.07);
-  border: 1px solid rgba(201, 168, 105, 0.2);
-  color: #c9a869;
 }
 
 /* ===================================
    ANIMATION INITIAL STATES
-   Elements start invisible; GSAP reveals them
    =================================== */
 
 .hero-m-label,
 .hero-m-title,
 .hero-m-desc,
-.hero-m-row,
-.hero-m-footer {
+.hero-m-actions > *,
+.hero-m-stats {
   opacity: 0;
 }
 
@@ -402,22 +275,30 @@
    =================================== */
 
 @media (max-width: 1024px) {
-  .hero-m-image-col {
-    min-height: 400px;
+  .hero-masters-grid {
+    min-height: 540px;
   }
 
   .hero-m-content-col {
-    padding: 50px 40px;
+    padding: 72px 48px;
   }
 
   .hero-m-title {
-    font-size: 42px;
-    letter-spacing: -1px;
+    font-size: 50px;
+    letter-spacing: -1.2px;
   }
 
-  .hero-m-row::before {
-    left: -40px;
-    right: -40px;
+  .hero-m-desc {
+    font-size: 13px;
+    margin-bottom: 32px;
+  }
+
+  .hero-m-actions {
+    margin-bottom: 44px;
+  }
+
+  .hero-m-image-col {
+    min-height: 540px;
   }
 }
 
@@ -427,51 +308,84 @@
 
 @media (max-width: 768px) {
   .hero-masters {
-    margin-bottom: 40px;
-    padding-top: 60px;
+    margin: 0;
   }
 
   .hero-masters-grid {
     grid-template-columns: 1fr;
+    min-height: auto;
     border: none;
-    background-color: transparent;
+    background-color: #ffffff;
   }
 
   .hero-m-image-col {
-    height: 300px;
     order: 1;
+    min-height: 0;
+    height: 280px;
   }
 
   .hero-m-content-col {
     order: 2;
-    padding: 36px 20px;
-    background-color: transparent;
+    padding: 40px 24px 48px;
+  }
+
+  .hero-m-inner {
+    max-width: 100%;
+  }
+
+  .hero-m-label {
+    margin-bottom: 24px;
+    gap: 14px;
+  }
+
+  .hero-m-label-text {
+    font-size: 10px;
+    letter-spacing: 2.5px;
+  }
+
+  .hero-m-label-line {
+    flex-basis: 50px;
   }
 
   .hero-m-title {
-    font-size: 32px;
+    font-size: 36px;
     letter-spacing: -0.5px;
+    margin-bottom: 18px;
   }
 
-  .hero-m-row::before {
-    left: -20px;
-    right: -20px;
+  .hero-m-desc {
+    font-size: 13px;
+    line-height: 1.65;
+    margin-bottom: 28px;
   }
 
-  .hero-m-badge-value {
-    font-size: 18px;
+  .hero-m-actions {
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 36px;
   }
 
-  .hero-m-photo-wrap {
-    width: 56px;
-    height: 68px;
+  .hero-m-btn {
+    width: 100%;
+    padding: 15px 22px;
+  }
+
+  .hero-m-stats {
+    font-size: 11px;
+    gap: 10px 12px;
   }
 
   .hero-m-corner-accent {
     width: 40px;
     height: 40px;
-    top: 16px;
-    right: 16px;
+    top: 18px;
+    left: 18px;
+  }
+
+  .hero-m-studio-watermark {
+    bottom: 18px;
+    right: 20px;
+    letter-spacing: 6px;
   }
 }
 
@@ -481,11 +395,15 @@
 
 @media (max-width: 480px) {
   .hero-m-image-col {
-    height: 260px;
+    height: 240px;
   }
 
   .hero-m-title {
-    font-size: 28px;
+    font-size: 30px;
+  }
+
+  .hero-m-stats {
+    font-size: 10.5px;
   }
 }
 
@@ -494,10 +412,8 @@
    =================================== */
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-m-photo,
-  .hero-m-arrow svg,
-  .hero-m-all-link svg,
-  .hero-m-row::before {
+  .hero-m-btn,
+  .hero-m-btn svg {
     transition: none !important;
   }
 }

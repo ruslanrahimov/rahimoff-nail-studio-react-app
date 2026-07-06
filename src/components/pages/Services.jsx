@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { tabContent } from "../../data/services.js";
 import { NavLink, useSearchParams } from "react-router";
 import SectionHeading from "./../SectionHeading/SectionHeading.jsx";
+import DurationBadge from "./../DurationBadge.jsx";
 
 const Services = () => {
 	const [searchParams] = useSearchParams();
@@ -286,6 +287,11 @@ const Services = () => {
 									>
 										{service.description}
 									</p>
+									{service.duration != null && (
+										<div className="mt-[10px]">
+											<DurationBadge duration={service.duration} />
+										</div>
+									)}
 								</div>
 
 								{/* Price */}

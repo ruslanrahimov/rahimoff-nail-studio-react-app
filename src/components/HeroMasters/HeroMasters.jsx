@@ -1,30 +1,14 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router";
 import { gsap } from "gsap";
-import { masters } from "../../data/masters.js";
-import { generalPromotions } from "../../data/promotions.js";
 import "./HeroMasters.css";
 
-const SparkleIcon = () => (
-  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-    <path d="M12 2 L13.8 10.2 L22 12 L13.8 13.8 L12 22 L10.2 13.8 L2 12 L10.2 10.2 Z" />
-  </svg>
-);
-
 const baseUrl = import.meta.env.BASE_URL;
+const wpChatLink = import.meta.env.VITE_WP_CHAT_LINK;
 
 const HeroMasters = () => {
   const heroRef = useRef(null);
   const imageRef = useRef(null);
-
-  const masterPromos = masters
-    .filter((m) => m.promotions?.length > 0)
-    .map((m) => ({
-      id: m.id,
-      name: m.name,
-      photo: m.photo,
-      promo: m.promotions[0],
-    }));
 
   useEffect(() => {
     if (!heroRef.current) return;
@@ -42,19 +26,19 @@ const HeroMasters = () => {
           [".hero-m-label", ".hero-m-title", ".hero-m-desc"],
           { opacity: 0, y: 20 },
           { opacity: 1, y: 0, duration: 0.6, stagger: 0.12 },
-          "-=0.7"
+          "-=0.8"
         )
         .fromTo(
-          ".hero-m-row",
-          { opacity: 0, x: 18 },
-          { opacity: 1, x: 0, duration: 0.5, stagger: 0.1 },
+          ".hero-m-actions > *",
+          { opacity: 0, y: 14 },
+          { opacity: 1, y: 0, duration: 0.5, stagger: 0.08 },
           "-=0.3"
         )
         .fromTo(
-          ".hero-m-footer",
+          ".hero-m-stats",
           { opacity: 0 },
-          { opacity: 1, duration: 0.4 },
-          "-=0.1"
+          { opacity: 1, duration: 0.5 },
+          "-=0.2"
         );
     }, heroRef);
 
@@ -64,130 +48,33 @@ const HeroMasters = () => {
   return (
     <section ref={heroRef} className="hero-masters">
       <div className="hero-masters-grid">
-
-        {/* LEFT: atmospheric image */}
-        <div className="hero-m-image-col">
-          <div
-            ref={imageRef}
-            className="hero-m-image"
-            style={{ backgroundImage: `url(${baseUrl}discount-cover.webp)` }}
-          >
-            <div className="hero-m-image-overlay" />
-            <div className="hero-m-image-bottom-overlay" />
-            <span className="hero-m-studio-watermark" aria-hidden="true">
-              RAHIMOFF
-            </span>
-          </div>
-          <div className="hero-m-corner-accent" aria-hidden="true" />
-        </div>
-
-        {/* RIGHT: content + master rows */}
+        {/* LEFT: editorial content */}
         <div className="hero-m-content-col">
           <div className="hero-m-inner">
-
-            {/* Header */}
-            <div className="hero-m-header">
-              <div className="hero-m-label">
-                <span className="hero-m-label-text">ÖZEL TEKLİFLER</span>
-                <div className="hero-m-label-line" />
-              </div>
-              <h1 className="hero-m-title">
-                KAMPANYALAR
-              </h1>
-              <p className="hero-m-desc">
-                Uzmanlarımızın sizi bekleyen kişisel fırsatları
-              </p>
+            <div className="hero-m-label">
+              <span className="hero-m-label-text">NAIL STUDIO · ISPARTA</span>
+              <div className="hero-m-label-line" />
             </div>
 
-            {/* General promo rows */}
-            {generalPromotions.length > 0 && (
-              <div className="hero-m-rows">
-                {generalPromotions.length > 0 && masterPromos.length > 0 && (
-                  <div className="hero-m-section-label">
-                    <span>STÜDYO GENELİ</span>
-                  </div>
-                )}
-                {generalPromotions.map((promo) => (
-                  <Link key={promo.id} to="/promotions" className="hero-m-row hero-m-row--general">
-                    <div className="hero-m-general-icon-wrap">
-                      <SparkleIcon />
-                    </div>
+            <h1 className="hero-m-title">
+              Tırnaklarınız,
+              <br />
+              bir <em className="hero-m-title-accent">sanat eseri</em>.
+            </h1>
 
-                    <div className="hero-m-info">
-                      <span className="hero-m-name">{promo.title}</span>
-                      <span className="hero-m-promo-title">{promo.service}</span>
-                    </div>
+            <p className="hero-m-desc">
+              Isparta'nın merkezinde, steril ekipman ve sekiz yılı aşkın
+              ustalıkla manikür, pedikür ve protez tırnak bakımı.
+            </p>
 
-                    <div className="hero-m-badge">
-                      <span className="hero-m-badge-value">{promo.discount}</span>
-                      <span className="hero-m-badge-label">İndirim</span>
-                    </div>
-
-                    <div className="hero-m-arrow" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M5 12 H19" />
-                        <path d="M13 6 L19 12 L13 18" />
-                      </svg>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            )}
-
-            {/* Master promo rows */}
-            {masterPromos.length > 0 && (
-            <div className="hero-m-rows">
-              {generalPromotions.length > 0 && (
-                <div className="hero-m-section-label">
-                  <span>UZMANLARDAN</span>
-                </div>
-              )}
-              {masterPromos.map((item, i) => (
-                <Link
-                  key={item.id}
-                  to={`/masters/${item.id}#promotions`}
-                  className="hero-m-row"
-                >
-                  <div className="hero-m-photo-wrap">
-                    <img
-                      src={item.photo}
-                      alt={item.name}
-                      className="hero-m-photo"
-                    />
-                  </div>
-
-                  <div className="hero-m-info">
-                    <span className="hero-m-name">{item.name}</span>
-                    <span className="hero-m-promo-title">{item.promo.title}</span>
-                  </div>
-
-                  <div className="hero-m-badge">
-                    <span className="hero-m-badge-value">{item.promo.discount}</span>
-                    <span className="hero-m-badge-label">İndirim</span>
-                  </div>
-
-                  <div className="hero-m-arrow" aria-hidden="true">
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.6"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M5 12 H19" />
-                      <path d="M13 6 L19 12 L13 18" />
-                    </svg>
-                  </div>
-                </Link>
-              ))}
-            </div>
-            )}
-
-            {/* Footer: all masters link */}
-            <div className="hero-m-footer">
-              <Link to="/masters" className="hero-m-all-link">
-                Tüm Uzmanları Keşfet
+            <div className="hero-m-actions">
+              <a
+                href={wpChatLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hero-m-btn hero-m-btn--primary"
+              >
+                <span>Randevu Al</span>
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
@@ -200,12 +87,46 @@ const HeroMasters = () => {
                   <path d="M7 17 L17 7" />
                   <path d="M10 7 H17 V14" />
                 </svg>
+              </a>
+
+              <Link
+                to="/services"
+                className="hero-m-btn hero-m-btn--ghost"
+              >
+                Hizmetler & Fiyatlar
               </Link>
             </div>
 
+            <ul className="hero-m-stats" aria-label="Studio öne çıkanları">
+              <li>
+                <strong>8+</strong> yıl tecrübe
+              </li>
+              <li aria-hidden="true" className="hero-m-stats-dot" />
+              <li>
+                <strong>2000+</strong> mutlu misafir
+              </li>
+              <li aria-hidden="true" className="hero-m-stats-dot" />
+              <li>
+                <strong>%100</strong> steril ekipman
+              </li>
+            </ul>
           </div>
         </div>
 
+        {/* RIGHT: atmospheric image */}
+        <div className="hero-m-image-col">
+          <div
+            ref={imageRef}
+            className="hero-m-image"
+            style={{ backgroundImage: `url(${baseUrl}discount-cover.webp)` }}
+          >
+            <div className="hero-m-image-overlay" />
+            <span className="hero-m-studio-watermark" aria-hidden="true">
+              RAHIMOFF
+            </span>
+          </div>
+          <div className="hero-m-corner-accent" aria-hidden="true" />
+        </div>
       </div>
     </section>
   );
