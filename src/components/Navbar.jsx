@@ -97,11 +97,11 @@ const Navbar = () => {
                                                         İletişim
                                                 </button>
                                                 <a
-                                                        href="tel:+905060352137"
+                                                        href="tel:+905060552137"
                                                         className="text-[13px] font-normal text-[#e8ddd0] uppercase tracking-[0.1em] hover:text-white transition-colors duration-200"
                                                         style={{ fontFamily: "Manrope, sans-serif" }}
                                                 >
-                                                        +90 506 035 21 37
+                                                        +90 506 055 21 37
                                                 </a>
                                                 <a
                                                         href={wpChatLink}
@@ -203,11 +203,11 @@ const Navbar = () => {
                                                                                 İletişim
                                                                         </p>
                                                                         <a
-                                                                                href="tel:+905060352137"
+                                                                                href="tel:+905060552137"
                                                                                 className="block text-lg text-[#e8ddd0]"
                                                                                 style={{ fontFamily: "Manrope, sans-serif" }}
                                                                         >
-                                                                                +90 506 035 21 37
+                                                                                +90 506 055 21 37
                                                                         </a>
                                                                 </div>
 
