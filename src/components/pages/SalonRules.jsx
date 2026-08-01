@@ -45,7 +45,7 @@ const SalonRules = () => {
         "Hizmet almak için önceden randevu alınması gerekmektedir.",
         "Randevular telefonla, WhatsApp üzerinden veya sosyal medya hesaplarımız aracılığıyla alınabilir.",
         "Randevunuza zamanında gelmeniz önemlidir. 15 dakikadan fazla gecikme durumunda randevunuz iptal edilebilir veya bekleme sırasına alınabilirsiniz.",
-        "Randevuyu iptal etmek veya değiştirmek için en az 12 saat önceden haber verilmesi rica olunur.",
+        "Randevuyu iptal etmek veya değiştirmek için en az 24 saat önceden haber verilmesi rica olunur.",
       ],
     },
     {
@@ -79,8 +79,8 @@ const SalonRules = () => {
       number: "05",
       title: "Hizmet Memnuniyeti ve Garanti",
       items: [
-        "Hizmetten memnun kalmazsanız, lütfen 3 gün içinde bizimle iletişime geçiniz.",
-        "Kalıcı oje ve protez tırnak uygulamalarında şikayetler en geç 5 gün içinde bildirilmelidir.",
+        "Hizmetten memnun kalmazsanız, en kısa sürede bizimle iletişime geçmenizi rica ederiz; sizin için en uygun çözümü birlikte bulmaya çalışırız.",
+        "Kalıcı oje ve protez tırnak uygulamalarında olası bir sorunu fark ettiğinizde mümkün olan en kısa sürede bildirmeniz, çözümü kolaylaştırır. Tüketici olarak yasal haklarınız saklıdır.",
         "Uzmanlarımıza saygılı davranılmasını bekliyoruz. Kaba veya tehdit içeren davranışlar kabul edilmez.",
       ],
     },
@@ -97,7 +97,7 @@ const SalonRules = () => {
       number: "07",
       title: "Fotoğraf ve Video Kaydı",
       content:
-        "İşlemler sosyal medya ve reklam amaçlı fotoğraf/video olarak kaydedilebilir. Görsel içeriklerde yer almak istemiyorsanız, hizmetten önce uzmanınıza bildiriniz.",
+        "İşlemlere ait fotoğraf ve videolar, yalnızca sizin açık rızanız (onayınız) olması halinde sosyal medya ve reklam amacıyla kullanılır. Onay vermediğiniz sürece görselleriniz paylaşılmaz. Dilediğiniz zaman verdiğiniz onayı geri çekebilirsiniz.",
     },
     {
       number: "08",
@@ -107,10 +107,22 @@ const SalonRules = () => {
     },
     {
       number: "09",
+      title: "Güvenlik Kamerası ve Kişisel Verilerin Korunması",
+      content:
+        "Salonumuzda, misafirlerimizin ve çalışanlarımızın güvenliği amacıyla ortak alanlarda 7/24 kayıt yapan güvenlik kameraları (CCTV) bulunmaktadır. Kameralar yalnızca görüntü kaydı almakta olup ses kaydı yapılmamaktadır. Kayıtlar, 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında yalnızca güvenlik amacıyla işlenir, yasal saklama süresi sonunda silinir ve üçüncü kişilerle paylaşılmaz. Kişisel verilerinizle ilgili haklarınız ve detaylı bilgi için Gizlilik Politikamıza başvurabilir veya salon yönetimiyle iletişime geçebilirsiniz.",
+    },
+    {
+      number: "10",
+      title: "Kuralların Kabulü",
+      content:
+        "Salonumuzdan randevu alarak veya hizmet alarak, yukarıda belirtilen tüm ziyaret kurallarını okuduğunuzu, anladığınızı ve kabul ettiğinizi beyan etmiş sayılırsınız. Kurallarımız salonumuzda ve web sitemizde önceden erişilebilir durumdadır.",
+    },
+    {
+      number: "11",
       title: "İletişim Bilgileri",
       items: [
         "Adres: Atatürk Mah. Ertuğrul Gazi Sk. Metropol İstanbul Sitesi A1 Blok Kat 4, 34758",
-        "Telefon / WhatsApp: +90 533 361 71 07",
+        "Telefon / WhatsApp: +90 506 055 21 37",
         "Instagram: @rahimoff.nail.studio",
         "E-posta: info@rahimoff.com",
       ],
@@ -123,7 +135,7 @@ const SalonRules = () => {
         <div className="salon-rules-container">
           <SectionHeading
             label="SALON RULES"
-            title="Rahimoff Güzellik Salonu Ziyaret Kuralları"
+            title="Rahimoff Nail Studio Ziyaret Kuralları"
           />
           <p className="salon-rules-intro">
             Rahimoff Nail Studio'da sizlere en iyi hizmeti sunabilmek ve konforlu bir deneyim

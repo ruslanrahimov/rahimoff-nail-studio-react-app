@@ -42,12 +42,12 @@ const PrivacyPolicy = () => {
       number: "01",
       title: "Genel Hükümler",
       content:
-        "Bu Gizlilik Politikası, Türkiye'de bulunan Rahimoff Güzellik Salonu'nun (bundan sonra 'Salon' olarak anılacaktır) 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) uyarınca müşteri kişisel verilerinin işlenmesi ve korunmasına ilişkin esasları belirlemektedir.",
+        "Bu Gizlilik Politikası, Türkiye'de bulunan Rahimoff Nail Studio'nun (bundan sonra 'Salon' olarak anılacaktır) 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) uyarınca müşteri kişisel verilerinin işlenmesi ve korunmasına ilişkin esasları belirlemektedir.",
     },
     {
       number: "02",
       title: "Veri Sorumlusu",
-      content: "Kişisel verilerin veri sorumlusu Türkiye'de kayıtlı Rahimoff Güzellik Salonu'dur.",
+      content: "Kişisel verilerin veri sorumlusu Türkiye'de kayıtlı Rahimoff Nail Studio'dur.",
     },
     {
       number: "03",
@@ -56,6 +56,8 @@ const PrivacyPolicy = () => {
         "Salon hizmetlerinin sunulması, randevu alınması, danışmanlık verilmesi ve işlemlerin gerçekleştirilmesi.",
         "Müşteri ilişkilerinin yönetimi, yeni hizmetler, kampanyalar ve özel teklifler hakkında bilgilendirme.",
         "Türkiye mevzuatına uygun şekilde muhasebe ve vergi yükümlülüklerinin yerine getirilmesi.",
+        "Salon içi güvenliğin sağlanması amacıyla güvenlik kamerası (CCTV) görüntü kayıtlarının işlenmesi.",
+        "Açık rızanızın bulunması halinde, tanıtım ve pazarlama amacıyla işlemlere ait fotoğraf ve videoların kullanılması.",
         "Güvenliğin sağlanması ve dolandırıcılıkların önlenmesi.",
       ],
     },
@@ -67,6 +69,8 @@ const PrivacyPolicy = () => {
         "İletişim bilgileri (telefon numarası, e-posta adresi).",
         "Önceki ziyaretler ve müşteri tercihleri hakkında bilgiler.",
         "Ödeme bilgileri (hizmetin nakitsiz ödenmesi durumunda).",
+        "Güvenlik kamerası (CCTV) görüntü kayıtları (yalnızca görüntü; ses kaydı yapılmaz).",
+        "Açık rızanız halinde, tanıtım amacıyla kullanılan fotoğraf ve video görselleri.",
       ],
     },
     {
@@ -84,8 +88,14 @@ const PrivacyPolicy = () => {
       items: [
         "Kişisel verilerinin işlenip işlenmediğini öğrenme.",
         "Kişisel veriler işlenmişse buna ilişkin bilgi talep etme.",
-        "Kişisel verilerin düzeltilmesini veya silinmesini talep etme.",
-        "Belirli durumlarda kişisel verilerinin işlenmesine itiraz etme.",
+        "İşlenme amacını ve bunların amacına uygun kullanılıp kullanılmadığını öğrenme.",
+        "Yurt içinde veya yurt dışında verilerin aktarıldığı üçüncü kişileri bilme.",
+        "Kişisel verilerin eksik veya yanlış işlenmiş olması hâlinde bunların düzeltilmesini isteme.",
+        "KVKK'da öngörülen şartlar çerçevesinde kişisel verilerin silinmesini veya yok edilmesini isteme.",
+        "Düzeltme, silme ve yok etme işlemlerinin, verilerin aktarıldığı üçüncü kişilere bildirilmesini isteme.",
+        "İşlenen verilerin münhasıran otomatik sistemlerle analizi sonucu aleyhe bir sonuç çıkmasına itiraz etme.",
+        "Verilerin kanuna aykırı işlenmesi sebebiyle zarara uğranması hâlinde zararın giderilmesini talep etme.",
+        "Haklarınızın ihlal edildiğini düşünüyorsanız Kişisel Verileri Koruma Kurulu'na (KVKK) şikâyette bulunma.",
       ],
     },
     {
@@ -112,7 +122,7 @@ const PrivacyPolicy = () => {
       subtitle: "Aşağıdaki iletişim kanallarından bize ulaşabilirsiniz:",
       items: [
         "Adres: Atatürk Mah. Ertuğrul Gazi Sk. Metropol İstanbul Sitesi A1 Blok Kat 4, 34758",
-        "Telefon: +90 533 361 71 07",
+        "Telefon: +90 506 055 21 37",
         "E-posta: info@rahimoff.com",
       ],
     },
@@ -221,7 +231,7 @@ const PrivacyPolicy = () => {
             </div>
             <p className="privacy-footer-text">
               Bu politika, yasal düzenlemelerde veya iş uygulamalarımızda değişiklik olması
-              durumunda güncellenebilir. Son güncelleme tarihi: {new Date().toLocaleDateString("tr-TR")}
+              durumunda güncellenebilir. Son güncelleme tarihi: 01.08.2026
             </p>
             <div className="privacy-footer-signature">
               <div className="signature-line"></div>
