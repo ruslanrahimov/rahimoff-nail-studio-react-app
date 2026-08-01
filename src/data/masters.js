@@ -96,6 +96,7 @@ export const masters = [
                         "manicure-gel-guc-kalici": 1300,
                         "pedicure-kane-kalici-oje": 1500,
                         "pedicure-kane-basic": 1200,
+                        "extra-remove-gel": 600,
                 }),
         },
 
@@ -141,6 +142,7 @@ export const masters = [
                         "manicure-gel-guc-kalici": 1100,
                         "manicure-protez-jel": 1300,
                         "manicure-protez-tips": 1300,
+                        "extra-remove-gel": 600,
                 }),
         },
 
