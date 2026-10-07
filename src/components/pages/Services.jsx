@@ -1,153 +1,129 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { tabContent } from "../../data/services.js";
 import { NavLink, useSearchParams } from "react-router";
 import SectionHeading from "./../SectionHeading/SectionHeading.jsx";
-import DurationBadge from "./../DurationBadge.jsx";
+import ServiceCard from "./../ServiceCard/ServiceCard.jsx";
+import ServiceDetailPanel from "./../ServiceDetailPanel/ServiceDetailPanel.jsx";
+import ServiceCategorySheet from "./../ServiceCategorySheet/ServiceCategorySheet.jsx";
+
+const WA_NUMBER = "905060552137";
+
+const buildWaLink = (msg) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+
+const getBookHref = (service) =>
+	buildWaLink(`Merhaba! ${service.name} için randevu almak istiyorum.`);
+
+const GENERAL_BOOK_HREF = buildWaLink("Merhaba! Randevu almak istiyorum.");
+
+const CATEGORY_KEYS = Object.keys(tabContent);
 
 const Services = () => {
 	const [searchParams] = useSearchParams();
 	const tabFromUrl = searchParams.get("tab");
-	const initialTab = tabFromUrl && tabContent[tabFromUrl] ? tabFromUrl : "MANICURE";
-	const [activeTab, setActiveTab] = useState(initialTab);
-	const [isTransitioning, setIsTransitioning] = useState(false);
+	const initialFilter = tabFromUrl && tabContent[tabFromUrl] ? tabFromUrl : "all";
+
+	const [activeFilter, setActiveFilter] = useState(initialFilter);
+	const [openServiceId, setOpenServiceId] = useState(searchParams.get("open"));
+	const [catSheetOpen, setCatSheetOpen] = useState(false);
 	const isInitialMount = useRef(true);
+
 	const pageRef = useRef(null);
 	const headerRef = useRef(null);
-	const tabsRef = useRef(null);
-	const imageRef = useRef(null);
-	const servicesListRef = useRef(null);
+	const filtersRef = useRef(null);
+	const gridRef = useRef(null);
 	const footerNoteRef = useRef(null);
 
-	// Handle tab change with animation
-	const handleTabChange = (newTab) => {
-		if (newTab === activeTab || isTransitioning) return;
+	const flatServices = useMemo(
+		() =>
+			CATEGORY_KEYS.flatMap((key) =>
+				tabContent[key].services.map((service, i) => ({
+					...service,
+					category: key,
+					categoryLabel: tabContent[key].title,
+					categoryImage: tabContent[key].image,
+					index: `${tabContent[key].title.toUpperCase()} · ${String(i + 1).padStart(2, "0")}`,
+				}))
+			),
+		[]
+	);
 
-		setIsTransitioning(true);
-		const ease = "power3.out";
+	const countOf = (key) =>
+		key === "all"
+			? flatServices.length
+			: flatServices.filter((s) => s.category === key).length;
 
-		// Animate out current content
-		const timeline = gsap.timeline({
-			onComplete: () => {
-				setActiveTab(newTab);
-				setIsTransitioning(false);
-			}
-		});
+	const filterDefs = [
+		{ key: "all", label: "Tümü" },
+		...CATEGORY_KEYS.map((key) => ({
+			key,
+			label: key === "NAIL_ART" ? "Tırnak Süsleme" : tabContent[key].title,
+		})),
+	].map((f) => ({ ...f, count: countOf(f.key) }));
 
-		if (imageRef.current) {
-			timeline.to(imageRef.current, {
-				opacity: 0,
-				scale: 0.98,
-				y: -10,
-				duration: 0.3,
-				ease,
-			}, 0);
-		}
+	const activeLabel = filterDefs.find((f) => f.key === activeFilter)?.label ?? "Tümü";
 
-		if (servicesListRef.current) {
-			const serviceItems = servicesListRef.current.querySelectorAll(".service-item");
-			timeline.to(serviceItems, {
-				opacity: 0,
-				x: -10,
-				duration: 0.25,
-				ease,
-				stagger: 0.03,
-			}, 0);
-		}
-	};
+	const visibleServices = useMemo(
+		() =>
+			activeFilter === "all"
+				? flatServices
+				: flatServices.filter((s) => s.category === activeFilter),
+		[flatServices, activeFilter]
+	);
 
-	// Update active tab when URL parameter changes
-	useEffect(() => {
-		if (tabFromUrl && tabContent[tabFromUrl] && tabFromUrl !== activeTab) {
-			handleTabChange(tabFromUrl);
-		}
-	}, [tabFromUrl]);
+	const openService = openServiceId
+		? flatServices.find((s) => s.id === openServiceId) ?? null
+		: null;
 
 	useEffect(() => {
 		gsap.registerPlugin(ScrollTrigger);
 
-		// Clear any existing ScrollTriggers
-		ScrollTrigger.getAll().forEach(trigger => {
-			if (trigger.vars.id?.startsWith('services-')) {
-				trigger.kill();
-			}
+		ScrollTrigger.getAll().forEach((trigger) => {
+			if (trigger.vars.id?.startsWith("services-")) trigger.kill();
 		});
 
 		const ctx = gsap.context(() => {
 			const ease = "power3.out";
 
-			// Set initial states immediately
-			if (imageRef.current) {
-				gsap.set(imageRef.current, { opacity: 0, scale: 0.95 });
-			}
-
-			// Header animation
 			if (headerRef.current) {
 				gsap.fromTo(
 					headerRef.current,
 					{ opacity: 0, y: 30 },
-					{
-						opacity: 1,
-						y: 0,
-						duration: 0.6,
-						ease,
-						delay: 0.2,
-					}
+					{ opacity: 1, y: 0, duration: 0.6, ease, delay: 0.15 }
 				);
 			}
 
-			// Tabs animation
-			if (tabsRef.current) {
-				const tabButtons = tabsRef.current.querySelectorAll(".tab-button");
+			if (filtersRef.current) {
+				const chips = filtersRef.current.querySelectorAll(".filter-chip");
 				gsap.fromTo(
-					tabButtons,
-					{ opacity: 0, y: 20 },
+					chips,
+					{ opacity: 0, y: 16 },
+					{ opacity: 1, y: 0, duration: 0.4, ease, stagger: 0.06, delay: 0.35 }
+				);
+			}
+
+			if (gridRef.current) {
+				const cards = gridRef.current.querySelectorAll(".service-item");
+				gsap.fromTo(
+					cards,
+					{ opacity: 0, y: 24 },
 					{
 						opacity: 1,
 						y: 0,
 						duration: 0.5,
 						ease,
-						stagger: 0.08,
-						delay: 0.4,
-					}
-				);
-			}
-
-			// Initial image animation
-			if (imageRef.current) {
-				gsap.to(imageRef.current, {
-					opacity: 1,
-					scale: 1,
-					duration: 0.8,
-					ease,
-					delay: 0.6,
-				});
-			}
-
-			// Services list animation
-			if (servicesListRef.current) {
-				const serviceItems = servicesListRef.current.querySelectorAll(".service-item");
-				gsap.fromTo(
-					serviceItems,
-					{ opacity: 0, x: -20 },
-					{
-						opacity: 1,
-						x: 0,
-						duration: 0.5,
-						ease,
-						stagger: 0.08,
+						stagger: 0.06,
 						scrollTrigger: {
-							trigger: servicesListRef.current,
-							start: "top 80%",
+							trigger: gridRef.current,
+							start: "top 85%",
 							once: true,
-							id: 'services-list',
+							id: "services-grid",
 						},
 					}
 				);
 			}
 
-			// Footer note animation
 			if (footerNoteRef.current) {
 				gsap.fromTo(
 					footerNoteRef.current,
@@ -161,7 +137,7 @@ const Services = () => {
 							trigger: footerNoteRef.current,
 							start: "top 90%",
 							once: true,
-							id: 'services-footer',
+							id: "services-footer",
 						},
 					}
 				);
@@ -171,144 +147,102 @@ const Services = () => {
 		return () => ctx.revert();
 	}, []);
 
-	// Animate transitions when tab changes (skip initial mount)
+	// Filtre değiştiğinde ızgarayı yeniden canlandır (ilk yüklemede atla)
 	useEffect(() => {
-		// Skip animation on initial mount
 		if (isInitialMount.current) {
 			isInitialMount.current = false;
 			return;
 		}
+		if (!gridRef.current) return;
 
-		const ease = "power3.out";
-
-		// Animate image transition - fade in from current position
-		if (imageRef.current) {
-			gsap.to(imageRef.current, {
-				opacity: 1,
-				scale: 1,
-				y: 0,
-				duration: 0.6,
-				ease,
-			});
-		}
-
-		// Animate service items transition
-		if (servicesListRef.current) {
-			const serviceItems = servicesListRef.current.querySelectorAll(".service-item");
-			gsap.fromTo(
-				serviceItems,
-				{ opacity: 0, x: -15, y: 10 },
-				{
-					opacity: 1,
-					x: 0,
-					y: 0,
-					duration: 0.5,
-					ease,
-					stagger: 0.06,
-					delay: 0.1,
-				}
-			);
-		}
-	}, [activeTab]);
+		const cards = gridRef.current.querySelectorAll(".service-item");
+		gsap.fromTo(
+			cards,
+			{ opacity: 0, y: 14 },
+			{ opacity: 1, y: 0, duration: 0.4, ease: "power3.out", stagger: 0.04 }
+		);
+	}, [activeFilter]);
 
 	return (
-		<div ref={pageRef} className="services-page bg-[#fcfbf7] min-h-screen pt-[114px] pb-[80px] px-[30px] max-md:pt-[94px] max-md:pb-[60px] max-md:px-[20px]">
+		<div
+			ref={pageRef}
+			className="services-page bg-[#fcfbf7] min-h-screen pt-[114px] pb-[80px] px-[30px] max-md:pt-[94px] max-md:px-[20px] max-sm:pb-[112px]"
+		>
 			<div className="max-w-[1140px] mx-auto">
-				{/* Header */}
 				<div ref={headerRef}>
-					<SectionHeading
-						label="SERVICES"
-						title="Hizmetlerimiz"
-					/>
+					<SectionHeading label="SERVICES" title="Hizmetlerimiz" />
 				</div>
 
-				{/* Tabs Navigation */}
-				<div ref={tabsRef} className="tabs-container mb-[50px] max-md:mb-[40px]">
-					<div className="flex gap-[12px] border-b border-[#d4d4d0] pb-[20px] overflow-x-auto max-md:gap-[8px] max-md:pb-[15px]">
-						{Object.keys(tabContent).map((key) => (
-							<button
-								key={key}
-								onClick={() => handleTabChange(key)}
-								disabled={isTransitioning}
-								className={`tab-button px-[24px] py-[10px] text-[13px] font-medium uppercase tracking-wide transition-all duration-300 whitespace-nowrap max-md:px-[16px] max-md:py-[8px] max-md:text-[11px] ${
-									key === activeTab
-										? "bg-[#6c2521] text-white shadow-md border-2 border-[#5a1f1c]"
-										: "bg-transparent text-[#2e2e2e] border border-[#d4d4d0] hover:bg-[#e8e6dd]"
-								} ${isTransitioning ? "opacity-50 cursor-not-allowed" : ""}`}
-								style={{ fontFamily: "Manrope, sans-serif" }}
-							>
-								{tabContent[key].title}
-							</button>
-						))}
-					</div>
-				</div>
-
-				{/* Service Image */}
-				<div
-					ref={imageRef}
-					className="service-image-wrapper mb-[60px] max-md:mb-[40px]"
-				>
+				{/* Filtreler */}
+				<div className="relative">
 					<div
-						className="service-image h-[500px] bg-cover bg-center bg-no-repeat max-md:h-[300px]"
-						style={{
-							backgroundImage: `url(${tabContent[activeTab].image})`,
-							filter: "grayscale(10%)",
-						}}
-					></div>
-				</div>
-
-				{/* Services List */}
-				<div ref={servicesListRef} className="services-list">
-					<div className="border-t border-[#d4d4d0]">
-						{tabContent[activeTab].services.map((service, index) => (
-							<div
-								key={service.id}
-								className="service-item flex items-start justify-between py-[32px] border-b border-[#d4d4d0] group hover:bg-[#e8e6dd] transition-all duration-300 px-[20px] -mx-[20px] max-md:py-[24px] max-md:flex-col max-md:gap-[12px]"
-							>
-								{/* Number */}
-								<span
-									className="text-[14px] font-light text-[#999] w-[60px] flex-shrink-0 max-md:text-[12px] max-md:w-auto"
+						ref={filtersRef}
+						className="flex gap-[10px] overflow-x-auto pb-[6px] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+					>
+						{filterDefs.map((f) => {
+							const active = f.key === activeFilter;
+							return (
+								<button
+									key={f.key}
+									type="button"
+									onClick={() => setActiveFilter(f.key)}
+									className={`filter-chip inline-flex items-center gap-[7px] rounded-full px-[18px] py-[10px] text-[13px] font-medium uppercase tracking-wide whitespace-nowrap transition-colors duration-300 max-md:text-[12px] ${
+										active
+											? "bg-[#6c2521] text-white border border-[#6c2521]"
+											: "bg-white text-[#2e2e2e] border border-[#d4d4d0] hover:border-[#6c2521]"
+									}`}
 									style={{ fontFamily: "Manrope, sans-serif" }}
 								>
-									{String(index + 1).padStart(2, "0")}
-								</span>
-
-								{/* Service Details */}
-								<div className="flex-1 px-[20px] max-md:px-0">
-									<h3
-										className="text-[18px] font-light uppercase text-[#2e2e2e] mb-[8px] tracking-wide max-md:text-[16px]"
-										style={{ fontFamily: "Manrope, sans-serif" }}
-									>
-										{service.name}
-									</h3>
-									<p
-										className="text-[12px] font-normal text-[#666] leading-[1.5] max-w-[600px] max-md:text-[11px]"
-										style={{ fontFamily: "Manrope, sans-serif" }}
-									>
-										{service.description}
-									</p>
-									{service.duration != null && (
-										<div className="mt-[10px]">
-											<DurationBadge duration={service.duration} />
-										</div>
-									)}
-								</div>
-
-								{/* Price */}
-								<div className="flex items-center gap-[12px] flex-shrink-0 max-md:w-full max-md:justify-between max-md:pl-0">
+									<span>{f.label}</span>
 									<span
-										className="text-[20px] font-light text-[#5a4a3a] max-md:text-[18px]"
-										style={{ fontFamily: "Manrope, sans-serif" }}
+										className={`text-[11px] leading-none px-[6px] py-[2px] rounded-full ${
+											active ? "bg-white/20 text-white" : "bg-[#f2ede3] text-[#8e8479]"
+										}`}
 									>
-										{typeof service.price === 'number' ? `${service.price} ₺` : service.price}
+										{f.count}
 									</span>
-								</div>
-							</div>
-						))}
+								</button>
+							);
+						})}
 					</div>
+					<div className="pointer-events-none absolute top-0 right-0 h-full w-[28px] bg-gradient-to-r from-transparent to-[#fcfbf7] sm:hidden" />
 				</div>
 
-				{/* Footer Note */}
+				{/* Aktif kategori + sonuç sayısı */}
+				<div className="flex items-center justify-between gap-[12px] mt-[12px] mb-[28px] max-md:mb-[22px]">
+					<span className="text-[13px] text-[#8e8479]" style={{ fontFamily: "Manrope, sans-serif" }}>
+						{activeLabel} · {visibleServices.length} hizmet
+					</span>
+					{activeFilter !== "all" && (
+						<button
+							type="button"
+							onClick={() => setActiveFilter("all")}
+							className="text-[13px] text-[#6c2521] underline min-h-[32px]"
+							style={{ fontFamily: "Manrope, sans-serif" }}
+						>
+							filtreyi temizle
+						</button>
+					)}
+				</div>
+
+				{/* Hizmet ızgarası */}
+				<div
+					ref={gridRef}
+					className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[20px]"
+				>
+					{visibleServices.map((service) => (
+						<ServiceCard
+							key={service.id}
+							service={service}
+							categoryLabel={service.categoryLabel}
+							categoryImage={service.categoryImage}
+							getBookHref={getBookHref}
+							onOpenDetail={setOpenServiceId}
+						/>
+					))}
+				</div>
+
+				{/* Alt not */}
 				<div
 					ref={footerNoteRef}
 					className="footer-note mt-[60px] pt-[40px] border-t border-[#d4d4d0] max-md:mt-[40px] max-md:pt-[30px]"
@@ -328,6 +262,56 @@ const Services = () => {
 					</p>
 				</div>
 			</div>
+
+			{/* Mobil: her an erişilebilir kategori + randevu çubuğu */}
+			<div
+				className="fixed bottom-0 left-0 right-0 z-40 flex items-center gap-[10px] px-[14px] py-[12px] bg-[#fcfbf7] border-t border-[#e4ded2] sm:hidden"
+				style={{ boxShadow: "0 -8px 20px rgba(42,37,35,.06)" }}
+			>
+				<button
+					type="button"
+					onClick={() => setCatSheetOpen(true)}
+					className="flex-1 flex items-center justify-between gap-[10px] min-w-0 bg-white border border-[#d4c9b3] min-h-[52px] px-[14px] text-left"
+					style={{ fontFamily: "Manrope, sans-serif" }}
+				>
+					<span className="flex flex-col gap-[1px] min-w-0">
+						<span className="text-[10px] tracking-[0.16em] text-[#9a9086]">KATEGORİ</span>
+						<span className="truncate text-[14px] text-[#2e2e2e]">
+							{activeLabel} · {visibleServices.length} hizmet
+						</span>
+					</span>
+					<span className="text-[#6c2521] text-[12px]">▲</span>
+				</button>
+				<a
+					href={GENERAL_BOOK_HREF}
+					target="_blank"
+					rel="noopener noreferrer"
+					className="flex items-center bg-[#6c2521] text-white px-[20px] min-h-[52px] text-[13px] tracking-[0.08em] uppercase"
+					style={{ fontFamily: "Manrope, sans-serif" }}
+				>
+					Randevu
+				</a>
+			</div>
+
+			{openService && (
+				<ServiceDetailPanel
+					service={openService}
+					getBookHref={getBookHref}
+					onClose={() => setOpenServiceId(null)}
+				/>
+			)}
+
+			{catSheetOpen && (
+				<ServiceCategorySheet
+					filters={filterDefs}
+					activeKey={activeFilter}
+					onPick={(key) => {
+						setActiveFilter(key);
+						setCatSheetOpen(false);
+					}}
+					onClose={() => setCatSheetOpen(false)}
+				/>
+			)}
 		</div>
 	);
 };

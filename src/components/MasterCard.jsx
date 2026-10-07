@@ -6,13 +6,6 @@ import "./MasterCard.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const levelTitles = {
-  top: "Top Master",
-  middle: "Middle Master",
-  "junior-plus": "Junior+",
-  intern: "Stajyer",
-};
-
 const MasterCard = ({
   id,
   name,
@@ -21,7 +14,6 @@ const MasterCard = ({
   priceLevel,
   description,
   photo,
-  level,
   rating,
 }) => {
   const cardRef = useRef(null);
@@ -79,8 +71,6 @@ const MasterCard = ({
     return stars;
   };
 
-  const levelClassName = `level-${level}`;
-
   return (
     <Link to={`/masters/${id}`} ref={cardRef} className="master-card master-card-animate">
       {/* Corner accent - appears on hover */}
@@ -90,11 +80,6 @@ const MasterCard = ({
       <div className="master-card-photo-section">
         <img src={photo} alt={name} className="master-card-photo" />
         <div className="master-card-photo-overlay"></div>
-
-        {/* Level badge */}
-        <div className={`master-card-level ${levelClassName}`}>
-          <span className="master-card-level-text">{levelTitles[level]}</span>
-        </div>
       </div>
 
       {/* Content Section */}

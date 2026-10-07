@@ -1,0 +1,117 @@
+.service-quiz {
+  background: #6c2521;
+  color: #fcfbf7;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 26px 28px;
+}
+
+@media (max-width: 640px) {
+  .service-quiz {
+    padding: 20px;
+  }
+}
+
+.service-quiz-eyebrow {
+  font-family: "Manrope", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.service-quiz-question {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 24px;
+  line-height: 1.25;
+  max-width: 520px;
+}
+
+.service-quiz-options {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.service-quiz-option {
+  background: transparent;
+  color: #fcfbf7;
+  border: 1px solid rgba(252, 251, 247, 0.5);
+  padding: 13px 18px;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  min-height: 44px;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.service-quiz-option:hover {
+  background: #fcfbf7;
+  color: #6c2521;
+}
+
+.service-quiz-result-name {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 26px;
+  line-height: 1.2;
+}
+
+.service-quiz-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.service-quiz-book-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fcfbf7;
+  color: #6c2521;
+  border: none;
+  padding: 13px 22px;
+  font-family: "Manrope", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+.service-quiz-detail-btn {
+  background: transparent;
+  color: #fcfbf7;
+  border: 1px solid rgba(252, 251, 247, 0.5);
+  padding: 13px 20px;
+  font-family: "Manrope", sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+.service-quiz-reset {
+  background: transparent;
+  color: #fcfbf7;
+  border: none;
+  padding: 6px 0 0;
+  font-family: "Manrope", sans-serif;
+  font-size: 13px;
+  opacity: 0.7;
+  text-align: left;
+  cursor: pointer;
+  min-height: 32px;
+  align-self: flex-start;
+}
+
+.service-quiz-reset:hover {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-quiz-option,
+  .service-quiz-reset {
+    transition: none;
+  }
+}

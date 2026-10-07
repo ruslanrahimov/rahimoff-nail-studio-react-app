@@ -1,9 +1,14 @@
 import { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router";
 import "./MessageWidget.css";
+
+// Bu sayfalarda sabit alt çubuk olduğu için sosyal medya widget'ı gizlenir
+const HIDDEN_ON_PATHS = ["/services"];
 
 export default function MessageWidget() {
         const [open, setOpen] = useState(false);
         const ref = useRef(null);
+        const { pathname } = useLocation();
 
         useEffect(() => {
                 if (!open) return;
@@ -18,6 +23,8 @@ export default function MessageWidget() {
                 return () =>
                         document.removeEventListener("mousedown", handleClickOutside);
         }, [open]);
+
+        if (HIDDEN_ON_PATHS.includes(pathname)) return null;
 
         return (
                 <div ref={ref} className="message-widget">

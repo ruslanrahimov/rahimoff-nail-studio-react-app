@@ -9,13 +9,6 @@ import "./MasterPage.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const levelTitles = {
-  top: "Top Master",
-  middle: "Middle Master",
-  "junior-plus": "Junior+",
-  intern: "Stajyer",
-};
-
 const MasterPage = () => {
   const { id } = useParams();
   const location = useLocation();
@@ -148,8 +141,6 @@ const MasterPage = () => {
     );
   }
 
-  const levelClassName = `level-${master.level}`;
-
   return (
     <div ref={pageRef} className="master-page">
       <div className="master-page-container">
@@ -160,11 +151,6 @@ const MasterPage = () => {
             <img src={master.photo} alt={master.name} className="master-photo" />
             <div className="master-photo-overlay"></div>
             <div className="master-photo-corner-accent"></div>
-
-            {/* Badge */}
-            <div className={`master-badge ${levelClassName}`}>
-              <span className="master-badge-text">{levelTitles[master.level]}</span>
-            </div>
           </div>
 
           {/* Info */}
