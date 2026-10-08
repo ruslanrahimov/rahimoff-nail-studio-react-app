@@ -11,10 +11,16 @@ const ServiceCard = ({ service, categoryLabel, categoryImage, getBookHref, onOpe
 
 	return (
 		<div className="service-card service-item">
-			<div
-				className="service-card-photo"
-				style={{ backgroundImage: `url(${photoSrc})` }}
-			>
+			<div className="service-card-photo">
+				<img
+					src={photoSrc}
+					alt={name}
+					loading="lazy"
+					decoding="async"
+					width="1200"
+					height="896"
+					className="service-card-img"
+				/>
 				<span className="service-card-cat">{categoryLabel}</span>
 			</div>
 

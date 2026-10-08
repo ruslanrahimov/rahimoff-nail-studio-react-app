@@ -14,7 +14,7 @@ const baseUrl = import.meta.env.BASE_URL;
 //
 // photo (opsiyonel): public/services/ klasöründeki gerçek işlem fotoğrafı.
 // Belirtilmezse kart, kategorinin genel fotoğrafını (image) kullanır.
-// Yeni fotoğraf eklendikçe ilgili hizmete `photo: baseUrl + "services/dosya.jpg"` eklenir.
+// Yeni fotoğraf eklendikçe ilgili hizmete `photo: baseUrl + "services/dosya.webp"` eklenir.
 
 export const tabContent = {
         MANICURE: {
@@ -28,7 +28,7 @@ export const tabContent = {
                                 description: "Tırnak şekillendirme, et kesimi ve bakım.",
                                 price: 500,
                                 duration: "30dk ortalama",
-                                photo: baseUrl + "services/manicure.jpg",
+                                photo: baseUrl + "services/manicure.webp",
                                 details: {
                                         summary:
                                                 "Tırnak kenarındaki fazla derinin temizlenmesi, tırnakların istenen forma getirilmesi ve temel el bakımını içeren klasik manikür.",
@@ -60,7 +60,7 @@ export const tabContent = {
                                         "Doğal tırnağı güçlendirmek için jel uygulaması yapılır, ardından kalıcı oje ile tamamlanır.",
                                 price: 950,
                                 duration: "1.5 saat ortalama",
-                                photo: baseUrl + "services/kalici.jpeg",
+                                photo: baseUrl + "services/kalici.webp",
                                 details: {
                                         summary:
                                                 "Doğal tırnağın üzerine ince bir jel tabakası uygulanarak güçlendirilmesi, ardından 2-3 hafta dayanan kalıcı oje ile tamamlanması.",
@@ -162,7 +162,7 @@ export const tabContent = {
                                 description: "Erkekler için tırnak şekillendirme ve bakım.",
                                 price: 750,
                                 duration: "30dk ortalama",
-                                photo: baseUrl + "services/erkek-manic.jpg",
+                                photo: baseUrl + "services/erkek-manic.webp",
                                 details: {
                                         summary:
                                                 "Erkekler için tırnak kısaltma ve şekillendirme, kütikül bakımı ve mat finişli el bakımı.",
@@ -272,7 +272,7 @@ export const tabContent = {
                                 description: "Erkek ayağı için geliştirilmiş özel bakım protokolü.",
                                 price: 1500,
                                 duration: "1 saat ortalama",
-                                photo: baseUrl + "services/erkek-pedicure.jpg",
+                                photo: baseUrl + "services/erkek-pedicure.webp",
                                 details: {
                                         summary:
                                                 "Erkek ayak yapısına özel geliştirilmiş, nasır ve sertleşme odaklı bakım protokolü.",
@@ -300,77 +300,77 @@ export const tabContent = {
                                 name: "Tasarım jelleri",
                                 description: "Simli, Disco, İnci tasarımlar.",
                                 price: 10,
-                                photo: baseUrl + "services/tasarim-jelleri.jpg",
+                                photo: baseUrl + "services/tasarim-jelleri.webp",
                         },
                         {
                                 id: "art-nailart-basic",
                                 name: "Nail Art (1 Tırnak)",
                                 description: "El boyaması veya özel tasarım.",
                                 price: 50,
-                                photo: baseUrl + "services/nailart.jpg",
+                                photo: baseUrl + "services/nailart.webp",
                         },
                         {
                                 id: "art-simple-lines",
                                 name: "Nokta, Çizgi, Vitray, Kedi Gözü",
                                 description: "Basit küçük süslemeler.",
                                 price: 20,
-                                photo: baseUrl + "services/kedi-gozu.jpg",
+                                photo: baseUrl + "services/kedi-gozu.webp",
                         },
                         {
                                 id: "art-french",
                                 name: "French",
                                 description: "Klasik zarif uç tasarımı. (10 parmak için fiyat)",
                                 price: 300,
-                                photo: baseUrl + "services/french.jpg",
+                                photo: baseUrl + "services/french.webp",
                         },
                         {
                                 id: "art-light-design",
                                 name: "Geometri (2 öğeye kadar), Sticker, Slider…",
                                 description: "Hafif, sade süsleme.",
                                 price: 20,
-                                photo: baseUrl + "services/geometri.jpg",
+                                photo: baseUrl + "services/geometri.webp",
                         },
                         {
                                 id: "art-advanced-design",
                                 name: "Mermer, çoklu stamping, ombre",
                                 description: "Daha belirgin tasarım stilleri.",
                                 price: 25,
-                                photo: baseUrl + "services/stemp.jpg",
+                                photo: baseUrl + "services/stemp.webp",
                         },
                         {
                                 id: "art-beads",
                                 name: "Boncuk",
                                 description: "3D hacimli süsler.",
                                 price: "10-30",
-                                photo: baseUrl + "services/boncuk.jpg",
+                                photo: baseUrl + "services/boncuk.webp",
                         },
                         {
                                 id: "art-geometry-advanced",
                                 name: "Geometrik Tasarım (3+ öğe)",
                                 description: "Karmaşık çizim tasarımları.",
                                 price: "30-40",
-                                photo: baseUrl + "services/geometri-advanced.jpg",
+                                photo: baseUrl + "services/geometri-advanced.webp",
                         },
                         {
                                 id: "art-ombre-multi",
                                 name: "Ombre (çok renkli)",
                                 description: "Renk geçişli tasarım. (10 parmak için fiyat)",
                                 price: 300,
-                                photo: baseUrl + "services/ombre.jpg",
+                                photo: baseUrl + "services/ombre.webp",
                         },
                         {
                                 id: "art-mermer-advanced",
                                 name: "Mermer (2+ renk)",
                                 description: "Doğal taş efekti.",
                                 price: 30,
-                                photo: baseUrl + "services/mermer.jpg",
+                                photo: baseUrl + "services/mermer.webp",
                         },
                         {
                                 id: "art-korean-3d",
                                 name: "Kore Tasarımı (Hacimli)",
                                 description: "3D hacimli tasarım.",
                                 price: "30-50",
-                                photo: baseUrl + "services/3d-art.jpg",
+                                photo: baseUrl + "services/3d-art.webp",
                         },
                 ],
         },
@@ -385,7 +385,7 @@ export const tabContent = {
                                 name: "Çıkartma (Jel, Akrilik, Tips)",
                                 description: "Kaplamanın sağlıklı ve zarar vermeden çıkarılması.",
                                 price: 400,
-                                photo: baseUrl + "services/cikartma.jpg",
+                                photo: baseUrl + "services/cikartma.webp",
                                 duration: "30dk ortalama",
                                 details: {
                                         summary:
@@ -409,7 +409,7 @@ export const tabContent = {
                                 name: "Tek Tırnak Uzatma",
                                 description: "Sadece tek tırnak için uzatma işlemi.",
                                 price: 100,
-                                photo: baseUrl + "services/tek-tirnak.jpg",
+                                photo: baseUrl + "services/tek-tirnak.webp",
                                 details: {
                                         summary:
                                                 "Kırılan veya kısa kalan tek bir tırnağın diğerleriyle aynı boya getirilmesi.",
@@ -428,7 +428,7 @@ export const tabContent = {
                                 name: "L ve üzeri Uzunluk Ek Ücreti",
                                 description: "Uzun tırnak tercih edenler için ek ücret.",
                                 price: "100-300",
-                                photo: baseUrl + "services/uzunluk.jpg",
+                                photo: baseUrl + "services/uzunluk.webp",
                         },
                 ],
         },
