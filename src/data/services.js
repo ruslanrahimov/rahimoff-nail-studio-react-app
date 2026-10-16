@@ -8,7 +8,7 @@ const baseUrl = import.meta.env.BASE_URL;
 //   includes – fiyata dahil adımlar (madde madde).
 //   goodFor  – kimlere uygun / hangi durumlarda önerilir.
 //   notFor   – kimlere uygun değil / kontrendikasyonlar.
-//   notes    – önemli notlar, nüanslar (dolgu sıklığı, çıkartma ayrı ücret vb.).
+//   notes    – önemli notlar, nüanslar (dolgu sıklığı, uzunluk ek ücreti vb.).
 //   aftercare – (opsiyonel) işlem sonrası bakım önerisi.
 // details yoksa kart açılmaz, sadece bilgi satırı gösterilir.
 //
@@ -82,7 +82,7 @@ export const tabContent = {
                                         ],
                                         notes: [
                                                 "3-4 haftada bir yenileme (dolgu) önerilir",
-                                                "Eski kaplamanın çıkartılması ayrı ücretlendirilir",
+                                                "Eski uygulamanın nazikçe temizlenmesi hizmete dahildir",
                                                 "Ortalama 1,5 saat sürer",
                                         ],
                                         aftercare:
@@ -118,7 +118,7 @@ export const tabContent = {
                                         notes: [
                                                 "2-3 haftada bir dolgu gerekir",
                                                 "L ve üzeri uzunlukta ek ücret uygulanır",
-                                                "Çıkartma ayrı ücretlendirilir",
+                                                "Eski uygulamanın nazikçe temizlenmesi hizmete dahildir",
                                                 "Ortalama 2 saat sürer",
                                         ],
                                 },
@@ -151,7 +151,7 @@ export const tabContent = {
                                         notes: [
                                                 "2-3 haftada bir dolgu önerilir",
                                                 "L ve üzeri uzunlukta ek ücret uygulanır",
-                                                "Çıkartma ayrı ücretlendirilir",
+                                                "Eski uygulamanın nazikçe temizlenmesi hizmete dahildir",
                                                 "Ortalama 2 saat sürer",
                                         ],
                                 },
@@ -205,9 +205,9 @@ export const tabContent = {
                                         summary:
                                                 "KANE tekniğiyle uygulanan detaylı ayak bakımı, kalıcı oje ile tamamlanır.",
                                         includes: [
-                                                "Ayak banyosu ve yumuşatma",
+                                                "Özel kozmetik ürünlerle susuz yumuşatma",
                                                 "Tırnak kesimi ve şekillendirme",
-                                                "Nasır ve sertleşmiş bölge bakımı (KANE tekniği)",
+                                                "Sertleşmiş cilt bakımı (KANE tekniği)",
                                                 "Kalıcı oje uygulaması",
                                         ],
                                         goodFor: [
@@ -218,7 +218,7 @@ export const tabContent = {
                                         notFor: ["Sadece hızlı, kısa bakım", "Açık yara / enfeksiyon"],
                                         notes: [
                                                 "Ortalama 1,5 saat sürer",
-                                                "Kalıcı ojenin çıkartılması ayrı ücretlendirilir",
+                                                "Eski kalıcı ojenin nazikçe temizlenmesi hizmete dahildir",
                                         ],
                                 },
                         },
@@ -232,9 +232,9 @@ export const tabContent = {
                                 details: {
                                         summary: "Renk olmadan, KANE tekniğiyle yapılan detaylı ayak bakımı.",
                                         includes: [
-                                                "Ayak banyosu ve yumuşatma",
+                                                "Özel kozmetik ürünlerle susuz yumuşatma",
                                                 "Tırnak kesimi ve şekillendirme",
-                                                "Nasır ve sertleşmiş bölge bakımı",
+                                                "Sertleşmiş cilt bakımı",
                                                 "Nemlendirici ayak bakımı",
                                         ],
                                         goodFor: ["Doğal görünüm", "Düzenli bakım", "Renkli oje istemeyenler"],
@@ -245,25 +245,25 @@ export const tabContent = {
                         {
                                 id: "pedicure-intensive",
                                 name: "Yoğun bakım pedikürü",
-                                description: "Nasır, çatlak ve diğer sorunlara özel tedavi.",
-                                price: "Fiyat değerlendirme sonrası belirlenir",
+                                description: "Sertleşmiş cilt ve topuk pürüzleri için yoğun estetik ayak bakımı.",
+                                price: "Değerlendirme sonrası",
                                 duration: null,
                                 photo: baseUrl + "services/yogun-pedicure.webp",
                                 details: {
                                         summary:
-                                                "Nasır, topuk çatlağı ve benzeri sorunlara yönelik, duruma özel yoğun bakım tedavisi.",
+                                                "Sertleşmiş cilt ve kuruluk kaynaklı topuk pürüzlerine yönelik, duruma özel yoğun estetik bakım.",
                                         includes: [
-                                                "Detaylı ayak muayenesi",
-                                                "Soruna özel tedavi planı",
+                                                "Detaylı ayak değerlendirmesi",
+                                                "Duruma özel bakım planı",
                                                 "Yoğun bakım uygulaması",
                                                 "Koruyucu nemlendirme",
                                         ],
                                         goodFor: [
-                                                "Belirgin nasır / çatlak sorunu",
+                                                "Belirgin sertleşmiş cilt / kuruluk",
                                                 "Önceki bakımdan sonuç alamayanlar",
                                         ],
                                         notFor: ["Sadece standart bakım — KANE Pedikür yeterlidir"],
-                                        notes: ["Fiyat ve süre, muayene sonrası duruma göre belirlenir"],
+                                        notes: ["Süre, değerlendirme sonrası duruma göre belirlenir"],
                                 },
                         },
                         {
@@ -275,11 +275,11 @@ export const tabContent = {
                                 photo: baseUrl + "services/erkek-pedicure.webp",
                                 details: {
                                         summary:
-                                                "Erkek ayak yapısına özel geliştirilmiş, nasır ve sertleşme odaklı bakım protokolü.",
+                                                "Erkek ayak yapısına özel geliştirilmiş, sertleşmiş cilt odaklı bakım protokolü.",
                                         includes: [
-                                                "Ayak banyosu ve yumuşatma",
+                                                "Özel kozmetik ürünlerle susuz yumuşatma",
                                                 "Tırnak kesimi ve şekillendirme",
-                                                "Nasır ve sertleşmiş bölge bakımı",
+                                                "Sertleşmiş cilt bakımı",
                                                 "Mat nemlendirici bakım",
                                         ],
                                         goodFor: ["Düzenli ayak bakımı isteyen erkekler", "Yoğun ayakta çalışanlar"],
@@ -319,7 +319,7 @@ export const tabContent = {
                         {
                                 id: "art-french",
                                 name: "French",
-                                description: "Klasik zarif uç tasarımı. (10 parmak için fiyat)",
+                                description: "Klasik zarif uç tasarımı. (10 parmak için)",
                                 price: 300,
                                 photo: baseUrl + "services/french.webp",
                         },
@@ -354,7 +354,7 @@ export const tabContent = {
                         {
                                 id: "art-ombre-multi",
                                 name: "Ombre (çok renkli)",
-                                description: "Renk geçişli tasarım. (10 parmak için fiyat)",
+                                description: "Renk geçişli tasarım. (10 parmak için)",
                                 price: 300,
                                 photo: baseUrl + "services/ombre.webp",
                         },

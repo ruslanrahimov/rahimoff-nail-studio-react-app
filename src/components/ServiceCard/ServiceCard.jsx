@@ -4,8 +4,7 @@ import "./ServiceCard.css";
 const FONT = { fontFamily: "Manrope, sans-serif" };
 
 const ServiceCard = ({ service, categoryLabel, categoryImage, getBookHref, onOpenDetail }) => {
-	const { name, description, price, duration, details, photo } = service;
-	const priceText = typeof price === "number" ? `${price} ₺` : price;
+	const { name, description, duration, details, photo } = service;
 	const hasDetails = Boolean(details);
 	const photoSrc = photo || categoryImage;
 
@@ -38,12 +37,11 @@ const ServiceCard = ({ service, categoryLabel, categoryImage, getBookHref, onOpe
 					</p>
 				)}
 
-				<div className="flex items-baseline gap-[10px]">
-					<span className="text-[19px] font-light text-[#5a4a3a]" style={FONT}>
-						{priceText}
-					</span>
-					{duration != null && <DurationBadge duration={duration} />}
-				</div>
+				{duration != null && (
+					<div className="flex items-baseline gap-[10px]">
+						<DurationBadge duration={duration} />
+					</div>
+				)}
 
 				<div className="service-card-buttons">
 					<a

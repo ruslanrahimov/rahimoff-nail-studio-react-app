@@ -10,7 +10,6 @@ const Navbar = () => {
         const links = [
 { name: "Hizmetlerimiz", url: "/services" },
                 { name: "Uzmanlar", url: "/masters" },
-                { name: "Kampanyalar", url: "/promotions" },
         ];
 
         const [isMenuOpen, setIsMenuOpen] = useState(false);

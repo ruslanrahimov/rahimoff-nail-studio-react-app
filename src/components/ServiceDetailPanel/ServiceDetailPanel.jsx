@@ -106,8 +106,7 @@ const ServiceDetailPanel = ({ service, onClose, getBookHref }) => {
 	}, [onClose]);
 
 	if (!service) return null;
-	const { name, description, price, duration, details, index } = service;
-	const priceText = typeof price === "number" ? `${price} ₺` : price;
+	const { name, description, duration, details, index } = service;
 
 	return (
 		<div
@@ -185,9 +184,6 @@ const ServiceDetailPanel = ({ service, onClose, getBookHref }) => {
 
 				<div className="service-detail-footer">
 					<div className="service-detail-footer-price">
-						<span className="text-[20px] font-light text-[#6c2521] whitespace-nowrap" style={FONT}>
-							{priceText}
-						</span>
 						{duration != null && <DurationBadge duration={duration} />}
 					</div>
 					<a

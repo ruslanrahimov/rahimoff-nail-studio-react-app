@@ -86,11 +86,10 @@ const SalonRules = () => {
     },
     {
       number: "06",
-      title: "Ödeme ve Fiyatlandırma",
+      title: "Ödeme ve Bilgilendirme",
       items: [
-        "Güncel fiyatlarımız salonumuzda, web sitemizde ve sosyal medya hesaplarımızda mevcuttur.",
+        "Güncel hizmet bedelleri hakkında salonumuzdan veya WhatsApp hattımızdan bilgi alabilirsiniz.",
         "Ödemeler nakit, banka kartı veya dijital yöntemlerle yapılabilir.",
-        "Kampanya ve indirimler yalnızca belirtilen şartlar ve tarihler arasında geçerlidir.",
       ],
     },
     {

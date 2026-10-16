@@ -84,8 +84,7 @@ const ServiceQuiz = ({ getBookHref, onOpenDetail }) => {
 					</div>
 					<div className="service-quiz-result-name">{result.name}</div>
 					<div className="text-[14px] opacity-85" style={FONT}>
-						{typeof result.price === "number" ? `${result.price} ₺` : result.price}
-						{result.duration ? ` · ${result.duration}` : ""}
+						{result.duration ? result.duration : ""}
 					</div>
 					<div className="service-quiz-actions">
 						<a

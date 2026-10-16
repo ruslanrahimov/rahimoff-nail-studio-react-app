@@ -4,7 +4,6 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { masters } from "../../data/masters.js";
 import MasterPriceListTabs from "../MasterPriceListTabs.jsx";
-import MasterPromotions from "../MasterPromotions.jsx";
 import "./MasterPage.css";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -205,17 +204,6 @@ const MasterPage = () => {
             ))}
           </div>
         </div>
-
-        {/* PROMOTIONS */}
-        {master.promotions?.length > 0 && (
-          <div id="promotions">
-          <MasterPromotions
-            promotions={master.promotions}
-            masterName={master.name}
-            whatsappNumber="905060552137"
-          />
-          </div>
-        )}
 
         {/* PRICE LIST */}
         <MasterPriceListTabs masterId={master.id} />

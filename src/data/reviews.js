@@ -3,7 +3,7 @@ export const reviews = [
     id: 1,
     name: "Beyza A.",
     rating: 5,
-    text: "Elif Hanıma titiz çalışması için çok teşekkür ederim. Ailemin yanına izin için geldiğimde ayağımda maalesef önceki yanlış pedikür nedenli batık oluştu ve ayakkabı giyemiyordum. Kullandığı malzemeler kaliteli, çok steril çalışıyor. Salon tertemiz çalışanlar karşılamadaki hanım herkes güler yüzlü. Randevu amacım pedikür işlemi olsa da çalışma titizliğini görünce kalıcı oje de yaptırmak istedim sonuç elbette harika oldu. Kendisine başarılar dilerim!",
+    text: "Elif Hanıma titiz çalışması için çok teşekkür ederim. Ailemin yanına izin için geldiğimde önceki yanlış pedikür nedeniyle yaşadığım rahatsızlık için başvurdum. Kullandığı malzemeler kaliteli, çok steril çalışıyor. Salon tertemiz çalışanlar karşılamadaki hanım herkes güler yüzlü. Randevu amacım pedikür işlemi olsa da çalışma titizliğini görünce kalıcı oje de yaptırmak istedim sonuç elbette harika oldu. Kendisine başarılar dilerim!",
     avatar: "/reviews/avatar1.jpg"
   },
   {

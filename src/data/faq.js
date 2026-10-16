@@ -3,7 +3,7 @@ export const faqData = [
     id: 1,
     question: "Hangi hizmetleri sunuyorsunuz?",
     answer:
-      "Manikür, pedikür, protez tırnak. Ayrıca, nasır, siğil benzeri oluşumlar, topuk çatlakları ve tırnak çevresindeki bazı problemler için özel bakım uygulamaları da yapıyoruz.",
+      "Manikür, pedikür, kalıcı oje ve protez tırnak uygulamaları sunuyoruz. Ayrıca sertleşmiş cilt dokusu, kuruluk kaynaklı topuk pürüzleri ve deforme olmuş tırnak görünümüne yönelik profesyonel estetik ve hijyenik ayak bakımı yapıyoruz.",
     state: "closed",
   },
   {
@@ -57,9 +57,9 @@ export const faqData = [
   },
   {
     id: 9,
-    question: "Sorunlu tırnaklarla çalışıyor musunuz?",
+    question: "Hassas ve yıpranmış tırnaklarla çalışıyor musunuz?",
     answer:
-      "Evet, batık tırnaklar, kırılgan veya zarar görmüş tırnaklar gibi sorunlarla ilgileniyoruz ve profesyonel bakım sağlıyoruz.",
+      "Evet, kırılgan, katmanlarına ayrılan veya şekil bozukluğu nedeniyle konforsuzluk yaratan tırnaklar için koruyucu, güçlendirici ve estetik bakım uygulamaları sağlıyoruz.",
     state: "closed",
   },
 ];

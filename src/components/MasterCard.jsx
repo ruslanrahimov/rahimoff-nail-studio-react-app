@@ -11,7 +11,6 @@ const MasterCard = ({
   name,
   role,
   experience,
-  priceLevel,
   description,
   photo,
   rating,
@@ -96,7 +95,6 @@ const MasterCard = ({
         {/* Experience & Price */}
         <div className="master-card-meta">
           <span className="master-card-experience">{experience}</span>
-          <span className="master-card-price">{priceLevel}'den başlayan fiyat</span>
         </div>
 
         {/* Rating */}

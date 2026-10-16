@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { tabContent } from "../../data/services.js";
-import { NavLink, useSearchParams } from "react-router";
+import { useSearchParams } from "react-router";
 import SectionHeading from "./../SectionHeading/SectionHeading.jsx";
 import ServiceCard from "./../ServiceCard/ServiceCard.jsx";
 import ServiceDetailPanel from "./../ServiceDetailPanel/ServiceDetailPanel.jsx";
@@ -251,14 +251,7 @@ const Services = () => {
 						className="text-[12px] font-normal text-[#666] leading-[1.6] max-md:text-[11px]"
 						style={{ fontFamily: "Manrope, sans-serif" }}
 					>
-						Fiyatlar uzmana göre değişiklik gösterebilir. Detaylı bilgi almak için{" "}
-						<NavLink
-							to="/masters"
-							className="text-[#5a4a3a] underline hover:text-[#2e2e2e] transition-colors duration-300"
-						>
-							lütfen uzman seçiniz
-						</NavLink>
-						.
+						Uygulama detayları ve güncel hizmet bedelleri, tırnak yapınız ve seçilen tasarıma göre değişiklik gösterebilir. Detaylı bilgi ve randevu için bizimle WhatsApp üzerinden iletişime geçebilirsiniz.
 					</p>
 				</div>
 			</div>

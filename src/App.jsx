@@ -11,7 +11,6 @@ import MessageWidget from "./components/MessageWidget.jsx";
 import "./App.css";
 import SalonRules from "./components/pages/SalonRules.jsx";
 import PrivacyPolicy from "./components/pages/PrivacyPolicy.jsx";
-import PromotionsPage from "./components/pages/PromotionsPage.jsx";
 
 function App() {
         return (
@@ -28,7 +27,6 @@ function App() {
                                         <Route path="privacy" element={<PrivacyPolicy />} />
                                         <Route path="masters" element={<MastersPage />} />
                                         <Route path="/masters/:id" element={<MasterPage />} />
-                                        <Route path="promotions" element={<PromotionsPage />} />
                                 </Routes>
                         </div>
                         <MessageWidget />

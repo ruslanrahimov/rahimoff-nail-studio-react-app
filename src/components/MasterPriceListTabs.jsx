@@ -13,7 +13,7 @@ const MasterPriceListTabs = ({ masterId }) => {
 
   return (
     <div className="price-tabs-section">
-      <h2 className="price-tabs-title">Hizmetler ve Fiyatlar</h2>
+      <h2 className="price-tabs-title">Hizmetlerimiz</h2>
 
       {/* MOBILE: CUSTOM DROPDOWN */}
       <div className="price-tabs-dropdown md:hidden">
@@ -85,10 +85,6 @@ const MasterPriceListTabs = ({ masterId }) => {
                 )}
               </div>
 
-              {/* Price */}
-              <div className="price-item-price">
-                {service.price === null ? "Değerlendirme Sonrası" : `${service.price} TL`}
-              </div>
             </div>
           ))}
         </div>

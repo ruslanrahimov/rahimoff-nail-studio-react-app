@@ -42,12 +42,11 @@ export const masters = [
         {
                 id: "elif",
                 name: "Elif Rahimov",
-                role: "Problematik tırnaklar, zor mimari ve detaylı düzeltmeler",
+                role: "Hassas tırnaklar, zor mimari ve detaylı düzeltmeler",
                 experience: "8 yıllık tecrübe",
-                priceLevel: "1300 TL",
                 rating: 5,
                 description:
-                        "Problematik ve zor tırnaklarda uzmanlaşmış bir üst düzey masterdır. Travmatik tırnaklar, zor mimari ve detaylı düzeltmelerde yüksek hassasiyetle çalışır.",
+                        "Hassas ve zor tırnaklarda uzmanlaşmış bir üst düzey masterdır. Yıpranmış tırnaklar, zor mimari ve detaylı düzeltmelerde yüksek hassasiyetle çalışır.",
                 photo: baseUrl + "elif.jpg",
                 gallery: [
                         baseUrl + "elif/2.webp",
@@ -78,15 +77,14 @@ export const masters = [
                 ],
                 level: "top",
                 skills: [
-                        "problemli tırnaklar",
-                        "travmatik tırnak bakımı",
+                        "hassas tırnaklar",
+                        "yıpranmış tırnak bakımı",
                         "ileri seviye mimari",
                         "zor düzeltmeler",
                         "uzun setler",
                         "pedikür uzmanlığı",
                         "doğal tırnak güçlendirme",
                 ],
-                promotions: [],
                 services: overridePrices(excludeCategories(unifiedServices), {
                         "manicure-basic": 800,
                         "manicure-men": 800,
@@ -104,7 +102,6 @@ export const masters = [
                 name: "Uzman Hayrunnisa",
                 role: "Manikür, jel güçlendirme, uzatma ve modern nail art",
                 experience: "2 yıllık tecrübe",
-                priceLevel: "950 TL",
                 rating: 5,
                 description:
                         "Doğal manikür, jel güçlendirme ve uzatma üzerine çalışır. Modern nail art, ince detaylı tasarımlar ve şekillendirmede estetik ve özenli bir yaklaşım sergiler.",
@@ -133,7 +130,6 @@ export const masters = [
                         "şekillendirme",
                         "gel boya",
                 ],
-                promotions: [],
                 services: unifiedServices,
         },
 
@@ -142,7 +138,6 @@ export const masters = [
                 name: "Uzman Pelin",
                 role: "Manikür, jel güçlendirme, tırnak uzatma ve nail art",
                 experience: "2 yıllık tecrübe",
-                priceLevel: "950 TL",
                 rating: 5,
                 description:
                         "Güzellik sektörüne olan tutkusunu Rahimoff Studio'da gerçek bir ustalığa dönüştürdü. Ekibimizle birlikte manikür, jel güçlendirme ve nail art konularında en iyi teknikleri öğrenerek kendine özgü, özenli bir dokunuş geliştirdi. Sıcakkanlı yaklaşımı ve detaylara verdiği önemle her müşteriye kişisel bir deneyim sunar.",
@@ -168,7 +163,6 @@ export const masters = [
                         "şekillendirme",
                         "gel boya",
                 ],
-                promotions: [],
                 services: unifiedServices,
         },
 
@@ -177,7 +171,6 @@ export const masters = [
                 name: "Uzman Didar",
                 role: "Tırnak uzatma, jel mimarisi ve nail art",
                 experience: "3 yıllık tecrübe",
-                priceLevel: "950 TL",
                 rating: 5,
                 description:
                         "Tırnak uzatma ve nail art alanında deneyimli bir uzmandır. Doğru mimari ve dayanıklı form oluşturmada titizdir; zarif minimal tasarımlardan detaylı sanat çalışmalarına kadar her seti özenle ve yüksek estetik anlayışla hazırlar.",
@@ -193,7 +186,6 @@ export const masters = [
                         "şekillendirme",
                         "jel güçlendirme",
                 ],
-                promotions: [],
                 services: unifiedServices,
         },
 

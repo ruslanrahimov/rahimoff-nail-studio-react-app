@@ -63,22 +63,22 @@ const HeroMasters = () => {
 
       <div className="hero-m-coupon" role="note">
         <div className="hero-m-coupon-body">
-          <span className="hero-m-coupon-tag">Kampanya</span>
+          <span className="hero-m-coupon-tag">Rahimoff Standartları</span>
           <div className="hero-m-coupon-headline">
             <span className="hero-m-coupon-title">
-              Eski yapılan işlemin çıkartılması
+              Özenli hazırlık, hizmetin bir parçası
             </span>
-            <span className="hero-m-coupon-free">ücretsiz</span>
           </div>
           <p className="hero-m-coupon-text">
-            Tırnak uzatma veya kalıcı oje işlemine gelen misafirlerimiz için eski
-            yapılan işlemin çıkartılması hediye.
+            Tırnak uzatma ve kalıcı oje yenileme işlemlerimizde, önceki malzemenin
+            nazikçe temizlenmesi ve tırnak plağının hazırlanması hizmet sürecimize
+            dahildir.
           </p>
         </div>
         <div className="hero-m-coupon-stub" aria-hidden="true">
           <span className="hero-m-coupon-notch hero-m-coupon-notch--top" />
           <span className="hero-m-coupon-notch hero-m-coupon-notch--bottom" />
-          <span className="hero-m-coupon-stub-text">HEDİYE</span>
+          <span className="hero-m-coupon-stub-text">STANDART</span>
         </div>
       </div>
 
@@ -104,7 +104,7 @@ const HeroMasters = () => {
             Randevu Al <span aria-hidden="true">↗</span>
           </a>
           <Link to="/services" className="hero-m-btn hero-m-btn--ghost">
-            Hizmetler & Fiyatlar
+            Hizmetlerimiz
           </Link>
         </div>
 

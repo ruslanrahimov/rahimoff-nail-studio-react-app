@@ -114,8 +114,8 @@ const About = () => {
                 <h3 className="text-block-title">Misyonumuz</h3>
                 <p className="text-block-paragraph">
                   Rahimoff Nail Studio, manikür ve pedikür hizmetlerini rahat ve temiz bir ortamda sunan
-                  bir salondur. Amacımız, misafirlerimize kaliteli hizmeti uygun fiyatlarla sunarken
-                  kendilerini iyi hissetmelerini sağlamaktır.
+                  bir salondur. Amacımız, misafirlerimize yüksek kalite standartlarında hizmet sunarken
+                  kendilerini özel ve rahat hissetmelerini sağlamaktır.
                 </p>
               </div>
             </div>

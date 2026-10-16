@@ -70,7 +70,7 @@ export const journey = {
                         index: "03",
                         year: "2021",
                         title: "Uzmanlaşma",
-                        description: "Problemli, travmatik tırnaklar ve hassas düzeltmeler.",
+                        description: "Hassas, yıpranmış tırnaklar ve detaylı düzeltmeler.",
                         mediaLabel: "ÇALIŞMA · FOTOĞRAF",
                 },
                 {

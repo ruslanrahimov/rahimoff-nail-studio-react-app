@@ -54,7 +54,7 @@ const PrivacyPolicy = () => {
       title: "Kişisel Verilerin İşlenme Amaçları",
       items: [
         "Salon hizmetlerinin sunulması, randevu alınması, danışmanlık verilmesi ve işlemlerin gerçekleştirilmesi.",
-        "Müşteri ilişkilerinin yönetimi, yeni hizmetler, kampanyalar ve özel teklifler hakkında bilgilendirme.",
+        "Müşteri ilişkilerinin yönetimi, yeni hizmetler hakkında bilgilendirme.",
         "Türkiye mevzuatına uygun şekilde muhasebe ve vergi yükümlülüklerinin yerine getirilmesi.",
         "Salon içi güvenliğin sağlanması amacıyla güvenlik kamerası (CCTV) görüntü kayıtlarının işlenmesi.",
         "Açık rızanızın bulunması halinde, tanıtım ve pazarlama amacıyla işlemlere ait fotoğraf ve videoların kullanılması.",
