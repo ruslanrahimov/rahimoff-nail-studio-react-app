@@ -83,7 +83,7 @@ const NoteStrip = ({ items }) => {
 	);
 };
 
-const ServiceDetailPanel = ({ service, onClose, getBookHref }) => {
+const ServiceDetailPanel = ({ service, onClose, getBookHref, getPriceHref }) => {
 	const [entered, setEntered] = useState(false);
 	const closeBtnRef = useRef(null);
 
@@ -185,6 +185,17 @@ const ServiceDetailPanel = ({ service, onClose, getBookHref }) => {
 				<div className="service-detail-footer">
 					<div className="service-detail-footer-price">
 						{duration != null && <DurationBadge duration={duration} />}
+						<a
+							href={getPriceHref(service)}
+							target="_blank"
+							rel="noopener noreferrer"
+							className="service-detail-price-link"
+						>
+							Fiyat bilgisi alın
+							<svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+								<path d="M3 8h10M9 4l4 4-4 4" />
+							</svg>
+						</a>
 					</div>
 					<a
 						href={getBookHref(service)}

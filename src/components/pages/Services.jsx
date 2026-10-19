@@ -15,6 +15,9 @@ const buildWaLink = (msg) => `https://wa.me/${WA_NUMBER}?text=${encodeURICompone
 const getBookHref = (service) =>
 	buildWaLink(`Merhaba! ${service.name} için randevu almak istiyorum.`);
 
+const getPriceHref = (service) =>
+	buildWaLink(`Merhaba! ${service.name} için fiyat bilgisi almak istiyorum.`);
+
 const GENERAL_BOOK_HREF = buildWaLink("Merhaba! Randevu almak istiyorum.");
 
 const CATEGORY_KEYS = Object.keys(tabContent);
@@ -237,6 +240,7 @@ const Services = () => {
 							categoryLabel={service.categoryLabel}
 							categoryImage={service.categoryImage}
 							getBookHref={getBookHref}
+							getPriceHref={getPriceHref}
 							onOpenDetail={setOpenServiceId}
 						/>
 					))}
@@ -290,6 +294,7 @@ const Services = () => {
 				<ServiceDetailPanel
 					service={openService}
 					getBookHref={getBookHref}
+							getPriceHref={getPriceHref}
 					onClose={() => setOpenServiceId(null)}
 				/>
 			)}

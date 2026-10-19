@@ -288,6 +288,26 @@
   min-width: 0;
 }
 
+.service-detail-price-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  font-family: "Manrope", sans-serif;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: #6c2521;
+  text-decoration: none;
+}
+
+.service-detail-price-link svg {
+  transition: transform 0.25s ease;
+}
+
+.service-detail-price-link:hover svg {
+  transform: translateX(4px);
+}
+
 .service-detail-book-btn {
   display: flex;
   align-items: center;

@@ -58,6 +58,60 @@
   padding-top: 4px;
 }
 
+.service-card-price-row {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 48px;
+  padding: 0 2px;
+  border-top: 1px solid #ebe5d6;
+  border-bottom: 1px solid #ebe5d6;
+  text-decoration: none;
+  font-family: "Manrope", sans-serif;
+}
+
+.service-card-price-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #8a7b6a;
+}
+
+.service-card-price-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: #6c2521;
+}
+
+.service-card-price-cta svg {
+  transition: transform 0.25s ease;
+}
+
+.service-card-price-row:hover .service-card-price-cta svg,
+.service-card-price-row:focus-visible .service-card-price-cta svg {
+  transform: translateX(4px);
+}
+
+.service-card-price-row + .service-card-buttons {
+  margin-top: 0;
+}
+
+@media (max-width: 640px) {
+  .service-card-price-row {
+    min-height: 54px;
+  }
+
+  .service-card-price-cta {
+    font-size: 16px;
+  }
+}
+
 .service-card-book-btn {
   flex: 1;
   display: flex;
@@ -102,7 +156,8 @@
 @media (prefers-reduced-motion: reduce) {
   .service-card,
   .service-card-book-btn,
-  .service-card-detail-btn {
+  .service-card-detail-btn,
+  .service-card-price-cta svg {
     transition: none;
   }
 }

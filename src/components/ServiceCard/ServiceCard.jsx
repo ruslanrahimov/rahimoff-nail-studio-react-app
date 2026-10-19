@@ -3,7 +3,7 @@ import "./ServiceCard.css";
 
 const FONT = { fontFamily: "Manrope, sans-serif" };
 
-const ServiceCard = ({ service, categoryLabel, categoryImage, getBookHref, onOpenDetail }) => {
+const ServiceCard = ({ service, categoryLabel, categoryImage, getBookHref, getPriceHref, onOpenDetail }) => {
 	const { name, description, duration, details, photo } = service;
 	const hasDetails = Boolean(details);
 	const photoSrc = photo || categoryImage;
@@ -42,6 +42,21 @@ const ServiceCard = ({ service, categoryLabel, categoryImage, getBookHref, onOpe
 						<DurationBadge duration={duration} />
 					</div>
 				)}
+
+				<a
+					href={getPriceHref(service)}
+					target="_blank"
+					rel="noopener noreferrer"
+					className="service-card-price-row"
+				>
+					<span className="service-card-price-label">Fiyat</span>
+					<span className="service-card-price-cta">
+						Bilgi alın
+						<svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+							<path d="M3 8h10M9 4l4 4-4 4" />
+						</svg>
+					</span>
+				</a>
 
 				<div className="service-card-buttons">
 					<a
