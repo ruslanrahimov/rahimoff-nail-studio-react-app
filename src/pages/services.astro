@@ -1,0 +1,9 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Services from "../islands/Services.jsx";
+import { seo } from "../data/seo.js";
+---
+
+<BaseLayout {...seo.services} path="/services">
+  <Services client:load pathname="/services" />
+</BaseLayout>

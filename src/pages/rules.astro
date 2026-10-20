@@ -1,0 +1,9 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Rules from "../islands/Rules.jsx";
+import { seo } from "../data/seo.js";
+---
+
+<BaseLayout {...seo.rules} path="/rules">
+  <Rules client:load pathname="/rules" />
+</BaseLayout>

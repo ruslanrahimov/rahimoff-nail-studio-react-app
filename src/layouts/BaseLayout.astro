@@ -1,0 +1,137 @@
+---
+import "../index.css";
+import "../App.css";
+import Navbar from "../islands/Navbar.jsx";
+import Footer from "../islands/Footer.jsx";
+import MessageWidget from "../islands/MessageWidget.jsx";
+import { getCollection } from "astro:content";
+
+interface Props {
+  title: string;
+  description: string;
+  /** Path of the page, e.g. "/services" (used for canonical + active nav link) */
+  path?: string;
+  ogImage?: string;
+  ogType?: "website" | "article";
+  noindex?: boolean;
+  jsonLd?: Record<string, unknown>[];
+  hideWidget?: boolean;
+}
+
+const {
+  title,
+  description,
+  path = Astro.url.pathname,
+  ogImage = "/og-default.jpg",
+  ogType = "website",
+  noindex = false,
+  jsonLd = [],
+  hideWidget = false,
+} = Astro.props;
+
+const SITE_NAME = "Rahimoff Nail Studio";
+const canonical = new URL(path === "/" ? "/" : path.replace(/\/$/, ""), Astro.site).href;
+const ogImageUrl = new URL(ogImage, Astro.site).href;
+// Preview / test deployments set PUBLIC_NOINDEX=true so they never get indexed.
+const blockIndexing = noindex || import.meta.env.PUBLIC_NOINDEX === "true";
+const GA_ID = "G-GD8D7W1VVS";
+
+const posts = await getCollection("blog", ({ data }) => import.meta.env.DEV || !data.draft);
+const showBlog = posts.length > 0;
+
+const salon = {
+  "@context": "https://schema.org",
+  "@type": "BeautySalon",
+  name: SITE_NAME,
+  url: new URL("/", Astro.site).href,
+  image: new URL("/og-default.jpg", Astro.site).href,
+  telephone: "+905060552137",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "İstiklal Mah. 101. Cd. No:90/4",
+    addressLocality: "Merkez",
+    addressRegion: "Isparta",
+    addressCountry: "TR",
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      opens: "10:00",
+      closes: "20:00",
+    },
+  ],
+  sameAs: [import.meta.env.PUBLIC_INST_PROFILE_LINK].filter(Boolean),
+};
+---
+
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {blockIndexing && <meta name="robots" content="noindex, nofollow" />}
+
+    <!-- TODO: replace with a proper favicon set -->
+    <link rel="icon" href="/logo-new.png" />
+
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Manrope:wght@200..800&family=Raleway:ital,wght@0,100..900;1,100..900&family=Inter:wght@300;400;500;600&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+    />
+
+    <script type="application/ld+json" set:html={JSON.stringify(salon)} />
+    {jsonLd.map((item) => <script type="application/ld+json" set:html={JSON.stringify(item)} />)}
+
+    {
+      !blockIndexing && (
+        <>
+          <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
+          <script is:inline define:vars={{ GA_ID }}>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+              dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", GA_ID);
+          </script>
+        </>
+      )
+    }
+  </head>
+  <body>
+    <header>
+      <Navbar client:load pathname={path} showBlog={showBlog} />
+    </header>
+    <div class="main-content">
+      <slot />
+    </div>
+    {!hideWidget && <MessageWidget client:idle pathname={path} />}
+    <Footer client:visible pathname={path} />
+  </body>
+</html>

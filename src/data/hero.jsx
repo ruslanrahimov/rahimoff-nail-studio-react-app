@@ -1,7 +1,7 @@
 import SecondaryLinkButton from "../components/SecondaryLinkButton.jsx";
 import AppointmentButton from "../components/AppointmentButton.jsx";
 const baseUrl = import.meta.env.BASE_URL;
-const wpChatLink = import.meta.env.VITE_WP_CHAT_LINK;
+const wpChatLink = import.meta.env.PUBLIC_WP_CHAT_LINK;
 
 export const heroData = [
         {

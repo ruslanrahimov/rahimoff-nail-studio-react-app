@@ -1,0 +1,29 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Master from "../../islands/Master.jsx";
+import { masters } from "../../data/masters.js";
+import { seo } from "../../data/seo.js";
+
+export function getStaticPaths() {
+  return masters.map((m) => ({ params: { id: m.id }, props: { master: m } }));
+}
+
+const { id } = Astro.params;
+const { master } = Astro.props;
+const meta = seo.master[id] ?? { title: `${master.name} | Rahimoff Nail Studio`, description: master.description };
+const path = `/masters/${id}`;
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: master.name,
+    jobTitle: master.role,
+    worksFor: { "@type": "BeautySalon", name: "Rahimoff Nail Studio" },
+    url: new URL(path, Astro.site).href,
+  },
+];
+---
+
+<BaseLayout {...meta} path={path} jsonLd={jsonLd}>
+  <Master client:load pathname={path} params={{ id }} />
+</BaseLayout>

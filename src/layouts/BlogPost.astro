@@ -1,0 +1,111 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "./BaseLayout.astro";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  post: CollectionEntry<"blog">;
+}
+
+const { post } = Astro.props;
+const { title, description, pubDate, updatedDate, cover, coverAlt, tags } = post.data;
+const path = `/blog/${post.id}`;
+const wpLink = import.meta.env.PUBLIC_WP_CHAT_LINK;
+const fmt = (d: Date) => d.toLocaleDateString("tr-TR", { year: "numeric", month: "long", day: "numeric" });
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: title,
+    description,
+    datePublished: pubDate.toISOString(),
+    dateModified: (updatedDate ?? pubDate).toISOString(),
+    inLanguage: "tr",
+    mainEntityOfPage: new URL(path, Astro.site).href,
+    author: { "@type": "Organization", name: "Rahimoff Nail Studio" },
+    publisher: { "@type": "Organization", name: "Rahimoff Nail Studio" },
+  },
+];
+---
+
+<BaseLayout title={`${title} | Rahimoff Nail Studio`} description={description} path={path} ogType="article" jsonLd={jsonLd}>
+  <article class="blog-article mx-auto max-w-[760px] px-5 pb-24 pt-32 md:pt-40">
+    <nav class="mb-8 text-[12px] uppercase tracking-[0.16em]" style="font-family: Manrope, sans-serif">
+      <a href="/blog" class="text-burgundy-500 hover:underline">← Blog</a>
+    </nav>
+
+    <header class="mb-10">
+      {
+        tags.length > 0 && (
+          <p class="mb-3 text-[11px] uppercase tracking-[0.2em] text-[#8a7b6a]" style="font-family: Manrope, sans-serif">
+            {tags.join(" · ")}
+          </p>
+        )
+      }
+      <h1 class="text-4xl leading-tight text-charcoal-900 md:text-5xl" style="font-family: 'Cormorant Garamond', serif">
+        {title}
+      </h1>
+      <p class="mt-4 text-[13px] text-[#8a7b6a]" style="font-family: Manrope, sans-serif">
+        <time datetime={pubDate.toISOString()}>{fmt(pubDate)}</time>
+        {updatedDate && <span> · Güncellendi: {fmt(updatedDate)}</span>}
+      </p>
+    </header>
+
+    {
+      cover && (
+        <Image src={cover} alt={coverAlt ?? title} widths={[480, 760, 1200]} sizes="(min-width: 800px) 760px, 100vw" class="mb-10 w-full" />
+      )
+    }
+
+    <div class="prose blog-prose max-w-none">
+      <slot />
+    </div>
+
+    <aside class="mt-16 border border-[#e6e0d0] bg-[#fcfbf7] p-6 text-center md:p-8">
+      <p class="text-2xl text-charcoal-900" style="font-family: 'Cormorant Garamond', serif">Randevu ve bilgi için</p>
+      <p class="mt-2 text-[14px] text-charcoal-700" style="font-family: Manrope, sans-serif">
+        Hizmetlerimiz hakkında detaylı bilgi almak ve randevu oluşturmak için bize yazın.
+      </p>
+      <a
+        href={wpLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-5 inline-block bg-burgundy-500 px-8 py-3 text-[12px] font-medium uppercase tracking-[0.08em] text-[#fcfbf7] transition hover:bg-burgundy-600"
+        style="font-family: Manrope, sans-serif"
+      >
+        Randevu Al
+      </a>
+    </aside>
+  </article>
+</BaseLayout>
+
+<style is:global>
+  .blog-prose {
+    font-family: "Manrope", sans-serif;
+    font-size: 17px;
+    line-height: 1.8;
+    color: #3a3a38;
+  }
+  .blog-prose h2,
+  .blog-prose h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 500;
+    color: #2e2e2e;
+    line-height: 1.2;
+  }
+  .blog-prose h2 { font-size: 2rem; margin-top: 2.4em; }
+  .blog-prose h3 { font-size: 1.5rem; }
+  .blog-prose a { color: #6c2521; text-decoration: underline; text-underline-offset: 3px; }
+  .blog-prose blockquote {
+    border-left: 2px solid #6c2521;
+    color: #5a4a3a;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.35rem;
+    font-style: italic;
+  }
+  .blog-prose img { width: 100%; height: auto; }
+  .blog-prose strong { color: #2e2e2e; }
+  .blog-prose hr { border-color: #e6e0d0; }
+  .blog-prose ul > li::marker, .blog-prose ol > li::marker { color: #6c2521; }
+</style>

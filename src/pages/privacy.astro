@@ -1,0 +1,9 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Privacy from "../islands/Privacy.jsx";
+import { seo } from "../data/seo.js";
+---
+
+<BaseLayout {...seo.privacy} path="/privacy">
+  <Privacy client:load pathname="/privacy" />
+</BaseLayout>

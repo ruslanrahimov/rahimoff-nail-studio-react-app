@@ -1,15 +1,16 @@
 import { NavLink, useLocation, useNavigate } from "react-router";
 import { useState, useEffect } from "react";
 
-const wpChatLink = import.meta.env.VITE_WP_CHAT_LINK;
+const wpChatLink = import.meta.env.PUBLIC_WP_CHAT_LINK;
 
 const linkBase = "text-[13px] font-normal uppercase tracking-[0.1em] transition-colors duration-200 text-[#e8ddd0] hover:text-white";
 const linkActive = "text-[13px] font-normal uppercase tracking-[0.1em] text-white underline underline-offset-4 decoration-[#e8ddd0]";
 
-const Navbar = () => {
+const Navbar = ({ showBlog = false }) => {
         const links = [
 { name: "Hizmetlerimiz", url: "/services" },
                 { name: "Uzmanlar", url: "/masters" },
+                ...(showBlog ? [{ name: "Blog", url: "/blog" }] : []),
         ];
 
         const [isMenuOpen, setIsMenuOpen] = useState(false);

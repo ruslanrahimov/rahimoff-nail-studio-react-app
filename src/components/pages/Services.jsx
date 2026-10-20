@@ -2,7 +2,6 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { tabContent } from "../../data/services.js";
-import { useSearchParams } from "react-router";
 import SectionHeading from "./../SectionHeading/SectionHeading.jsx";
 import ServiceCard from "./../ServiceCard/ServiceCard.jsx";
 import ServiceDetailPanel from "./../ServiceDetailPanel/ServiceDetailPanel.jsx";
@@ -23,14 +22,18 @@ const GENERAL_BOOK_HREF = buildWaLink("Merhaba! Randevu almak istiyorum.");
 const CATEGORY_KEYS = Object.keys(tabContent);
 
 const Services = () => {
-	const [searchParams] = useSearchParams();
-	const tabFromUrl = searchParams.get("tab");
-	const initialFilter = tabFromUrl && tabContent[tabFromUrl] ? tabFromUrl : "all";
-
-	const [activeFilter, setActiveFilter] = useState(initialFilter);
-	const [openServiceId, setOpenServiceId] = useState(searchParams.get("open"));
+	const [activeFilter, setActiveFilter] = useState("all");
+	const [openServiceId, setOpenServiceId] = useState(null);
 	const [catSheetOpen, setCatSheetOpen] = useState(false);
 	const isInitialMount = useRef(true);
+
+	useEffect(() => {
+		const params = new URLSearchParams(window.location.search);
+		const tab = params.get("tab");
+		if (tab && tabContent[tab]) setActiveFilter(tab);
+		const open = params.get("open");
+		if (open) setOpenServiceId(open);
+	}, []);
 
 	const pageRef = useRef(null);
 	const headerRef = useRef(null);

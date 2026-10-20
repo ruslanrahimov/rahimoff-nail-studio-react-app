@@ -4,7 +4,7 @@ import { gsap } from "gsap";
 import "./HeroMasters.css";
 
 const baseUrl = import.meta.env.BASE_URL;
-const wpChatLink = import.meta.env.VITE_WP_CHAT_LINK;
+const wpChatLink = import.meta.env.PUBLIC_WP_CHAT_LINK;
 
 const HeroMasters = () => {
   const heroRef = useRef(null);

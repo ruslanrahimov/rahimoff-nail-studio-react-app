@@ -36,7 +36,7 @@ export default function MessageWidget() {
 
                                 {/* Instagram */}
                                 <a
-                                        href={import.meta.env.VITE_INST_PROFILE_LINK}
+                                        href={import.meta.env.PUBLIC_INST_PROFILE_LINK}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="message-widget-link"
@@ -51,7 +51,7 @@ export default function MessageWidget() {
 
                                 {/* WhatsApp */}
                                 <a
-                                        href={import.meta.env.VITE_WP_CHAT_LINK}
+                                        href={import.meta.env.PUBLIC_WP_CHAT_LINK}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="message-widget-link"

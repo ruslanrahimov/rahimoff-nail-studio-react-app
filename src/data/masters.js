@@ -140,7 +140,7 @@ export const masters = [
                 experience: "2 yıllık tecrübe",
                 rating: 5,
                 description:
-                        "Güzellik sektörüne olan tutkusunu Rahimoff Studio'da gerçek bir ustalığa dönüştürdü. Ekibimizle birlikte manikür, jel güçlendirme ve nail art konularında en iyi teknikleri öğrenerek kendine özgü, özenli bir dokunuş geliştirdi. Sıcakkanlı yaklaşımı ve detaylara verdiği önemle her müşteriye kişisel bir deneyim sunar.",
+                        "Güzellik sektörüne olan tutkusunu Rahimoff Studio'da gerçek bir ustalığa dönüştürdü. Ekibimizle birlikte manikür, jel güçlendirme ve nail art konularında teknikleri öğrenerek kendine özgü, özenli bir dokunuş geliştirdi. Sıcakkanlı yaklaşımı ve detaylara verdiği önemle her müşteriye kişisel bir deneyim sunar.",
                 photo: baseUrl + "pelin/pelin.webp",
                 gallery: [
                         baseUrl + "pelin/2.webp",

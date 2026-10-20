@@ -6,10 +6,10 @@ import "./Footer.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const WP_LINK = import.meta.env.VITE_WP_CHAT_LINK;
-const INST_LINK = import.meta.env.VITE_INST_PROFILE_LINK;
+const WP_LINK = import.meta.env.PUBLIC_WP_CHAT_LINK;
+const INST_LINK = import.meta.env.PUBLIC_INST_PROFILE_LINK;
 const MAPS_LINK =
-        import.meta.env.VITE_GOOGLE_MAPS_LINK ||
+        import.meta.env.PUBLIC_GOOGLE_MAPS_LINK ||
         "https://maps.app.goo.gl/75nCFBMDjJ3V9bhB6";
 
 const Footer = () => {

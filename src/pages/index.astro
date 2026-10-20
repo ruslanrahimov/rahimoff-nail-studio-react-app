@@ -1,0 +1,9 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Home from "../islands/Home.jsx";
+import { seo } from "../data/seo.js";
+---
+
+<BaseLayout {...seo.home} path="/">
+  <Home client:load pathname="/" />
+</BaseLayout>
