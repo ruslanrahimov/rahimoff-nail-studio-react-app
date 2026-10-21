@@ -1,17 +1,20 @@
 ---
-import { Image } from "astro:assets";
+import { Image, getImage } from "astro:assets";
 import BaseLayout from "./BaseLayout.astro";
-import type { CollectionEntry } from "astro:content";
+import BlogCard from "../components/blog/BlogCard.astro";
+import { formatDate, getPublishedPosts, readingTime, relatedPosts, type BlogPost } from "../lib/blog";
 
 interface Props {
-  post: CollectionEntry<"blog">;
+  post: BlogPost;
 }
 
 const { post } = Astro.props;
 const { title, description, pubDate, updatedDate, cover, coverAlt, tags } = post.data;
 const path = `/blog/${post.id}`;
 const wpLink = import.meta.env.PUBLIC_WP_CHAT_LINK;
-const fmt = (d: Date) => d.toLocaleDateString("tr-TR", { year: "numeric", month: "long", day: "numeric" });
+const minutes = readingTime(post.body);
+const related = relatedPosts(post, await getPublishedPosts());
+const ogImage = cover ? (await getImage({ src: cover, width: 1200, height: 630, fit: "cover", format: "jpg" })).src : undefined;
 
 const jsonLd = [
   {
@@ -23,14 +26,24 @@ const jsonLd = [
     dateModified: (updatedDate ?? pubDate).toISOString(),
     inLanguage: "tr",
     mainEntityOfPage: new URL(path, Astro.site).href,
+    ...(ogImage && { image: new URL(ogImage, Astro.site).href }),
     author: { "@type": "Organization", name: "Rahimoff Nail Studio" },
     publisher: { "@type": "Organization", name: "Rahimoff Nail Studio" },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Ana sayfa", item: new URL("/", Astro.site).href },
+      { "@type": "ListItem", position: 2, name: "Blog", item: new URL("/blog", Astro.site).href },
+      { "@type": "ListItem", position: 3, name: title, item: new URL(path, Astro.site).href },
+    ],
   },
 ];
 ---
 
-<BaseLayout title={`${title} | Rahimoff Nail Studio`} description={description} path={path} ogType="article" jsonLd={jsonLd}>
-  <article class="blog-article mx-auto max-w-[760px] px-5 pb-24 pt-32 md:pt-40">
+<BaseLayout title={`${title} | Rahimoff Nail Studio`} description={description} path={path} ogType="article" ogImage={ogImage} jsonLd={jsonLd}>
+  <article class="blog-article mx-auto max-w-[760px] px-5 pb-20 pt-32 md:pt-40">
     <nav class="mb-8 text-[12px] uppercase tracking-[0.16em]" style="font-family: Manrope, sans-serif">
       <a href="/blog" class="text-burgundy-500 hover:underline">← Blog</a>
     </nav>
@@ -46,9 +59,11 @@ const jsonLd = [
       <h1 class="text-4xl leading-tight text-charcoal-900 md:text-5xl" style="font-family: 'Cormorant Garamond', serif">
         {title}
       </h1>
-      <p class="mt-4 text-[13px] text-[#8a7b6a]" style="font-family: Manrope, sans-serif">
-        <time datetime={pubDate.toISOString()}>{fmt(pubDate)}</time>
-        {updatedDate && <span> · Güncellendi: {fmt(updatedDate)}</span>}
+      <p class="mt-4 flex flex-wrap items-center gap-x-3 text-[13px] text-[#8a7b6a]" style="font-family: Manrope, sans-serif">
+        <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>
+        <span aria-hidden="true">·</span>
+        <span>{minutes} dk okuma</span>
+        {updatedDate && <span>· Güncellendi: {formatDate(updatedDate)}</span>}
       </p>
     </header>
 
@@ -78,6 +93,21 @@ const jsonLd = [
       </a>
     </aside>
   </article>
+
+  {
+    related.length > 0 && (
+      <section class="mx-auto max-w-[1140px] px-5 pb-24 md:px-8">
+        <h2 class="mb-8 text-3xl text-charcoal-900" style="font-family: 'Cormorant Garamond', serif">Bunlar da ilginizi çekebilir</h2>
+        <ul class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {related.map((p) => (
+            <li>
+              <BlogCard post={p} />
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
 </BaseLayout>
 
 <style is:global>

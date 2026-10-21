@@ -1,0 +1,127 @@
+.blog-preview-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.blog-preview-card {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #e6e0d0;
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.3s ease;
+}
+
+.blog-preview-card:hover {
+  border-color: #d8c9a8;
+}
+
+.blog-preview-media {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #f2ede1;
+}
+
+.blog-preview-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.blog-preview-card:hover .blog-preview-media img {
+  transform: scale(1.03);
+}
+
+.blog-preview-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  font-family: "Manrope", sans-serif;
+}
+
+.blog-preview-tags {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #8a7b6a;
+}
+
+.blog-preview-title {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #2e2e2e;
+}
+
+.blog-preview-desc {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #5a5a58;
+}
+
+.blog-preview-meta {
+  margin-top: auto;
+  padding-top: 6px;
+  font-size: 12px;
+  color: #8a7b6a;
+}
+
+.blog-preview-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.blog-preview-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 0 30px;
+  font-family: "Manrope", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #6c2521;
+  border: 1px solid #6c2521;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.blog-preview-btn:hover {
+  background: #6c2521;
+  color: #fcfbf7;
+}
+
+@media (max-width: 960px) {
+  .blog-preview-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .blog-preview-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .blog-preview-btn {
+    width: 100%;
+  }
+}

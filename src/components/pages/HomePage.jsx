@@ -12,10 +12,11 @@ import { portfolioCascadeData } from "../../data/portfolioCascadeData.js";
 import { tabContent } from "../../data/services.js";
 import HeroMasters from "./../HeroMasters/HeroMasters.jsx";
 import Reviews from "./../Reviews/Reviews.jsx";
+import BlogPreview from "./../BlogPreview/BlogPreview.jsx";
 import About from "./../About/About.jsx";
 import SectionHeading from "./../SectionHeading/SectionHeading.jsx";
 
-const Home = () => {
+const Home = ({ posts = [] }) => {
         const [currentFAQData, setCurrentFAQData] = useState(faqData);
         const [goalsInView, setGoalsInView] = useState(false);
         const location = useLocation();
@@ -235,6 +236,7 @@ const Home = () => {
                                 </div>
                         </section>
                         <Reviews />
+                        <BlogPreview posts={posts} />
                         <section ref={faqRef} className="faq bg-[#fcfbf7] py-[60px] px-[30px] max-md:py-[40px] max-md:px-[20px]">
                                 <div className="max-w-[1140px] mx-auto">
                                         <SectionHeading

@@ -1,0 +1,74 @@
+---
+import { Image } from "astro:assets";
+import { formatDate, readingTime, type BlogPost } from "../../lib/blog";
+
+interface Props {
+  post: BlogPost;
+  featured?: boolean;
+}
+
+const { post, featured = false } = Astro.props;
+const { title, description, pubDate, cover, coverAlt, tags } = post.data;
+const minutes = readingTime(post.body);
+---
+
+<article class:list={["blog-card", { "blog-card--featured": featured }]}>
+  <a href={`/blog/${post.id}`} class="blog-card-link">
+    {
+      cover && (
+        <div class="blog-card-media">
+          <Image
+            src={cover}
+            alt={coverAlt ?? title}
+            widths={featured ? [600, 900, 1200] : [360, 600, 900]}
+            sizes={featured ? "(min-width: 900px) 55vw, 100vw" : "(min-width: 1024px) 340px, (min-width: 640px) 45vw, 100vw"}
+            loading={featured ? "eager" : "lazy"}
+          />
+        </div>
+      )
+    }
+    <div class="blog-card-body">
+      {tags.length > 0 && <p class="blog-card-tags">{tags.join(" · ")}</p>}
+      <h2 class="blog-card-title">{title}</h2>
+      <p class="blog-card-desc">{description}</p>
+      <p class="blog-card-meta">
+        <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>
+        <span aria-hidden="true">·</span>
+        <span>{minutes} dk okuma</span>
+      </p>
+      <span class="blog-card-more">Devamını oku <span aria-hidden="true">→</span></span>
+    </div>
+  </a>
+</article>
+
+<style is:global>
+  .blog-card {
+    background: #fff;
+    border: 1px solid #e6e0d0;
+    transition: border-color 0.3s ease;
+  }
+  .blog-card:hover { border-color: #d8c9a8; }
+  .blog-card-link { display: flex; height: 100%; flex-direction: column; text-decoration: none; color: inherit; }
+  .blog-card-media { overflow: hidden; background: #f2ede1; aspect-ratio: 4 / 3; }
+  .blog-card-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+  .blog-card:hover .blog-card-media img { transform: scale(1.03); }
+  .blog-card-body { display: flex; flex: 1; flex-direction: column; gap: 10px; padding: 22px; font-family: "Manrope", sans-serif; }
+  .blog-card-tags { margin: 0; font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #8a7b6a; }
+  .blog-card-title { margin: 0; font-family: "Cormorant Garamond", serif; font-size: 1.7rem; font-weight: 500; line-height: 1.2; color: #2e2e2e; }
+  .blog-card-desc { margin: 0; font-size: 14px; line-height: 1.65; color: #5a5a58; }
+  .blog-card-meta { margin: 0; display: flex; gap: 8px; font-size: 12px; color: #8a7b6a; }
+  .blog-card-more { margin-top: auto; padding-top: 6px; font-size: 13px; font-weight: 500; color: #6c2521; }
+
+  .blog-card--featured .blog-card-link { flex-direction: row; }
+  .blog-card--featured .blog-card-media { flex: 0 0 55%; aspect-ratio: auto; min-height: 360px; }
+  .blog-card--featured .blog-card-body { justify-content: center; padding: 40px; }
+  .blog-card--featured .blog-card-title { font-size: 2.4rem; }
+  .blog-card--featured .blog-card-desc { font-size: 15.5px; }
+
+  @media (max-width: 899px) {
+    .blog-card--featured .blog-card-link { flex-direction: column; }
+    .blog-card--featured .blog-card-media { flex: none; aspect-ratio: 4 / 3; min-height: 0; }
+    .blog-card--featured .blog-card-body { padding: 22px; }
+    .blog-card--featured .blog-card-title { font-size: 1.9rem; }
+  }
+</style>

@@ -1,9 +1,29 @@
 ---
+import { getImage } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Home from "../islands/Home.jsx";
 import { seo } from "../data/seo.js";
+import { formatDate, getPublishedPosts, readingTime } from "../lib/blog";
+
+// Latest posts for the home page block (serializable props for the React island).
+const latest = (await getPublishedPosts()).slice(0, 3);
+const posts = await Promise.all(
+  latest.map(async (post) => {
+    const { cover, coverAlt, title } = post.data;
+    const image = cover ? await getImage({ src: cover, width: 700, height: 525, fit: "cover", format: "webp" }) : null;
+    return {
+      slug: post.id,
+      title,
+      description: post.data.description,
+      date: formatDate(post.data.pubDate),
+      minutes: readingTime(post.body),
+      tags: post.data.tags,
+      cover: image ? { src: image.src, width: 700, height: 525, alt: coverAlt ?? title } : null,
+    };
+  }),
+);
 ---
 
 <BaseLayout {...seo.home} path="/">
-  <Home client:load pathname="/" />
+  <Home client:load pathname="/" posts={posts} />
 </BaseLayout>

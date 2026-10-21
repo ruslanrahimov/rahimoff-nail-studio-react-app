@@ -4,7 +4,7 @@ import "../App.css";
 import Navbar from "../islands/Navbar.jsx";
 import Footer from "../islands/Footer.jsx";
 import MessageWidget from "../islands/MessageWidget.jsx";
-import { getCollection } from "astro:content";
+import { getPublishedPosts } from "../lib/blog";
 
 interface Props {
   title: string;
@@ -36,7 +36,7 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
 const blockIndexing = noindex || import.meta.env.PUBLIC_NOINDEX === "true";
 const GA_ID = "G-GD8D7W1VVS";
 
-const posts = await getCollection("blog", ({ data }) => import.meta.env.DEV || !data.draft);
+const posts = await getPublishedPosts();
 const showBlog = posts.length > 0;
 
 const salon = {

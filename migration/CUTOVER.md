@@ -56,7 +56,7 @@
    description: "Описание для Google (до 170 знаков)"
    pubDate: 2026-11-01
    tags: ["Manikür"]
-   cover: ../../assets/blog/cover.jpg   # необязательно
+   cover: ../../assets/blog/nazvanie.webp   # положить файл в src/assets/blog/ (необязательно)
    coverAlt: "Описание картинки"
    draft: false                            # true = не публикуется
    ---
