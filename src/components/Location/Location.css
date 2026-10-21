@@ -1,0 +1,123 @@
+.location-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 48px;
+  align-items: stretch;
+}
+
+.location-info {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  justify-content: center;
+}
+
+.location-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid #ebe5d6;
+}
+
+.location-label {
+  font-family: "Manrope", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #8a7b6a;
+}
+
+.location-text {
+  display: flex;
+  flex-direction: column;
+  font-family: "Manrope", sans-serif;
+  font-size: 17px;
+  font-style: normal;
+  line-height: 1.6;
+  color: #2e2e2e;
+}
+
+.location-phone {
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.location-phone:hover {
+  color: #6c2521;
+}
+
+.location-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 4px;
+}
+
+.location-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 26px;
+  font-family: "Manrope", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.location-btn--primary {
+  background: #6c2521;
+  color: #fcfbf7;
+  border: 1px solid #6c2521;
+}
+
+.location-btn--primary:hover {
+  background: #5a1f1c;
+  border-color: #5a1f1c;
+}
+
+.location-btn--ghost {
+  background: transparent;
+  color: #6c2521;
+  border: 1px solid #d4c9b3;
+}
+
+.location-btn--ghost:hover {
+  border-color: #6c2521;
+}
+
+.location-map {
+  position: relative;
+  min-height: 380px;
+  border: 1px solid #e6e0d0;
+  background: #f2ede1;
+  overflow: hidden;
+}
+
+.location-map iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media (max-width: 900px) {
+  .location-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .location-map {
+    min-height: 320px;
+  }
+
+  .location-btn {
+    flex: 1 1 100%;
+  }
+}

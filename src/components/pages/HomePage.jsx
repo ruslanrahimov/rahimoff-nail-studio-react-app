@@ -13,6 +13,7 @@ import { tabContent } from "../../data/services.js";
 import HeroMasters from "./../HeroMasters/HeroMasters.jsx";
 import Reviews from "./../Reviews/Reviews.jsx";
 import About from "./../About/About.jsx";
+import Location from "./../Location/Location.jsx";
 import SectionHeading from "./../SectionHeading/SectionHeading.jsx";
 
 const Home = () => {
@@ -253,6 +254,7 @@ const Home = () => {
                                         </div>
                                 </div>
                         </section>
+                        <Location />
                 </div>
         );
 };
