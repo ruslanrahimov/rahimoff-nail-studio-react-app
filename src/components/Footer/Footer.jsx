@@ -59,10 +59,6 @@ const Footer = () => {
                                         <div className="footer-top">
                                                 {/* Left: Phone and Logo */}
                                                 <div className="footer-left">
-                                                        <a href="tel:+905060552137" className="footer-phone">
-                                                                +90 (506) 055 21-37
-                                                        </a>
-
                                                         <div className="footer-logo">RAHIMOFF</div>
 
                                                         <div className="footer-tagline">
@@ -72,12 +68,6 @@ const Footer = () => {
 
                                                 {/* Right: Address and Social */}
                                                 <div className="footer-right">
-                                                        <div className="footer-address">
-                                                                <div className="address-line">İstiklal mah. 101 cd.</div>
-                                                                <div className="address-line">NO:90/4, Isparta/Merkez</div>
-                                                                <div className="footer-hours">PZT-CMT, 10:00–20:00</div>
-                                                        </div>
-
                                                         {/* Social icons */}
                                                         <div className="footer-social">
                                                                 <a
