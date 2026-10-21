@@ -59,11 +59,6 @@ const Footer = () => {
                                         <div className="footer-top">
                                                 {/* Left: Phone and Logo */}
                                                 <div className="footer-left">
-                                                        <div className="footer-label">
-                                                                <span className="footer-label-text">İLETİŞİM</span>
-                                                                <div className="footer-label-line"></div>
-                                                        </div>
-
                                                         <a href="tel:+905060552137" className="footer-phone">
                                                                 +90 (506) 055 21-37
                                                         </a>
