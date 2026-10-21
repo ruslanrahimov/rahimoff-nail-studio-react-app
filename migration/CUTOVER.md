@@ -64,3 +64,7 @@
    ```
 2. `git push` → CI соберёт и опубликует.
 3. Правила содержания (чтобы не получить претензий): без цен и слов kampanya/indirim/hediye, без «en iyi» и т. п., без медицинских терминов и обещаний лечения.
+
+## Каноничный адрес
+Основной адрес сайта: `https://www.rahimoff.com.tr` (так он уже индексировался при GitHub Pages).
+`rahimoff.com.tr` (без www) должен делать 301-редирект на `www` — Cloudflare → Rules → Redirect Rules (или Bulk Redirects).

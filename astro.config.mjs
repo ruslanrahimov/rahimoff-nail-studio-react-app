@@ -14,8 +14,8 @@ const hasPublishedPosts =
     (f) => /\.mdx?$/.test(f) && !/^draft:\s*true/m.test(readFileSync(`${blogDir}/${f}`, "utf8")),
   );
 
-// TODO: confirm the production domain before cutover.
-const SITE = process.env.PUBLIC_SITE_URL || "https://rahimoff.com.tr";
+// Canonical host is www (matches the URLs already indexed by Google); the apex redirects to it.
+const SITE = process.env.PUBLIC_SITE_URL || "https://www.rahimoff.com.tr";
 
 export default defineConfig({
   site: SITE,
